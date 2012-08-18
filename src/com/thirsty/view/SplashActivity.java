@@ -16,7 +16,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_view);
         
-//         this._application = (Controller)getApplication();
+         this._application = (Controller)getApplication();
 //         this._application = new Controller();
     }
 
@@ -28,7 +28,7 @@ public class SplashActivity extends Activity {
     
     public void toNextActivity(View view)
     {
-//    	this._application.nextActivityFromSplashActivity(SplashActivity.this);
+    	this._application.nextActivityFromSplashActivity(SplashActivity.this);
 //    	Intent intent = new Intent(SplashActivity.this, SetupActivity.class); 
 //        startActivity(intent); 
 //        finish();
