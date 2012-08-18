@@ -18,7 +18,7 @@ public class Controller extends Application {
         activity.finish();		
 	}
 	
-	public void nextActivityFromSplashActivity(SplashActivity activity) 
+	public void  nextActivityFromSplashActivity(SplashActivity activity)
 	{
     	Intent intent = new Intent(activity, SetupActivity.class); 
         startActivity(intent); 

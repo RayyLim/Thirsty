@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_thirsty" default="compile.module.thirsty">
+  <dirname property="module.thirsty.basedir" file="${ant.file.module_thirsty}"/>
+  
+  <property name="module.jdk.home.thirsty" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.thirsty" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.thirsty" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.thirsty" value="${compiler.args}"/>
+  
+  <property name="thirsty.output.dir" value="${module.thirsty.basedir}/bin/classes"/>
+  <property name="thirsty.testoutput.dir" value="${module.thirsty.basedir}/bin/classes"/>
+  
+  <path id="thirsty.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="thirsty.module.production.classpath">
+    <path refid="${module.jdk.classpath.thirsty}"/>
+  </path>
+  
+  <path id="thirsty.runtime.production.module.classpath">
+    <pathelement location="${thirsty.output.dir}"/>
+  </path>
+  
+  <path id="thirsty.module.classpath">
+    <path refid="${module.jdk.classpath.thirsty}"/>
+    <pathelement location="${thirsty.output.dir}"/>
+  </path>
+  
+  <path id="thirsty.runtime.module.classpath">
+    <pathelement location="${thirsty.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.thirsty">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.thirsty">
+    <patternset refid="excluded.from.module.thirsty"/>
+  </patternset>
+  
+  <path id="thirsty.module.sourcepath">
+    <dirset dir="${module.thirsty.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.thirsty" depends="compile.module.thirsty.production,compile.module.thirsty.tests" description="Compile module Thirsty"/>
+  
+  <target name="compile.module.thirsty.production" depends="register.custom.compilers" description="Compile module Thirsty; production classes">
+    <mkdir dir="${thirsty.output.dir}"/>
+    <javac2 destdir="${thirsty.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.thirsty}/javac">
+      <compilerarg line="${compiler.args.thirsty}"/>
+      <bootclasspath refid="thirsty.module.bootclasspath"/>
+      <classpath refid="thirsty.module.production.classpath"/>
+      <src refid="thirsty.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.thirsty"/>
+    </javac2>
+    
+    <copy todir="${thirsty.output.dir}">
+      <fileset dir="${module.thirsty.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.thirsty.tests" depends="register.custom.compilers,compile.module.thirsty.production" description="compile module Thirsty; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.thirsty" description="cleanup module">
+    <delete dir="${thirsty.output.dir}"/>
+    <delete dir="${thirsty.testoutput.dir}"/>
+  </target>
+</project>

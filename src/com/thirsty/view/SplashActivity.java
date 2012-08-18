@@ -1,15 +1,11 @@
 package com.thirsty.view;
 
-import com.thirsty.R;
-import com.thirsty.R.layout;
-import com.thirsty.R.menu;
-import com.thirsty.controller.Controller;
-
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import com.thirsty.R;
+import com.thirsty.controller.Controller;
 
 public class SplashActivity extends Activity {
 
@@ -20,7 +16,8 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_view);
         
-        this._application = (Controller)getApplication();
+//         this._application = (Controller)getApplication();
+//         this._application = new Controller();
     }
 
     @Override
@@ -31,7 +28,7 @@ public class SplashActivity extends Activity {
     
     public void toNextActivity(View view)
     {
-    	this._application.nextActivityFromSplashActivity(SplashActivity.this);
+//    	this._application.nextActivityFromSplashActivity(SplashActivity.this);
 //    	Intent intent = new Intent(SplashActivity.this, SetupActivity.class); 
 //        startActivity(intent); 
 //        finish();
