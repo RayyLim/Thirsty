@@ -22,15 +22,6 @@
         android:layout_below="@+id/title"
         />
 
-    <Button
-        android:id="@+id/nextActivityButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/subtitle"
-                android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="32dp"
-        android:text="Start" 
-        android:onClick="toNextActivity"/>
+
 
 </RelativeLayout>
