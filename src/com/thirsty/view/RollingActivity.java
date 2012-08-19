@@ -20,7 +20,7 @@ import android.widget.ImageView;
 
 public class RollingActivity extends Activity {
 	
-	private static final int FRAMEPERIOD = 100;
+	private static final int FRAMEPERIOD = 200;
 
 	private static int lastColor = 0;
 	
@@ -61,9 +61,16 @@ public class RollingActivity extends Activity {
                 try {
                     while(_active) {
 
-                        drunkAnimation.setImageResource(_application.frameImageList[framePosition]);
-                        framePosition = (framePosition + 1)%frameCount;
-                        sleep(FRAMEPERIOD);
+                    	runOnUiThread(new Runnable() { 
+                    	    public void run() { 
+                    	    	drunkAnimation.setImageResource(_application.frameImageList[framePosition]);
+                                framePosition = (framePosition + 1)%frameCount;
+                                
+                    	    } 
+                    	}); 
+
+                    	sleep(FRAMEPERIOD);
+                        
                     }
                 } catch(InterruptedException e) {
                     // do nothing
