@@ -32,6 +32,7 @@ import android.util.Log;
 
 public class Controller extends Application {
 	  
+	private static final int INTENT_FLAG = Intent.FLAG_ACTIVITY_SINGLE_TOP;
 	private final static String  TAG = "Application";
     /**
      * The Sphero Robot
@@ -148,7 +149,7 @@ public class Controller extends Application {
 
 		Log.i(TAG, "nextActivityFromSetupActivity()");
     	Intent intent = new Intent(activity, RollingActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
@@ -157,7 +158,7 @@ public class Controller extends Application {
 	{
 		Log.i(TAG, "nextActivityFromSplashActivity()");
     	Intent intent = new Intent(activity, ShakeActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
         activity.startActivity(intent);
         activity.finish();		
 	}
@@ -166,7 +167,7 @@ public class Controller extends Application {
 	{
 		Log.i(TAG, "nextActivityFromShakeActivity()");
     	Intent intent = new Intent(activity, SetupActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
@@ -175,7 +176,7 @@ public class Controller extends Application {
 	{
 		Log.i(TAG, "nextActivityFromRollingActivity()");
     	Intent intent = new Intent(activity, ResultActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
@@ -184,7 +185,7 @@ public class Controller extends Application {
 	{
 		Log.i(TAG, "nextActivityFromResultActivity()");
     	Intent intent = new Intent(activity, RollingActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
@@ -192,7 +193,7 @@ public class Controller extends Application {
 	public void nextActivityFromConnectActivity(ConnectActivity activity) {
 		Log.i(TAG, "nextActivityFromConnectActivity()");
     	Intent intent = new Intent(activity, ShakeActivity.class); 
-    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    	intent.addFlags(INTENT_FLAG);
         activity.startActivity(intent);
         activity.finish();
 		
