@@ -11,7 +11,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-            android:name=".controller.Controller">
+        android:name=".controller.Controller">
+            
         <activity
             android:name=".view.SplashActivity"
             android:label="@string/title_activity_splash_view" >
@@ -21,7 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.SetupActivity" />
+
+                <activity android:name=".view.SetupActivity" />
+                                <activity android:name=".view.ShakeActivity" />
+                                                <activity android:name=".view.RollingActivity" />
+                                                                <activity android:name=".view.ResultActivity" />
+
+
     </application>
 
 </manifest>

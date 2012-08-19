@@ -14,7 +14,7 @@ public class Controller extends Application {
 	public void nextActivityFromSetupActivity(SetupActivity activity) 
 	{
     	Intent intent = new Intent(activity, ShakeActivity.class); 
-        startActivity(intent); 
+    	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
@@ -28,21 +28,21 @@ public class Controller extends Application {
 	public void nextActivityFromShakeActivity(ShakeActivity activity) 
 	{
     	Intent intent = new Intent(activity, RollingActivity.class); 
-        startActivity(intent); 
+    	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
 	public void nextActivityFromRollingActivity(RollingActivity activity) 
 	{
     	Intent intent = new Intent(activity, SetupActivity.class); 
-        startActivity(intent); 
+    	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
-	public void nextActivityFromResultActivityActivity(ResultActivity activity) 
+	public void nextActivityFromResultActivity(ResultActivity activity) 
 	{
     	Intent intent = new Intent(activity, RollingActivity.class); 
-        startActivity(intent); 
+    	activity.startActivity(intent); 
         activity.finish();		
 	}
 }
