@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf7d3241-4c13-4737-aa1e-093a782559f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thirsty/controller/Controller.java" afterPath="$PROJECT_DIR$/src/com/thirsty/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thirsty/view/ConnectActivity.java" afterPath="$PROJECT_DIR$/src/com/thirsty/view/ConnectActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thirsty/view/RollingActivity.java" afterPath="$PROJECT_DIR$/src/com/thirsty/view/RollingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thirsty/view/SetupActivity.java" afterPath="$PROJECT_DIR$/src/com/thirsty/view/SetupActivity.java" />
     </list>
     <ignored path="Thirsty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,7 +78,7 @@
       <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/thirsty/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="8" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0">
+            <state line="62" column="8" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -104,7 +107,7 @@
       <file leaf-file-name="ShakeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/thirsty/view/ShakeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="23" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+            <state line="99" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -571,7 +574,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/thirsty/view/ShakeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="23" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+        <state line="99" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -594,7 +597,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/thirsty/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="8" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0">
+        <state line="62" column="8" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

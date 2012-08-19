@@ -59,9 +59,6 @@ public class ConnectActivity extends Activity
                 this._application.mRobot = RobotProvider.getDefaultProvider().findRobot(robot_id);
             }
             
-            //Start blinking
-            this._application.blink(false);
-            
             _application.nextActivityFromConnectActivity(ConnectActivity.this);
             
         }

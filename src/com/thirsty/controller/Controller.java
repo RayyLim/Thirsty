@@ -41,43 +41,23 @@ public class Controller extends Application {
         //Disconnect Robot
         RobotProvider.getDefaultProvider().removeAllControls();
     }
-    
-    /**
-     * Causes the robot to blink once every second.
-     * @param lit
-     */
-    public void blink(final boolean lit){
-        
-        if(mRobot != null){
-            
-            //If not lit, send command to show blue light, or else, send command to show no light
-            if(lit){
-                RGBLEDOutputCommand.sendCommand(mRobot, 0, 0, 0);
-            }else{
-                RGBLEDOutputCommand.sendCommand(mRobot, 0, 0, 255);
-            }
-            
-            //Send delayed message on a handler to run blink again
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    blink(!lit);
-                }
-            }, 1000);
-        }
-    }
+  
 
 	public void nextActivityFromSetupActivity(SetupActivity activity) 
 	{
 
+		Log.i(TAG, "nextActivityFromSetupActivity()");
     	Intent intent = new Intent(activity, RollingActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
 	public void  nextActivityFromSplashActivity(SplashActivity activity)
 	{
+		Log.i(TAG, "nextActivityFromSplashActivity()");
     	Intent intent = new Intent(activity, ConnectActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         activity.startActivity(intent);
         activity.finish();		
 	}
@@ -86,26 +66,33 @@ public class Controller extends Application {
 	{
 		Log.i(TAG, "nextActivityFromShakeActivity()");
     	Intent intent = new Intent(activity, SetupActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
 	public void nextActivityFromRollingActivity(RollingActivity activity) 
 	{
+		Log.i(TAG, "nextActivityFromRollingActivity()");
     	Intent intent = new Intent(activity, ResultActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
 	public void nextActivityFromResultActivity(ResultActivity activity) 
 	{
+		Log.i(TAG, "nextActivityFromResultActivity()");
     	Intent intent = new Intent(activity, RollingActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     	activity.startActivity(intent); 
         activity.finish();		
 	}
 
 	public void nextActivityFromConnectActivity(ConnectActivity activity) {
+		Log.i(TAG, "nextActivityFromConnectActivity()");
     	Intent intent = new Intent(activity, ShakeActivity.class); 
+    	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         activity.startActivity(intent);
         activity.finish();
 		

@@ -155,11 +155,6 @@ public class ShakeActivity extends Activity {
 		}
     };
 	
-    public void toNextActivity(View view)
-    {
-    	this._application.nextActivityFromShakeActivity(ShakeActivity.this);
-    }
-
 	public void onAccuracyChanged(int arg0, int arg1) {
 		// TODO Auto-generated method stub
 		
