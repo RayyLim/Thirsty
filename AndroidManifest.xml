@@ -24,18 +24,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ConnectActivity" />
-        <activity android:name=".view.SetupActivity" />
-        <activity android:name=".view.ShakeActivity" />
-        <activity android:name=".view.RollingActivity" />
-        <activity android:name=".view.ResultActivity" />
+        <activity android:name=".view.ConnectActivity" 
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            />
+        <activity android:name=".view.SetupActivity" 
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name=".view.ShakeActivity" 
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name=".view.RollingActivity" 
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name=".view.ResultActivity" 
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity
             android:name="orbotix.robot.app.StartupActivity"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent" />
-
-        <service android:name=".GameHostService" >
-        </service>
     </application>
 
 </manifest>
