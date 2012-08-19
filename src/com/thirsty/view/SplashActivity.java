@@ -61,4 +61,10 @@ public class SplashActivity extends Activity {
         }
         return true;
     }
+    
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
 }

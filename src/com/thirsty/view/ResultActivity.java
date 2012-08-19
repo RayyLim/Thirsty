@@ -23,4 +23,9 @@ public class ResultActivity extends Activity {
     	this._application.nextActivityFromResultActivity(ResultActivity.this);
     }
 
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
 }

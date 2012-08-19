@@ -25,4 +25,9 @@ public class SetupActivity extends Activity {
     	this._application.nextActivityFromSetupActivity(SetupActivity.this);
     }
 
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
 }

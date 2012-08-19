@@ -24,6 +24,11 @@ public class RollingActivity extends Activity {
     	this._application.nextActivityFromRollingActivity(RollingActivity.this);
     }
 
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
     
     
 

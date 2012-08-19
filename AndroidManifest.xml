@@ -2,7 +2,7 @@
     package="com.thirsty"
     android:versionCode="1"
     android:versionName="1.0" >
-    
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
@@ -24,16 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-                <activity android:name=".view.ConnectActivity" />
+        <activity android:name=".view.ConnectActivity" />
         <activity android:name=".view.SetupActivity" />
         <activity android:name=".view.ShakeActivity" />
         <activity android:name=".view.RollingActivity" />
         <activity android:name=".view.ResultActivity" />
-        
         <activity
             android:name="orbotix.robot.app.StartupActivity"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent" />
+
+        <service android:name=".GameHostService" >
+        </service>
     </application>
 
 </manifest>

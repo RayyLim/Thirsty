@@ -15,19 +15,13 @@ import android.os.Handler;
 
 public class ConnectActivity extends Activity 
 {
-	private Controller _application;
-	
     /**
      * ID for launching the StartupActivity for result to connect to the robot
      */
     private final static int STARTUP_ACTIVITY = 0;
     
-    /**
-     * The Sphero Robot
-     */
-    private Robot mRobot;
-
-    
+	private Controller _application;
+	
     protected boolean _active = true;
     protected int _splashTime = 5000; // time to display the splash screen in ms
 
@@ -62,50 +56,27 @@ public class ConnectActivity extends Activity
             //Get the connected Robot
             final String robot_id = data.getStringExtra(StartupActivity.EXTRA_ROBOT_ID);
             if(robot_id != null && !robot_id.equals("")){
-                mRobot = RobotProvider.getDefaultProvider().findRobot(robot_id);
+                this._application.mRobot = RobotProvider.getDefaultProvider().findRobot(robot_id);
             }
             
             //Start blinking
-            blink(false);
+            this._application.blink(false);
             
             _application.nextActivityFromConnectActivity(ConnectActivity.this);
             
         }
-    }
-	
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        mRobot = null;
-
-        //Disconnect Robot
-        RobotProvider.getDefaultProvider().removeAllControls();
-    }
-    
-    /**
-     * Causes the robot to blink once every second.
-     * @param lit
-     */
-    private void blink(final boolean lit){
-        
-        if(mRobot != null){
-            
-            //If not lit, send command to show blue light, or else, send command to show no light
-            if(lit){
-                RGBLEDOutputCommand.sendCommand(mRobot, 0, 0, 0);
-            }else{
-                RGBLEDOutputCommand.sendCommand(mRobot, 0, 0, 255);
-            }
-            
-            //Send delayed message on a handler to run blink again
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    blink(!lit);
-                }
-            }, 1000);
+        else
+        {
+        	finish();
         }
     }
+	
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
+    
+
 
 }

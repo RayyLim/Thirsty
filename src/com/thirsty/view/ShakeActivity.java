@@ -101,5 +101,11 @@ public class ShakeActivity extends Activity implements SensorListener  {
 	{
 		this._application.nextActivityFromShakeActivity(ShakeActivity.this);
 	}
+	
+    public void onBackPressed() 
+    {        
+    	this._application.disconnectRobot();        
+    	super.onBackPressed();    
+    }
 
 }
