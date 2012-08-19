@@ -1,0 +1,8 @@
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true" android:id="@+id/rollingAnimation" >
+    <item android:drawable="@drawable/tipsy1" android:duration="1000" />
+    <item android:drawable="@drawable/tipsy2" android:duration="1000" />
+    <item android:drawable="@drawable/tipsy3" android:duration="1000" />
+     <item android:drawable="@drawable/tipsy4" android:duration="1000" />
+</animation-list>

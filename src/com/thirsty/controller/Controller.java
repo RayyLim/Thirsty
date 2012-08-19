@@ -1,5 +1,6 @@
 package com.thirsty.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,12 @@ import com.thirsty.view.SetupActivity;
 import com.thirsty.view.SplashActivity;
 import com.thirsty.view.ShakeActivity;
 
+import android.R;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
 
@@ -49,6 +52,7 @@ public class Controller extends Application {
     private int mPacketCounter;
     private float mAccelCurrent;
 	private boolean ballInHand = false;
+	MediaPlayer shakePlayer;
     
 	
 	public String[] ruleList = new String[] {
@@ -72,11 +76,26 @@ public class Controller extends Application {
 	@Override
     public void onCreate()    
     {        
-    	Log.i(TAG, "onCreate()");                  
+    	Log.i(TAG, "onCreate()");
+    	shakePlayer = new MediaPlayer();
+    	try {
+    		
+    		shakePlayer.setDataSource("raw\shake.mp3");
+    		shakePlayer.prepare();
+			//shakePlayer.setDataSource(R.raw.);
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	
     public void requestDataStreaming() {
-
         if(mRobot != null){
         	
             // Set up a bitmask containing the sensor information we want to stream
@@ -224,7 +243,7 @@ public class Controller extends Application {
                       	  {
                       		  ballInHand = true;
                       		  Log.i("mathu", "SHAKE DETECTED");
-                      		  
+                      		  shakePlayer.start();
                       		  for(int i = 0; i < onShakeListenerList.size(); i++)
                       		  {
                       			  onShakeListenerList.get(i).onShake();
