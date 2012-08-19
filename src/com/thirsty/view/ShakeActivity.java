@@ -43,8 +43,7 @@ public class ShakeActivity extends Activity {
         
         
         
-        this._application.setOnShakeListener(shakeListener);
-        
+        this._application.setOnShakeListener(shakeListener);    
         this._application.startListeningForShake();
         
     }
@@ -62,13 +61,9 @@ public class ShakeActivity extends Activity {
     @Override
     public void onPause()
     {
-    	super.onPause();
-    	
+    	super.onPause();    	
     	this._application.removeOnShakeListener(shakeListener);
     }
-
-
-	
 
     public void onBackPressed() 
     {        

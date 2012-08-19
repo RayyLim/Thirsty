@@ -23,8 +23,7 @@ public class RollingActivity extends Activity {
 	
 	private final static String TAG = "RollingActivity";
     private final static int STARTING_SPEED = 250;
-	private int[] gameColors = {Color.rgb(199, 120, 38), Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
-			Color.BLUE};
+
     
     private Controller _application;
 	private Robot mRobot;
@@ -39,10 +38,17 @@ public class RollingActivity extends Activity {
         this._application = (Controller)getApplication();
         this.mRobot = this._application.mRobot;
         
+
+    }
+    
+    @Override
+    public void onStart()
+    {
+    	super.onStart();
+    	
         StabilizationCommand.sendCommand(mRobot, false);
         spin(STARTING_SPEED);
     }
-    
     
     public void toNextActivity(View view)
     {
@@ -85,15 +91,20 @@ public class RollingActivity extends Activity {
   				  (int)(Math.random() * 255),
   				  (int)(Math.random() * 255)));
   		  macro.playMacro();*/
+  		  
   		  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, i, RawMotorCommand.MOTOR_MODE_REVERSE, i);
+  		  chooseNewColor();
   		  try{
+  			  
   		  Thread.sleep(20);
   		  }catch(Exception e){}
   	  }
 
   	  
   	  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
-  	  chooseNewColor();
+  	  // chooseNewColor();
+
+
   	  
     }
     
@@ -106,8 +117,8 @@ public class RollingActivity extends Activity {
 
     	if(mRobot != null)
     	{
-        	int random = (int)(Math.random()*gameColors.length);
-    		int randomColor = gameColors[random]; 		
+        	int random = (int)(Math.random()*this._application.gameColors.length);
+    		int randomColor = this._application.gameColors[random]; 		
         	
 
     		RGBLEDOutputCommand.sendCommand(mRobot, 
@@ -115,6 +126,7 @@ public class RollingActivity extends Activity {
     				Color.green(randomColor), 
     				Color.blue(randomColor));
     		
+    		this._application.colorNumber = random;
     		
     	}
     	else

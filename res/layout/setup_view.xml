@@ -12,13 +12,5 @@
         android:layout_marginTop="212dp"
         android:text="Place Sphero on Table" />
 
-    <Button
-        android:id="@+id/nextActivityButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:text="Next" 
-        android:onClick="toNextActivity"/>
 
 </RelativeLayout>

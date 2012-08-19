@@ -2,13 +2,18 @@ package com.thirsty.view;
 
 import com.thirsty.R;
 import com.thirsty.controller.Controller;
+import com.thirsty.controller.OnShakeListener;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class ResultActivity extends Activity {
-    private Controller _application;
+    private static final String TAG = "ResultActivity";
+	private Controller _application;
+	private int resultColorNumber;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -16,13 +21,38 @@ public class ResultActivity extends Activity {
         setContentView(R.layout.result_view);
         
         this._application = (Controller)getApplication();
+
+
+        this._application.setOnShakeListener(shakeListener);    
+        this._application.startListeningForShake();
+        
+        resultColorNumber = this._application.colorNumber;
+        
+        TextView colorTextView = (TextView) this.findViewById(R.id.color);
+        TextView ruleTextView = (TextView) this.findViewById(R.id.rule);
+        
+        colorTextView.setText(this._application.colorList[resultColorNumber]);
+        ruleTextView.setText(this._application.ruleList[resultColorNumber]);  
     }
     
-    public void toNextActivity(View view)
+    
+    OnShakeListener shakeListener = new OnShakeListener()
     {
-    	this._application.nextActivityFromResultActivity(ResultActivity.this);
+		@Override
+		public void onShake() {
+			_application.stopListeningForShake();
+			_application.nextActivityFromResultActivity(ResultActivity.this);		
+		}        	
+    };
+    
+    @Override
+    public void onPause()
+    {
+    	super.onPause();    	
+    	this._application.removeOnShakeListener(shakeListener);
     }
 
+    
     public void onBackPressed() 
     {        
     	this._application.disconnectRobot();        

@@ -12,9 +12,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 public class ConnectActivity extends Activity 
 {
+	public final static String TAG = "ConnectActivity";
     /**
      * ID for launching the StartupActivity for result to connect to the robot
      */
@@ -28,6 +30,7 @@ public class ConnectActivity extends Activity
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
+		Log.i(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_view);
         
@@ -36,19 +39,26 @@ public class ConnectActivity extends Activity
 	
 	@Override
 	public void onStart(){
+		Log.i(TAG, "onCreate()");
     	super.onStart();
     	
     	launchActivityToConnectToSphero();
 	}
 
 	private void launchActivityToConnectToSphero() {
-		//Launch the StartupActivity to connect to the robot
-		Intent i = new Intent(this, StartupActivity.class);  
-		startActivityForResult(i, STARTUP_ACTIVITY);
+		Log.i(TAG, "launchActivityToConnectToSphero()");
+		
+		if(this._application.mRobot == null)
+		{
+			//Launch the StartupActivity to connect to the robot
+			Intent i = new Intent(this, StartupActivity.class);  
+			startActivityForResult(i, STARTUP_ACTIVITY);
+		}
 	}
 	
 	@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Log.i(TAG, "onActivityResult()");
         super.onActivityResult(requestCode, resultCode, data);
         
         if(requestCode == STARTUP_ACTIVITY && resultCode == RESULT_OK){
@@ -62,14 +72,11 @@ public class ConnectActivity extends Activity
             _application.nextActivityFromConnectActivity(ConnectActivity.this);
             
         }
-        else
-        {
-        	finish();
-        }
     }
 	
     public void onBackPressed() 
     {        
+    	Log.i(TAG, "onCreate()");
     	this._application.disconnectRobot();        
     	super.onBackPressed();    
     }

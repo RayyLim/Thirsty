@@ -25,6 +25,7 @@ import com.thirsty.view.ShakeActivity;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
 
@@ -49,6 +50,25 @@ public class Controller extends Application {
     private float mAccelCurrent;
 	private boolean ballInHand = false;
     
+	
+	public String[] ruleList = new String[] {
+			"Everybody drinks",
+			"Shaker drinks", 
+			"Men drink",
+			"Ladies Drink",
+			"Left of Shaker drinks", 
+			"Right of Shaker drinks",
+			"Waterfall"
+	};
+	
+	public String[] colorList = new String[] {
+			"RED", "CYAN", "MAGENTA", "GREEN", "YELLOW", "BLUE", "ORANGE"
+	};
+	
+	public int[] gameColors = {Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
+			Color.BLUE, Color.rgb(199, 120, 38)};
+	
+	public int colorNumber = 0;
 	@Override
     public void onCreate()    
     {        
@@ -108,7 +128,7 @@ public class Controller extends Application {
 	public void  nextActivityFromSplashActivity(SplashActivity activity)
 	{
 		Log.i(TAG, "nextActivityFromSplashActivity()");
-    	Intent intent = new Intent(activity, ConnectActivity.class); 
+    	Intent intent = new Intent(activity, ShakeActivity.class); 
     	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         activity.startActivity(intent);
         activity.finish();		
@@ -165,7 +185,7 @@ public class Controller extends Application {
 		DeviceMessenger.getInstance().removeAsyncDataListener(mRobot, mDataListener);	
 		StabilizationCommand.sendCommand(mRobot, true);
 		
-		
+			
 	}
 	
     /**
