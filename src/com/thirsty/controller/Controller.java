@@ -34,7 +34,7 @@ public class Controller extends Application {
 	
 	public void nextActivityFromRollingActivity(RollingActivity activity) 
 	{
-    	Intent intent = new Intent(activity, SetupActivity.class); 
+    	Intent intent = new Intent(activity, ResultActivity.class); 
     	activity.startActivity(intent); 
         activity.finish();		
 	}

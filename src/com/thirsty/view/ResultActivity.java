@@ -13,7 +13,7 @@ public class ResultActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rolling_view);
+        setContentView(R.layout.result_view);
         
         this._application = (Controller)getApplication();
     }

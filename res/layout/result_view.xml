@@ -1,33 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-        <TextView
-        android:id="@+id/textView1"
+
+    <TextView
+        android:id="@+id/color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="212dp"
-        android:text="Color" />
+        android:layout_centerVertical="true"
+        android:text="Color"
+        />
         
-        <TextView
-        android:id="@+id/textView1"
+    <TextView
+        android:id="@+id/rule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="212dp"
-        android:text="Rule" />
-        
-        <Button
+        android:layout_centerVertical="true"
+        android:text="rule"
+        android:layout_below="@+id/color"
+        />
+
+    <Button
         android:id="@+id/nextActivityButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:text="Next" 
+        android:layout_below="@+id/rule"
+                android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="32dp"
+        android:text="Shake Again" 
         android:onClick="toNextActivity"/>
 
 </RelativeLayout>
