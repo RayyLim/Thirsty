@@ -93,14 +93,6 @@ public class RollingActivity extends Activity {
 
   	  
   	  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
-  	  
-//  	  try {
-//	//	Thread.sleep(1000);
-//  		  ;
-//	} catch (InterruptedException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}
   	  chooseNewColor();
   	  
     }
@@ -115,11 +107,7 @@ public class RollingActivity extends Activity {
     	if(mRobot != null)
     	{
         	int random = (int)(Math.random()*gameColors.length);
-        	Log.i(TAG, "Random Number: " + random);
-    		int randomColor = gameColors[lastColor];
-    		lastColor = (lastColor + 1) % gameColors.length;
-    		
-        	Log.i(TAG, "Color1: " + randomColor);
+    		int randomColor = gameColors[random]; 		
         	
 
     		RGBLEDOutputCommand.sendCommand(mRobot, 
@@ -127,7 +115,6 @@ public class RollingActivity extends Activity {
     				Color.green(randomColor), 
     				Color.blue(randomColor));
     		
-        	Log.i(TAG, "Color2: " + randomColor);
     		
     	}
     	else
