@@ -15,6 +15,7 @@ import orbotix.robot.sensor.AccelerometerData;
 import orbotix.robot.sensor.AttitudeData;
 import orbotix.robot.sensor.DeviceSensorsData;
 
+import com.thirsty.R;
 import com.thirsty.view.ConnectActivity;
 import com.thirsty.view.ResultActivity;
 import com.thirsty.view.RollingActivity;
@@ -67,6 +68,26 @@ public class Controller extends Application {
 	
 	public int[] gameColors = {Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
 			Color.BLUE, Color.rgb(199, 120, 38)};
+	
+	public int[] colorImageList = new int[]{
+			R.drawable.color_red, 
+			R.drawable.color_cyan, 
+			R.drawable.color_magenta, 
+			R.drawable.color_green, 
+			R.drawable.color_yellow,
+			R.drawable.color_blue,
+			R.drawable.color_orange
+			}; 
+	
+	public int[] messageImageList = new int[]{
+			R.drawable.message_me, 
+			R.drawable.message_left, 
+			R.drawable.message_girls, 
+			R.drawable.message_guys, 
+			R.drawable.message_right, 
+			R.drawable.message_everybody,
+			R.drawable.message_waterfall, 
+			}; 
 	
 	public int colorNumber = 0;
 	@Override
