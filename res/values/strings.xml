@@ -1,9 +1,9 @@
 <resources>
 
-    <string name="app_name">Thirsty</string>
+    <string name="app_name">Thirsty!</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_splash_view">SplashView</string>
+    <string name="title_activity_splash_view">Thirsty!</string>
     <string name="title">Thirsty!</string>
     <string name="subtitle">The Drinking Game for Sphero</string>
 
