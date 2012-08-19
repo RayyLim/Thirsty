@@ -27,6 +27,8 @@ import android.R;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -79,8 +81,9 @@ public class Controller extends Application {
     	Log.i(TAG, "onCreate()");
     	shakePlayer = new MediaPlayer();
     	try {
-    		
-    		shakePlayer.setDataSource("raw\shake.mp3");
+    		Resources res = getResources();
+    		AssetFileDescriptor afd = res.openRawResourceFd(com.thirsty.R.raw.shake);
+    		shakePlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
     		shakePlayer.prepare();
 			//shakePlayer.setDataSource(R.raw.);
 		} catch (IllegalArgumentException e) {
