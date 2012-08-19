@@ -13,21 +13,22 @@ public class Controller extends Application {
 
 	public void nextActivityFromSetupActivity(SetupActivity activity) 
 	{
-    	Intent intent = new Intent(activity, ShakeActivity.class); 
+
+    	Intent intent = new Intent(activity, RollingActivity.class); 
     	activity.startActivity(intent); 
         activity.finish();		
 	}
 	
 	public void  nextActivityFromSplashActivity(SplashActivity activity)
 	{
-    	Intent intent = new Intent(activity, SetupActivity.class); 
+    	Intent intent = new Intent(activity, ShakeActivity.class); 
         activity.startActivity(intent);
         activity.finish();		
 	}
 	
 	public void nextActivityFromShakeActivity(ShakeActivity activity) 
 	{
-    	Intent intent = new Intent(activity, RollingActivity.class); 
+    	Intent intent = new Intent(activity, SetupActivity.class); 
     	activity.startActivity(intent); 
         activity.finish();		
 	}
