@@ -1,15 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingTop="100dp"
+        android:scaleType="matrix"
+        android:src="@drawable/color_blue" />
+    
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingTop="210dp"
+        android:scaleType="matrix"
+        android:src="@drawable/drink_message_background" 
+        />
+        
+                            <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="75dp"
+        android:paddingTop="250dp"
+        android:scaleType="matrix"
+        android:src="@drawable/message_everybody"
+        />
+        
+                    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingTop="420dp"
+        android:scaleType="matrix"
+        android:src="@drawable/shake_to_roll"
+        />
+    
+        
+    
+                <TextView
         android:id="@+id/color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Color"
+        android:visibility="invisible"
         />
         
     <TextView
@@ -20,6 +64,11 @@
         android:layout_centerVertical="true"
         android:text="rule"
         android:layout_below="@+id/color"
+        android:visibility="invisible"
         />
+    
 
-</RelativeLayout>
+</FrameLayout>  
+    
+
+

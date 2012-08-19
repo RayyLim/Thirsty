@@ -1,16 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-        <TextView
-        android:id="@+id/textView1"
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="212dp"
-        android:text="Rolling..." />
+        android:paddingLeft="15dp"
+        android:paddingTop="150dp"
+        android:scaleType="matrix"
+        android:src="@drawable/drunk_center" />
+    
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="150dp"
+        android:scaleType="matrix"
+        android:src="@drawable/drunk_left" 
+        android:visibility="invisible"/>
         
+            <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="150dp"
+        android:scaleType="matrix"
+        android:src="@drawable/drunk_right"
+        android:visibility="invisible"/>
+    
+    
 
-</RelativeLayout>
+</FrameLayout>
