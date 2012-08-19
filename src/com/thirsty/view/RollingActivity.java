@@ -16,9 +16,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 public class RollingActivity extends Activity {
 	
+	private static final int FRAMEPERIOD = 100;
+
 	private static int lastColor = 0;
 	
 	private final static String TAG = "RollingActivity";
@@ -27,6 +30,11 @@ public class RollingActivity extends Activity {
     
     private Controller _application;
 	private Robot mRobot;
+	
+    private boolean _active = true;
+    
+    private int framePosition = 0;
+    private int frameCount = 0;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,40 @@ public class RollingActivity extends Activity {
         this._application = (Controller)getApplication();
         this.mRobot = this._application.mRobot;
         
+        final ImageView drunkAnimation = (ImageView)this.findViewById(R.id.drunk_animation);
+        frameCount = this._application.frameImageList.length;
+        framePosition = 0;
+        
 
+        
+        // thread for displaying the SplashScreen
+        Thread splashTread = new Thread() {
+
+
+			@Override
+            public void run() {
+                try {
+                    while(_active) {
+
+                        drunkAnimation.setImageResource(_application.frameImageList[framePosition]);
+                        framePosition = (framePosition + 1)%frameCount;
+                        sleep(FRAMEPERIOD);
+                    }
+                } catch(InterruptedException e) {
+                    // do nothing
+                } finally {
+                    _active = false;
+                }
+            }
+        };
+        splashTread.start();
+    }
+    
+    @Override
+    public void onPause()
+    {
+    	super.onPause();
+    	_active = false;
     }
     
     @Override

@@ -89,6 +89,13 @@ public class Controller extends Application {
 			R.drawable.message_waterfall, 
 			}; 
 	
+	public int[] frameImageList = new int[]{
+		R.drawable.drunk_center,
+		R.drawable.drunk_right,
+		R.drawable.drunk_center,
+		R.drawable.drunk_left
+	};
+	
 	public int colorNumber = 0;
 	@Override
     public void onCreate()    
