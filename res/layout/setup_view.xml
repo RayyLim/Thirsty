@@ -16,5 +16,7 @@
         android:paddingTop="100dp"
         android:scaleType="matrix"
         android:src="@drawable/set_sphero" />
+    
+    
 
 </FrameLayout>

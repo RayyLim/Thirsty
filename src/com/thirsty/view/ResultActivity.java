@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity {
@@ -32,7 +33,14 @@ public class ResultActivity extends Activity {
         TextView ruleTextView = (TextView) this.findViewById(R.id.rule);
         
         colorTextView.setText(this._application.colorList[resultColorNumber]);
-        ruleTextView.setText(this._application.ruleList[resultColorNumber]);  
+        ruleTextView.setText(this._application.ruleList[resultColorNumber]); 
+        
+        ImageView colorImage = (ImageView) this.findViewById(R.id.color_image);
+        ImageView ruleImage = (ImageView) this.findViewById(R.id.rule_image);
+        
+        colorImage.setImageResource(R.drawable.color_blue);
+        ruleImage.setImageResource(R.drawable.message_everybody);
+        
     }
     
     
