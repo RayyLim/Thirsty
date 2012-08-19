@@ -46,8 +46,16 @@ public class RollingActivity extends Activity {
     {
     	super.onStart();
     	
-        StabilizationCommand.sendCommand(mRobot, false);
-        spin(STARTING_SPEED);
+    	// thread for displaying the SplashScreen
+        Thread spinTread = new Thread() {
+            @Override
+            public void run() {
+                StabilizationCommand.sendCommand(mRobot, false);
+                spin(STARTING_SPEED);
+            }
+        };
+        spinTread.start();
+
     }
     
     public void toNextActivity(View view)
@@ -104,6 +112,7 @@ public class RollingActivity extends Activity {
   	  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
   	  // chooseNewColor();
 
+  	this._application.nextActivityFromRollingActivity(RollingActivity.this);
 
   	  
     }

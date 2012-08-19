@@ -12,16 +12,5 @@
         android:layout_marginTop="212dp"
         android:text="Rolling..." />
         
-        <Button
-            android:id="@+id/button"
-                    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="212dp"
-        android:text="Rolling..."
-        android:onClick="toNextActivity"
-            />
-        
 
 </RelativeLayout>
