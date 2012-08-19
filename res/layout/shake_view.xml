@@ -2,21 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-        
-        <ImageView 
-            android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/background"
-    android:scaleType="fitXY"
-        />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="100dp"
-                    android:scaleType="matrix"
-                    android:src="@drawable/set_sphero" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingTop="140dp"
+        android:scaleType="matrix"
+        android:src="@drawable/shake_message" />
 
 </FrameLayout>
