@@ -1,5 +1,6 @@
 package com.thirsty.controller;
 
+import com.thirsty.view.ConnectActivity;
 import com.thirsty.view.ResultActivity;
 import com.thirsty.view.RollingActivity;
 import com.thirsty.view.SetupActivity;
@@ -21,7 +22,7 @@ public class Controller extends Application {
 	
 	public void  nextActivityFromSplashActivity(SplashActivity activity)
 	{
-    	Intent intent = new Intent(activity, ShakeActivity.class); 
+    	Intent intent = new Intent(activity, ConnectActivity.class); 
         activity.startActivity(intent);
         activity.finish();		
 	}
@@ -45,5 +46,12 @@ public class Controller extends Application {
     	Intent intent = new Intent(activity, RollingActivity.class); 
     	activity.startActivity(intent); 
         activity.finish();		
+	}
+
+	public void nextActivityFromConnectActivity(ConnectActivity activity) {
+    	Intent intent = new Intent(activity, ShakeActivity.class); 
+        activity.startActivity(intent);
+        activity.finish();
+		
 	}
 }

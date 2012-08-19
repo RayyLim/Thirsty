@@ -1,17 +1,23 @@
 package com.thirsty.view;
 
+import orbotix.robot.app.StartupActivity;
+import orbotix.robot.base.RGBLEDOutputCommand;
+import orbotix.robot.base.Robot;
+import orbotix.robot.base.RobotProvider;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.thirsty.R;
 import com.thirsty.controller.Controller;
 
 public class SplashActivity extends Activity {
 
-    private Controller _application;
+	private Controller _application;
     
     protected boolean _active = true;
     protected int _splashTime = 5000; // time to display the splash screen in ms
@@ -38,31 +44,21 @@ public class SplashActivity extends Activity {
                 } catch(InterruptedException e) {
                     // do nothing
                 } finally {
-                    finish();
-                    _application.nextActivityFromSplashActivity(SplashActivity.this);
+
+                	_application.nextActivityFromSplashActivity(SplashActivity.this);
                     _active = false;
                 }
             }
         };
         splashTread.start();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.splash_view, menu);
-        return true;
-    }
-    
+	
+	   
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             _active = false;
         }
         return true;
-    }
-    
-    public void toNextActivity(View view)
-    {
-    	this._application.nextActivityFromSplashActivity(SplashActivity.this);
     }
 }
