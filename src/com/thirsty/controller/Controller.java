@@ -84,6 +84,7 @@ public class Controller extends Application {
 	
 	public void nextActivityFromShakeActivity(ShakeActivity activity) 
 	{
+		Log.i(TAG, "nextActivityFromShakeActivity()");
     	Intent intent = new Intent(activity, SetupActivity.class); 
     	activity.startActivity(intent); 
         activity.finish();		
