@@ -125,28 +125,10 @@ public class RollingActivity extends Activity {
     	Log.i(TAG, "spin");
   	  if(speed < 50)
   		  return;
-//  	  FrontLEDOutputCommand.sendCommand(mRobot, 1.0f);
-  //	  final Handler handler = new Handler();
-  	  //RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 180, RawMotorCommand.MOTOR_MODE_REVERSE, 180);
-//  	  MacroObject macro = new MacroObject();
-//  	  macro.setRobot(mRobot);
-//  	  macro.setMode(MacroObject.MacroObjectMode.Normal);
-  	  
-      /*  MacroObject fadeMacro = new MacroObject();
-        macro.addCommand(new LoopStart(1500));
-        macro.addCommand(new Fade(0, 0, 0, 500));
-        macro.addCommand(new Fade(0, 0, 255, 500));
-        macro.addCommand(new Fade(0, 255, 0, 500));
-        macro.addCommand(new LoopEnd());
-        macro.playMacro();*/
+
   	  
   	  for(int i = speed; i > 100; i--)
   	  {
-  		/*  AbortMacroCommand.sendCommand(mRobot);
-  		  macro.addCommand(new RGB(255, (int)(Math.random() * 255),
-  				  (int)(Math.random() * 255),
-  				  (int)(Math.random() * 255)));
-  		  macro.playMacro();*/
   		  
   		  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, i, RawMotorCommand.MOTOR_MODE_REVERSE, i);
   		  chooseNewColor();
@@ -158,7 +140,6 @@ public class RollingActivity extends Activity {
 
   	  
   	  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
-  	  // chooseNewColor();
 
   	this._application.nextActivityFromRollingActivity(RollingActivity.this);
 
