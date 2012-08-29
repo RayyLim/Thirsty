@@ -51,44 +51,6 @@ public class Controller extends Application {
     private int mPacketCounter;
     private float mAccelCurrent;
 	private boolean ballInHand = false;
-    
-	
-//	public String[] ruleList = new String[] {
-//			"Everybody drinks",
-//			"Shaker drinks", 
-//			"Men drink",
-//			"Ladies Drink",
-//			"Left of Shaker drinks", 
-//			"Right of Shaker drinks",
-//			"Waterfall"
-//	};
-//	
-//	public String[] colorList = new String[] {
-//			"RED", "CYAN", "MAGENTA", "GREEN", "YELLOW", "BLUE", "ORANGE"
-//	};
-//	
-//	public int[] gameColors = {Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
-//			Color.BLUE, Color.rgb(199, 120, 38)};
-//	
-//	public int[] colorImageList = new int[]{
-//			R.drawable.color_red, 
-//			R.drawable.color_cyan, 
-//			R.drawable.color_magenta, 
-//			R.drawable.color_green, 
-//			R.drawable.color_yellow,
-//			R.drawable.color_blue,
-//			R.drawable.color_orange
-//			}; 
-//	
-//	public int[] messageImageList = new int[]{
-//			R.drawable.message_me, 
-//			R.drawable.message_left, 
-//			R.drawable.message_girls, 
-//			R.drawable.message_guys, 
-//			R.drawable.message_right, 
-//			R.drawable.message_everybody,
-//			R.drawable.message_waterfall, 
-//			}; 
 	
 	public int[] frameImageList = new int[]{
 		R.drawable.drunk_center,
