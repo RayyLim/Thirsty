@@ -45,7 +45,7 @@
         android:src="@drawable/shake_to_roll" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/info_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="245dp"
@@ -63,5 +63,52 @@
         android:text="@string/rule_questionmaster"
         android:textColor="@android:color/white"
         android:textSize="23sp" />
+    
+    <RelativeLayout
+        android:id="@+id/info_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#89000000"
+        >
+        
+            <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray"
+        android:paddingBottom="20dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
+        
+        <TextView
+            android:id="@+id/info_rule_title"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Help Info Title"
+        android:textColor="@android:color/white"
+        android:textSize="23sp" 
+            />
+        
+                <TextView
+            android:id="@+id/info_rule_description"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@+id/info_rule_title"
+        	android:layout_marginTop="20dp"
+  
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:text="Help Info Somewhat decently long description"
+        android:textColor="@android:color/white"
+        android:textSize="23sp" 
+            />
+            </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

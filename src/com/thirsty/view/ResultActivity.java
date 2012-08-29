@@ -6,16 +6,21 @@ import com.thirsty.controller.OnShakeListener;
 
 import android.app.Activity;
 import android.graphics.Typeface;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity {
 	private static final String TAG = "ResultActivity";
 	private Controller _application;
 	private int resultColorNumber;
+	private RelativeLayout infoView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,18 @@ public class ResultActivity extends Activity {
 		colorImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_colorImage());
 		ruleImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_message());
 		messagebgImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_messagebg());
+		
+		infoView = (RelativeLayout) this.findViewById(R.id.info_view);
+		infoView.setVisibility(View.GONE);
+		
+		ImageButton imageButton = (ImageButton) this.findViewById(R.id.info_button);
+		imageButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				infoView.setVisibility(View.VISIBLE);
+				
+			}});
 
 	}
 
@@ -66,7 +83,15 @@ public class ResultActivity extends Activity {
 
 	public void onBackPressed() 
 	{        
-		this._application.disconnectRobot();        
-		super.onBackPressed();    
+		if(infoView.getVisibility() == View.GONE)
+		{
+			this._application.disconnectRobot();        
+			super.onBackPressed();  
+		}
+		else
+		{
+			infoView.setVisibility(View.GONE);
+		}
+			
 	}
 }
