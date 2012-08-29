@@ -39,7 +39,7 @@ public class ResultActivity extends Activity {
 		TextView ruleTextView = (TextView) this.findViewById(R.id.rule_text);
 		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/Skranji-Regular.ttf");             
 		ruleTextView.setTypeface(tf);
-		ruleTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleText());
+		ruleTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleTitle());
 
 		ImageView colorImage = (ImageView) this.findViewById(R.id.color_image);
 		ImageView ruleImage = (ImageView) this.findViewById(R.id.rule_image);
@@ -60,6 +60,23 @@ public class ResultActivity extends Activity {
 				infoView.setVisibility(View.VISIBLE);
 				
 			}});
+		
+		if(this._application.tippsyRuleList[resultColorNumber].get_hasInfo())
+		{
+			imageButton.setVisibility(View.VISIBLE);
+		}
+		else
+		{
+			imageButton.setVisibility(View.GONE);
+		}
+		
+		TextView ruleTitleTextView = (TextView) this.findViewById(R.id.info_rule_title);        
+		ruleTitleTextView.setTypeface(tf);
+		ruleTitleTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleTitle());
+		
+		TextView ruleDescriptioinTextView = (TextView) this.findViewById(R.id.info_rule_description);         
+		ruleDescriptioinTextView.setTypeface(tf);
+		ruleDescriptioinTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleDescription());
 
 	}
 

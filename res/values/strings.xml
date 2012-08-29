@@ -21,5 +21,20 @@
     <string name="rule_thumbwar">Thumb War</string>
     <string name="rule_vikingking">Viking King</string>
     <string name="rule_waterfall">Waterfall</string>
+    <string name="description_everybody"></string>
+    <string name="description_categories">The player who shook picks a category such as "sports teams" or "car brands". The players then go around in the circle saying items from that category, the first player who can not think of an item or says something not in the category must drink.</string>
+    <string name="description_chug"></string>
+    <string name="description_floor">Last person to touch the floor drinks.</string>
+    <string name="description_girls"></string>
+    <string name="description_guys"></string>
+    <string name="description_left"></string>
+    <string name="description_questionmaster">The player that shook becomes the "Question Master". The Question Master can ask a question at any time. Whenever a player answers the Question Master\'s question with a statement, that player must drink. The shaker is the Question Master until a new Question Master is declared.</string>
+    <string name="description_rhyme">The player who shook says a phrase, then the players go around in the circle saying phrases that rhyme with the original. No phrase may be said twice, the first player who can not come up with a phrase, or says a phrase that does not rhyme must drink.</string>
+    <string name="description_right"></string>
+    <string name="description_sky">All players must point toward the sky. The last player to point must drink.</string>
+    <string name="description_thumbking">The player who shook becomes the "Thumb Master". The Thumb Master can place their thumb on the table at any time and the last player to notice and place their thumb on the table must drink. The shaker is the Thumb Master until a new Thumb Master is declared.</string>
+    <string name="description_thumbwar">The player who shook challenges another player to thumb war! Loser must drink</string>
+    <string name="description_vikingking">The player who shook becomes the ""Viking King. Everytime the Viking King uses his hand to put Viking horns on his head, everyone has to pretend to row a boat, last one drinks. The player can do this at anytime throughout the game. The shaker is the Viking King until a new Viking King is declared.</string>
+    <string name="description_waterfall">Everybody starts drinking. The player who shook can stop anytime. When that player stops drinking, the the person to their right can choose to stop drinking at any time. When that person stops drinking the person to their right can stop drinking, etc. This continues to the end of the circle.</string>
 
 </resources>

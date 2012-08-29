@@ -10,14 +10,16 @@ public class TippsyRule {
 	private int _color;
 	private int _messagebg;
 	private int _colorImage;
-	private String _ruleText;
+	private String _ruleTitle;
+	private String _ruleDescription;
 
-	public TippsyRule(int message, int messagebg, int colorImage, int color, String ruleText) {
+	public TippsyRule(int message, int messagebg, int colorImage, int color, String ruleTitle, String ruleDescription) {
 		this.set_message(message);
 		this.set_messagebg(messagebg);
 		this.set_color(color);
 		this.set_colorImage(colorImage);
-		this.set_ruleText(ruleText);
+		this.set_ruleTitle(ruleTitle);
+		this.set_ruleDescription(ruleDescription);
 	}
 
 	public int get_message() {
@@ -52,12 +54,25 @@ public class TippsyRule {
 		this._colorImage = _colorImage;
 	}
 
-	public String get_ruleText() {
-		return _ruleText;
+	public String get_ruleTitle() {
+		return _ruleTitle;
 	}
 
-	private void set_ruleText(String _ruleText) {
-		this._ruleText = _ruleText;
+	private void set_ruleTitle(String _ruleText) {
+		this._ruleTitle = _ruleText;
+	}
+
+	public String get_ruleDescription() {
+		return _ruleDescription;
+	}
+
+	private void set_ruleDescription(String _ruleDescription) {
+		this._ruleDescription = _ruleDescription;
+	}
+	
+	public boolean get_hasInfo()
+	{
+		return this._ruleDescription.trim().length() > 1;
 	}
 
 }
