@@ -6,5 +6,20 @@
     <string name="title_activity_splash_view">Thirsty!</string>
     <string name="title">Thirsty!</string>
     <string name="subtitle">The Drinking Game for Sphero</string>
+    <string name="rule_everybody">Everybody Drinks</string>
+    <string name="rule_categories">Categories</string>
+    <string name="rule_chug">CHUG IT</string>
+    <string name="rule_floor">Floor</string>
+    <string name="rule_girls">Ladies Drink</string>
+    <string name="rule_guys">Men Drink</string>
+    <string name="rule_left">Left of Shaker</string>
+    <string name="rule_questionmaster">Question Master</string>
+    <string name="rule_rhyme">Rhyme</string>
+    <string name="rule_right">Right of Shaker</string>
+    <string name="rule_sky">Heaven</string>
+    <string name="rule_thumbking">Thumb Master</string>
+    <string name="rule_thumbwar">Thumb War</string>
+    <string name="rule_vikingking">Viking King</string>
+    <string name="rule_waterfall">Waterfall</string>
 
 </resources>

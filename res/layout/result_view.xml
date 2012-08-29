@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -13,8 +13,8 @@
         android:id="@+id/color_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
-        android:paddingTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
         android:scaleType="matrix"
         android:src="@drawable/color_blue" />
 
@@ -22,8 +22,8 @@
         android:id="@+id/messagebg_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="25dp"
-        android:paddingTop="210dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="210dp"
         android:scaleType="matrix"
         android:src="@drawable/messagebg_everybody" />
 
@@ -31,17 +31,37 @@
         android:id="@+id/rule_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
-        android:paddingTop="215dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="215dp"
         android:scaleType="matrix"
         android:src="@drawable/message_girls" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
-        android:paddingTop="480dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="480dp"
         android:scaleType="matrix"
         android:src="@drawable/shake_to_roll" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="245dp"
+        android:layout_marginTop="420dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/infobutton" />
+
+    <TextView
+        android:id="@+id/rule_text"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="427dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:text="@string/rule_questionmaster"
+        android:textColor="@android:color/white"
+        android:textSize="23sp" />
+
+</RelativeLayout>

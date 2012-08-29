@@ -26,6 +26,7 @@ import com.thirsty.view.ShakeActivity;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
@@ -59,30 +60,34 @@ public class Controller extends Application {
 		R.drawable.drunk_left
 	};
 	
-	public TippsyRule tippsyRuleList[] = 
-		{
-			new TippsyRule(R.drawable.message_categories, R.drawable.messagebg_categories, R.drawable.color_yellowgreen, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_chug, R.drawable.messagebg_chug, R.drawable.color_magenta, Color.MAGENTA),
-			new TippsyRule(R.drawable.message_everybody, R.drawable.messagebg_everybody, R.drawable.color_orange, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_floor, R.drawable.messagebg_floor, R.drawable.color_green, Color.GREEN),
-			new TippsyRule(R.drawable.message_girls, R.drawable.messagebg_girls, R.drawable.color_pink, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_guys, R.drawable.messagebg_guys, R.drawable.color_blue, Color.BLUE),
-			new TippsyRule(R.drawable.message_left, R.drawable.messagebg_left, R.drawable.color_lightblue,  Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_questionmaster, R.drawable.messagebg_questionmaster, R.drawable.color_bronze, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_rhyme, R.drawable.messagebg_rhyme, R.drawable.color_purple, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_right, R.drawable.messagebg_right, R.drawable.color_teal, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_sky, R.drawable.messagebg_sky, R.drawable.color_cyan, Color.CYAN),
-			new TippsyRule(R.drawable.message_thumbwar, R.drawable.messagebg_thumbwar, R.drawable.color_red, Color.RED),
-			new TippsyRule(R.drawable.message_thumbking, R.drawable.messagebg_thumbking, R.drawable.color_silver, Color.rgb(199, 120, 38)),
-			new TippsyRule(R.drawable.message_vikingking, R.drawable.messagebg_vikingking, R.drawable.color_yellow, Color.YELLOW),
-			new TippsyRule(R.drawable.message_waterfall, R.drawable.messagebg_waterfall, R.drawable.color_gold, Color.rgb(199, 120, 38))		
-		};
+	
+	public TippsyRule tippsyRuleList[] = null;
 	
 	public int colorNumber = 0;
 	@Override
     public void onCreate()    
     {        
-    	Log.i(TAG, "onCreate()");                  
+    	Log.i(TAG, "onCreate()");    
+    	
+    	Resources res = getResources();
+    	tippsyRuleList = new TippsyRule[] 
+    		{
+    			new TippsyRule(R.drawable.message_everybody, R.drawable.messagebg_everybody, R.drawable.color_orange, Color.rgb(199, 120, 38),  res.getString(R.string.rule_everybody)),
+    			new TippsyRule(R.drawable.message_categories, R.drawable.messagebg_categories, R.drawable.color_yellowgreen, Color.rgb(199, 120, 38),  res.getString(R.string.rule_categories)),
+    			new TippsyRule(R.drawable.message_chug, R.drawable.messagebg_chug, R.drawable.color_magenta, Color.MAGENTA,  res.getString(R.string.rule_chug)),
+    			new TippsyRule(R.drawable.message_floor, R.drawable.messagebg_floor, R.drawable.color_green, Color.GREEN,  res.getString(R.string.rule_floor)),
+    			new TippsyRule(R.drawable.message_girls, R.drawable.messagebg_girls, R.drawable.color_pink, Color.rgb(199, 120, 38),  res.getString(R.string.rule_girls)),
+    			new TippsyRule(R.drawable.message_guys, R.drawable.messagebg_guys, R.drawable.color_blue, Color.BLUE,  res.getString(R.string.rule_guys)),
+    			new TippsyRule(R.drawable.message_left, R.drawable.messagebg_left, R.drawable.color_lightblue,  Color.rgb(199, 120, 38),  res.getString(R.string.rule_left)),
+    			new TippsyRule(R.drawable.message_questionmaster, R.drawable.messagebg_questionmaster, R.drawable.color_bronze, Color.rgb(199, 120, 38),  res.getString(R.string.rule_questionmaster)),
+    			new TippsyRule(R.drawable.message_rhyme, R.drawable.messagebg_rhyme, R.drawable.color_purple, Color.rgb(199, 120, 38),  res.getString(R.string.rule_rhyme)),
+    			new TippsyRule(R.drawable.message_right, R.drawable.messagebg_right, R.drawable.color_teal, Color.rgb(199, 120, 38),  res.getString(R.string.rule_right)),
+    			new TippsyRule(R.drawable.message_sky, R.drawable.messagebg_sky, R.drawable.color_cyan, Color.CYAN,  res.getString(R.string.rule_sky)),
+    			new TippsyRule(R.drawable.message_thumbwar, R.drawable.messagebg_thumbwar, R.drawable.color_red, Color.RED,  res.getString(R.string.rule_thumbwar)),
+    			new TippsyRule(R.drawable.message_thumbking, R.drawable.messagebg_thumbking, R.drawable.color_silver, Color.rgb(199, 120, 38),  res.getString(R.string.rule_thumbking)),
+    			new TippsyRule(R.drawable.message_vikingking, R.drawable.messagebg_vikingking, R.drawable.color_yellow, Color.YELLOW,  res.getString(R.string.rule_vikingking)),
+    			new TippsyRule(R.drawable.message_waterfall, R.drawable.messagebg_waterfall, R.drawable.color_gold, Color.rgb(199, 120, 38),  res.getString(R.string.rule_waterfall))		
+    		};
     }
 	
     public void requestDataStreaming() {
