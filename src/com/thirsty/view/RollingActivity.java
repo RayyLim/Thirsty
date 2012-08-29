@@ -155,8 +155,8 @@ public class RollingActivity extends Activity {
 
     	if(mRobot != null)
     	{
-        	int random = (int)(Math.random()*this._application.gameColors.length);
-    		int randomColor = this._application.gameColors[random]; 		
+        	int random = (int)(Math.random()*this._application.tippsyRuleList.length);
+    		int randomColor = this._application.tippsyRuleList[random].get_color(); 		
         	
 
     		RGBLEDOutputCommand.sendCommand(mRobot, 

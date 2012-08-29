@@ -53,42 +53,42 @@ public class Controller extends Application {
 	private boolean ballInHand = false;
     
 	
-	public String[] ruleList = new String[] {
-			"Everybody drinks",
-			"Shaker drinks", 
-			"Men drink",
-			"Ladies Drink",
-			"Left of Shaker drinks", 
-			"Right of Shaker drinks",
-			"Waterfall"
-	};
-	
-	public String[] colorList = new String[] {
-			"RED", "CYAN", "MAGENTA", "GREEN", "YELLOW", "BLUE", "ORANGE"
-	};
-	
-	public int[] gameColors = {Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
-			Color.BLUE, Color.rgb(199, 120, 38)};
-	
-	public int[] colorImageList = new int[]{
-			R.drawable.color_red, 
-			R.drawable.color_cyan, 
-			R.drawable.color_magenta, 
-			R.drawable.color_green, 
-			R.drawable.color_yellow,
-			R.drawable.color_blue,
-			R.drawable.color_orange
-			}; 
-	
-	public int[] messageImageList = new int[]{
-			R.drawable.message_me, 
-			R.drawable.message_left, 
-			R.drawable.message_girls, 
-			R.drawable.message_guys, 
-			R.drawable.message_right, 
-			R.drawable.message_everybody,
-			R.drawable.message_waterfall, 
-			}; 
+//	public String[] ruleList = new String[] {
+//			"Everybody drinks",
+//			"Shaker drinks", 
+//			"Men drink",
+//			"Ladies Drink",
+//			"Left of Shaker drinks", 
+//			"Right of Shaker drinks",
+//			"Waterfall"
+//	};
+//	
+//	public String[] colorList = new String[] {
+//			"RED", "CYAN", "MAGENTA", "GREEN", "YELLOW", "BLUE", "ORANGE"
+//	};
+//	
+//	public int[] gameColors = {Color.RED, Color.CYAN, Color.MAGENTA, Color.GREEN, Color.YELLOW, 
+//			Color.BLUE, Color.rgb(199, 120, 38)};
+//	
+//	public int[] colorImageList = new int[]{
+//			R.drawable.color_red, 
+//			R.drawable.color_cyan, 
+//			R.drawable.color_magenta, 
+//			R.drawable.color_green, 
+//			R.drawable.color_yellow,
+//			R.drawable.color_blue,
+//			R.drawable.color_orange
+//			}; 
+//	
+//	public int[] messageImageList = new int[]{
+//			R.drawable.message_me, 
+//			R.drawable.message_left, 
+//			R.drawable.message_girls, 
+//			R.drawable.message_guys, 
+//			R.drawable.message_right, 
+//			R.drawable.message_everybody,
+//			R.drawable.message_waterfall, 
+//			}; 
 	
 	public int[] frameImageList = new int[]{
 		R.drawable.drunk_center,
@@ -96,6 +96,25 @@ public class Controller extends Application {
 		R.drawable.drunk_center,
 		R.drawable.drunk_left
 	};
+	
+	public TippsyRule tippsyRuleList[] = 
+		{
+			new TippsyRule(R.drawable.message_categories, R.drawable.messagebg_categories, R.drawable.color_yellowgreen, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_chug, R.drawable.messagebg_chug, R.drawable.color_magenta, Color.MAGENTA),
+			new TippsyRule(R.drawable.message_everybody, R.drawable.messagebg_everybody, R.drawable.color_orange, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_floor, R.drawable.messagebg_floor, R.drawable.color_green, Color.GREEN),
+			new TippsyRule(R.drawable.message_girls, R.drawable.messagebg_girls, R.drawable.color_pink, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_guys, R.drawable.messagebg_guys, R.drawable.color_blue, Color.BLUE),
+			new TippsyRule(R.drawable.message_left, R.drawable.messagebg_left, R.drawable.color_lightblue,  Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_questionmaster, R.drawable.messagebg_questionmaster, R.drawable.color_bronze, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_rhyme, R.drawable.messagebg_rhyme, R.drawable.color_purple, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_right, R.drawable.messagebg_right, R.drawable.color_teal, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_sky, R.drawable.messagebg_sky, R.drawable.color_cyan, Color.CYAN),
+			new TippsyRule(R.drawable.message_thumbwar, R.drawable.messagebg_thumbwar, R.drawable.color_red, Color.RED),
+			new TippsyRule(R.drawable.message_thumbking, R.drawable.messagebg_thumbking, R.drawable.color_silver, Color.rgb(199, 120, 38)),
+			new TippsyRule(R.drawable.message_vikingking, R.drawable.messagebg_vikingking, R.drawable.color_yellow, Color.YELLOW),
+			new TippsyRule(R.drawable.message_waterfall, R.drawable.messagebg_waterfall, R.drawable.color_gold, Color.rgb(199, 120, 38))		
+		};
 	
 	public int colorNumber = 0;
 	@Override

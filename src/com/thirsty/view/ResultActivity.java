@@ -29,17 +29,17 @@ public class ResultActivity extends Activity {
         
         resultColorNumber = this._application.colorNumber;
         
-        TextView colorTextView = (TextView) this.findViewById(R.id.color);
-        TextView ruleTextView = (TextView) this.findViewById(R.id.rule);
         
-        colorTextView.setText(this._application.colorList[resultColorNumber]);
-        ruleTextView.setText(this._application.ruleList[resultColorNumber]); 
+//        colorTextView.setText(this._application.colorList[resultColorNumber]);
+//        ruleTextView.setText(this._application.ruleList[resultColorNumber]); 
         
         ImageView colorImage = (ImageView) this.findViewById(R.id.color_image);
         ImageView ruleImage = (ImageView) this.findViewById(R.id.rule_image);
+        ImageView messagebgImage = (ImageView) this.findViewById(R.id.messagebg_image);
         
-        colorImage.setImageResource(this._application.colorImageList[resultColorNumber]);
-        ruleImage.setImageResource(this._application.messageImageList[resultColorNumber]);
+        colorImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_colorImage());
+        ruleImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_message());
+        messagebgImage.setImageResource(this._application.tippsyRuleList[resultColorNumber].get_messagebg());
         
     }
     

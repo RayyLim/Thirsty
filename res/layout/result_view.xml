@@ -17,60 +17,31 @@
         android:paddingTop="100dp"
         android:scaleType="matrix"
         android:src="@drawable/color_blue" />
-    
-        <ImageView
+
+    <ImageView
+        android:id="@+id/messagebg_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="25dp"
         android:paddingTop="210dp"
         android:scaleType="matrix"
-        android:src="@drawable/drink_message_background" 
-        />
-        
-                            <ImageView
-                                android:id="@+id/rule_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingTop="250dp"
-        android:scaleType="matrix"
-        android:src="@drawable/message_everybody"
-        />
-        
-                    <ImageView
+        android:src="@drawable/messagebg_everybody" />
+
+    <ImageView
+        android:id="@+id/rule_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
-        android:paddingTop="420dp"
+        android:paddingTop="215dp"
         android:scaleType="matrix"
-        android:src="@drawable/shake_to_roll"
-        />
-    
-        
-    
-                <TextView
-        android:id="@+id/color"
+        android:src="@drawable/message_girls" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Color"
-        android:visibility="invisible"
-        />
-        
-    <TextView
-        android:id="@+id/rule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="rule"
-        android:layout_below="@+id/color"
-        android:visibility="invisible"
-        />
-    
+        android:paddingLeft="30dp"
+        android:paddingTop="480dp"
+        android:scaleType="matrix"
+        android:src="@drawable/shake_to_roll" />
 
-</FrameLayout>  
-    
-
-
+</FrameLayout>
