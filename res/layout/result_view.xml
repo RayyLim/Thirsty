@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/color_image"
         android:scaleType="matrix"
+        android:layout_marginTop="-3dp"
                     android:layout_centerHorizontal="true"
         android:src="@drawable/messagebg_everybody" />
 
@@ -42,19 +43,6 @@
         android:scaleType="matrix"
         android:layout_marginTop="8dp"
         android:src="@drawable/message_girls" />
-
-    <!--  
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:scaleType="matrix"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/messagebg_image"
-        android:src="@drawable/shake_to_roll" />
-        -->
-    
-    
 
     <ImageButton
         android:id="@+id/info_button"
@@ -71,7 +59,7 @@
         android:id="@+id/rule_text"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="11dp"
         android:layout_alignBottom="@+id/messagebg_image"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
@@ -83,7 +71,7 @@
             android:id="@+id/pass_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/messagebg_image"
         android:text="Pass and Shake"
@@ -98,7 +86,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#89000000"
-        android:visibility="gone"
         >
         
             <RelativeLayout
@@ -107,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/dialogbackground"
         android:paddingBottom="20dp"
         android:paddingTop="15dp"
         android:paddingLeft="10dp"
