@@ -77,6 +77,10 @@ public class ResultActivity extends Activity {
 		TextView ruleDescriptioinTextView = (TextView) this.findViewById(R.id.info_rule_description);         
 		ruleDescriptioinTextView.setTypeface(tf);
 		ruleDescriptioinTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleDescription());
+		
+		
+		TextView passTextView = (TextView) this.findViewById(R.id.pass_text);         
+		passTextView.setTypeface(tf);
 
 	}
 

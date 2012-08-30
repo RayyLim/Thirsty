@@ -9,47 +9,61 @@
         android:scaleType="fitXY"
         android:src="@drawable/background" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="100dp"
+    
+        >
     <ImageView
         android:id="@+id/color_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
         android:scaleType="matrix"
+                    android:layout_centerHorizontal="true"
         android:src="@drawable/color_blue" />
 
     <ImageView
         android:id="@+id/messagebg_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="210dp"
+        android:layout_below="@+id/color_image"
         android:scaleType="matrix"
+                    android:layout_centerHorizontal="true"
         android:src="@drawable/messagebg_everybody" />
 
     <ImageView
         android:id="@+id/rule_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="215dp"
+        android:layout_alignTop="@+id/messagebg_image"
+         android:layout_centerHorizontal="true"
         android:scaleType="matrix"
+        android:layout_marginTop="8dp"
         android:src="@drawable/message_girls" />
 
+    <!--  
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="10dp"
         android:scaleType="matrix"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/messagebg_image"
         android:src="@drawable/shake_to_roll" />
+        -->
+    
+    
 
     <ImageButton
         android:id="@+id/info_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="245dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="13dp"
+                android:layout_alignBottom="@+id/messagebg_image"
+                        android:layout_alignRight="@+id/messagebg_image"
         android:background="@android:color/transparent"
         android:src="@drawable/infobutton" />
 
@@ -57,12 +71,25 @@
         android:id="@+id/rule_text"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginTop="427dp"
+        android:layout_marginBottom="12dp"
+        android:layout_alignBottom="@+id/messagebg_image"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:text="@string/rule_questionmaster"
         android:textColor="@android:color/white"
-        android:textSize="23sp" />
+        android:textSize="22sp" />
+    
+        <TextView
+            android:id="@+id/pass_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/messagebg_image"
+        android:text="Pass and Shake"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+    </RelativeLayout>
     
     <RelativeLayout
         android:id="@+id/info_view"
@@ -71,6 +98,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#89000000"
+        android:visibility="gone"
         >
         
             <RelativeLayout
