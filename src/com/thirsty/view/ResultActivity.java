@@ -37,7 +37,7 @@ public class ResultActivity extends Activity {
 
 
 		TextView ruleTextView = (TextView) this.findViewById(R.id.rule_text);
-		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/Skranji-Regular.ttf");             
+		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/itc-lubalin-graph-lt-demi.ttf");             
 		ruleTextView.setTypeface(tf);
 		ruleTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleTitle());
 
@@ -77,6 +77,10 @@ public class ResultActivity extends Activity {
 		TextView ruleDescriptioinTextView = (TextView) this.findViewById(R.id.info_rule_description);         
 		ruleDescriptioinTextView.setTypeface(tf);
 		ruleDescriptioinTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleDescription());
+		
+		
+		TextView passTextView = (TextView) this.findViewById(R.id.pass_text);         
+		passTextView.setTypeface(tf);
 
 	}
 
