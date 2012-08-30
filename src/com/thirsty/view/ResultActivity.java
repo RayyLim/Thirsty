@@ -37,7 +37,7 @@ public class ResultActivity extends Activity {
 
 
 		TextView ruleTextView = (TextView) this.findViewById(R.id.rule_text);
-		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/Skranji-Regular.ttf");             
+		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/itc-lubalin-graph-lt-demi.ttf");             
 		ruleTextView.setTypeface(tf);
 		ruleTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleTitle());
 

@@ -32,6 +32,22 @@ import android.os.Handler;
 import android.util.Log;
 
 public class Controller extends Application {
+	
+	private final static int YELLOW = Color.rgb(255,  242, 0);
+	private final static int GOLD = Color.rgb(251,  227, 150);
+	private final static int BRONZE = Color.rgb(209,  98, 24);
+	private final static int SILVER = Color.rgb(209,  210, 212);
+	private final static int ORANGE = Color.rgb(247,  148, 30);
+	private final static int CYAN = Color.rgb(103,  215, 249);
+	private final static int GREEN = Color.rgb(0,  166, 81);
+	private final static int YELLOWGREEN = Color.rgb(226,  245, 76);
+	private final static int PURPLE = Color.rgb(101,  44, 144);
+	private final static int RED = Color.rgb(237,  28, 36);
+	private final static int MAGENTA = Color.rgb(236,  0, 140);
+	private final static int LIGHTBLUE = Color.rgb(128,  212, 252);
+	private final static int TEAL = Color.rgb(16,  150, 121);
+	private final static int PINK = Color.rgb(226,  138, 175);
+	private final static int BLUE = Color.rgb(28,  117, 188);
 
 	private static final int INTENT_FLAG = Intent.FLAG_ACTIVITY_SINGLE_TOP;
 	private final static String  TAG = "Application";
@@ -72,21 +88,21 @@ public class Controller extends Application {
 		Resources res = getResources();
 		tippsyRuleList = new TippsyRule[] 
 				{
-				new TippsyRule(R.drawable.message_everybody, R.drawable.messagebg_everybody,R.drawable.color_orange,Color.rgb(199, 120, 38), res.getString(R.string.rule_everybody), res.getString(R.string.description_everybody)),
-				new TippsyRule(R.drawable.message_categories, R.drawable.messagebg_categories, R.drawable.color_yellowgreen, Color.rgb(199, 120, 38),  res.getString(R.string.rule_categories), res.getString(R.string.description_categories)),
-				new TippsyRule(R.drawable.message_chug, R.drawable.messagebg_chug, R.drawable.color_magenta, Color.MAGENTA,  res.getString(R.string.rule_chug), res.getString(R.string.description_chug)),
-				new TippsyRule(R.drawable.message_floor, R.drawable.messagebg_floor, R.drawable.color_green, Color.GREEN,  res.getString(R.string.rule_floor), res.getString(R.string.description_floor)),
-				new TippsyRule(R.drawable.message_girls, R.drawable.messagebg_girls, R.drawable.color_pink, Color.rgb(199, 120, 38),  res.getString(R.string.rule_girls), res.getString(R.string.description_girls)),
-				new TippsyRule(R.drawable.message_guys, R.drawable.messagebg_guys, R.drawable.color_blue, Color.BLUE,  res.getString(R.string.rule_guys), res.getString(R.string.description_guys)),
-				new TippsyRule(R.drawable.message_left, R.drawable.messagebg_left, R.drawable.color_lightblue,  Color.rgb(199, 120, 38),  res.getString(R.string.rule_left), res.getString(R.string.description_left)),
-				new TippsyRule(R.drawable.message_questionmaster, R.drawable.messagebg_questionmaster, R.drawable.color_bronze, Color.rgb(199, 120, 38),  res.getString(R.string.rule_questionmaster), res.getString(R.string.description_questionmaster)),
-				new TippsyRule(R.drawable.message_rhyme, R.drawable.messagebg_rhyme, R.drawable.color_purple, Color.rgb(199, 120, 38),  res.getString(R.string.rule_rhyme), res.getString(R.string.description_rhyme)),
-				new TippsyRule(R.drawable.message_right, R.drawable.messagebg_right, R.drawable.color_teal, Color.rgb(199, 120, 38),  res.getString(R.string.rule_right), res.getString(R.string.description_right)),
-				new TippsyRule(R.drawable.message_sky, R.drawable.messagebg_sky, R.drawable.color_cyan, Color.CYAN,  res.getString(R.string.rule_sky), res.getString(R.string.description_sky)),
-				new TippsyRule(R.drawable.message_thumbwar, R.drawable.messagebg_thumbwar, R.drawable.color_red, Color.RED,  res.getString(R.string.rule_thumbwar), res.getString(R.string.description_thumbwar)),
-				new TippsyRule(R.drawable.message_thumbking, R.drawable.messagebg_thumbking, R.drawable.color_silver, Color.rgb(199, 120, 38),  res.getString(R.string.rule_thumbking), res.getString(R.string.description_thumbking)),
-				new TippsyRule(R.drawable.message_vikingking, R.drawable.messagebg_vikingking, R.drawable.color_yellow, Color.YELLOW,  res.getString(R.string.rule_vikingking), res.getString(R.string.description_vikingking)),
-				new TippsyRule(R.drawable.message_waterfall, R.drawable.messagebg_waterfall, R.drawable.color_gold, Color.rgb(199, 120, 38),  res.getString(R.string.rule_waterfall), res.getString(R.string.description_waterfall))		
+				new TippsyRule(R.drawable.message_everybody, R.drawable.messagebg_everybody,R.drawable.color_yellow, YELLOW, res.getString(R.string.rule_everybody), res.getString(R.string.description_everybody)),
+				new TippsyRule(R.drawable.message_categories, R.drawable.messagebg_categories, R.drawable.color_yellowgreen, YELLOWGREEN,  res.getString(R.string.rule_categories), res.getString(R.string.description_categories)),
+				new TippsyRule(R.drawable.message_chug, R.drawable.messagebg_chug, R.drawable.color_magenta, MAGENTA,  res.getString(R.string.rule_chug), res.getString(R.string.description_chug)),
+				new TippsyRule(R.drawable.message_floor, R.drawable.messagebg_floor, R.drawable.color_green, GREEN,  res.getString(R.string.rule_floor), res.getString(R.string.description_floor)),
+				new TippsyRule(R.drawable.message_girls, R.drawable.messagebg_girls, R.drawable.color_pink, PINK,  res.getString(R.string.rule_girls), res.getString(R.string.description_girls)),
+				new TippsyRule(R.drawable.message_guys, R.drawable.messagebg_guys, R.drawable.color_blue, BLUE,  res.getString(R.string.rule_guys), res.getString(R.string.description_guys)),
+				new TippsyRule(R.drawable.message_left, R.drawable.messagebg_left, R.drawable.color_lightblue,  LIGHTBLUE,  res.getString(R.string.rule_left), res.getString(R.string.description_left)),
+				new TippsyRule(R.drawable.message_questionmaster, R.drawable.messagebg_questionmaster, R.drawable.color_bronze, BRONZE,  res.getString(R.string.rule_questionmaster), res.getString(R.string.description_questionmaster)),
+				new TippsyRule(R.drawable.message_rhyme, R.drawable.messagebg_rhyme, R.drawable.color_purple, PURPLE,  res.getString(R.string.rule_rhyme), res.getString(R.string.description_rhyme)),
+				new TippsyRule(R.drawable.message_right, R.drawable.messagebg_right, R.drawable.color_teal, TEAL,  res.getString(R.string.rule_right), res.getString(R.string.description_right)),
+				new TippsyRule(R.drawable.message_sky, R.drawable.messagebg_sky, R.drawable.color_cyan, CYAN,  res.getString(R.string.rule_sky), res.getString(R.string.description_sky)),
+				new TippsyRule(R.drawable.message_thumbwar, R.drawable.messagebg_thumbwar, R.drawable.color_red, RED,  res.getString(R.string.rule_thumbwar), res.getString(R.string.description_thumbwar)),
+				new TippsyRule(R.drawable.message_thumbking, R.drawable.messagebg_thumbking, R.drawable.color_silver, SILVER,  res.getString(R.string.rule_thumbking), res.getString(R.string.description_thumbking)),
+				new TippsyRule(R.drawable.message_vikingking, R.drawable.messagebg_vikingking, R.drawable.color_gold, GOLD,  res.getString(R.string.rule_vikingking), res.getString(R.string.description_vikingking)),
+				new TippsyRule(R.drawable.message_waterfall, R.drawable.messagebg_waterfall, R.drawable.color_orange, ORANGE,  res.getString(R.string.rule_waterfall), res.getString(R.string.description_waterfall))		
 				};
 	}
 
