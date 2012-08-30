@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
      <item android:state_pressed="true"
-           android:drawable="@drawable/info_icon" /> <!-- pressed -->
+           android:drawable="@drawable/infoicon_pressed" /> <!-- pressed -->
      <item android:state_focused="true"
-           android:drawable="@drawable/info_icon" /> <!-- focused -->
+           android:drawable="@drawable/infoicon_faded" /> <!-- focused -->
      <item android:drawable="@drawable/info_icon" /> <!-- default -->
 </selector>
