@@ -6,9 +6,11 @@ import com.thirsty.controller.Controller;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 public class SetupActivity extends Activity {
     private Controller _application;
@@ -23,6 +25,10 @@ public class SetupActivity extends Activity {
         setContentView(R.layout.setup_view);
         
         this._application = (Controller)getApplication();
+        
+		TextView ruleTextView = (TextView) this.findViewById(R.id.game_instruction_text);
+		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/itc-lubalin-graph-lt-demi.ttf");             
+		ruleTextView.setTypeface(tf);
         
 
         // thread for displaying the SplashScreen

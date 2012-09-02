@@ -6,7 +6,13 @@
     <string name="title_activity_splash_view">Thirsty!</string>
     <string name="title">Thirsty!</string>
     <string name="subtitle">The Drinking Game for Sphero</string>
+    <string name="game_end">Game ends after everyone gets tippsy</string>
     <string name="rule_everybody">Everybody Drinks</string>
+    <string name="rule_everybody2">Everybody Drinks Again</string>
+    <string name="rule_everybody3">One more time</string>
+    <string name="rule_everybody4">Game Over\nTippsy Yet?</string>
+    <string name="start_again">Shake to start again</string>
+    <string name="pass_shake">Pass and shake</string>
     <string name="rule_categories">Categories</string>
     <string name="rule_chug">CHUG IT</string>
     <string name="rule_floor">Floor</string>

@@ -11,74 +11,78 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="100dp"
-    
-        >
-    <ImageView
-        android:id="@+id/color_image"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="matrix"
-                    android:layout_centerHorizontal="true"
-        android:src="@drawable/color_blue" />
-
-    <ImageView
-        android:id="@+id/messagebg_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/color_image"
-        android:scaleType="matrix"
-        android:layout_marginTop="-3dp"
-                    android:layout_centerHorizontal="true"
-        android:src="@drawable/messagebg_everybody" />
-
-    <ImageView
-        android:id="@+id/rule_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/messagebg_image"
-         android:layout_centerHorizontal="true"
-        android:scaleType="matrix"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/message_girls" />
-
-    <ImageButton
-        android:id="@+id/info_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="13dp"
-                android:layout_alignBottom="@+id/messagebg_image"
-                        android:layout_alignRight="@+id/messagebg_image"
-        android:background="@android:color/transparent"
-        android:src="@drawable/infobutton" />
-
-    <TextView
-        android:id="@+id/rule_text"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginBottom="11dp"
-        android:layout_alignBottom="@+id/messagebg_image"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:text="@string/rule_questionmaster"
-        android:textColor="@android:color/white"
-        android:textSize="22sp" />
-    
+        android:layout_marginTop="100dp" >
+
+        <ImageView
+            android:id="@+id/color_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:scaleType="matrix"
+            android:src="@drawable/color_blue" />
+
+        <ImageView
+            android:id="@+id/messagebg_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/color_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-3dp"
+            android:scaleType="matrix"
+            android:src="@drawable/messagebg_everybody" />
+
+        <ImageView
+            android:id="@+id/rule_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/messagebg_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:scaleType="matrix"
+            android:src="@drawable/message_girls" />
+
+        <ImageButton
+            android:id="@+id/info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/messagebg_image"
+            android:layout_alignRight="@+id/messagebg_image"
+            android:layout_marginBottom="13dp"
+            android:layout_marginRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/infobutton" />
+
+        <TextView
+            android:id="@+id/rule_text"
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:layout_alignBottom="@+id/messagebg_image"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:maxWidth="200dp"
+            android:text="@string/rule_everybody2"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+        <!-- 17 sp -->
+        <!-- 22 sp -->
+
         <TextView
             android:id="@+id/pass_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/messagebg_image"
-        android:text="Pass and Shake"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/messagebg_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/pass_shake"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:id="@+id/info_view"
         android:layout_width="fill_parent"
@@ -86,47 +90,43 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#89000000"
-        >
-        
-            <RelativeLayout
-                android:id="@+id/info_view_interior"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/dialogbackground"
-        android:paddingBottom="20dp"
-        android:paddingTop="15dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
-        
-        <TextView
-            android:id="@+id/info_rule_title"
-            android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Help Info Title"
-        android:textColor="@android:color/white"
-        android:textSize="23sp" 
-        android:layout_alignLeft="@+id/info_view_interior"
-            />
-        
-                <TextView
-            android:id="@+id/info_rule_description"
-            android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_below="@+id/info_rule_title"
-        	android:layout_marginTop="20dp"
-  
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:text="Help Info Somewhat decently long description"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" 
-        android:layout_alignLeft="@+id/info_view_interior"
-            />
-            </RelativeLayout>
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:id="@+id/info_view_interior"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dialogbackground"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp" >
+
+            <TextView
+                android:id="@+id/info_rule_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/info_view_interior"
+                android:layout_centerHorizontal="true"
+                android:text="Help Info Title"
+                android:textColor="@android:color/white"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/info_rule_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/info_view_interior"
+                android:layout_below="@+id/info_rule_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:text="Help Info Somewhat decently long description"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>

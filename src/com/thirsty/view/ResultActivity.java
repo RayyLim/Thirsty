@@ -5,6 +5,7 @@ import com.thirsty.controller.Controller;
 import com.thirsty.controller.OnShakeListener;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -34,7 +35,6 @@ public class ResultActivity extends Activity {
 		this._application.startListeningForShake();
 
 		resultColorNumber = this._application.colorNumber;
-
 
 		TextView ruleTextView = (TextView) this.findViewById(R.id.rule_text);
 		Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/itc-lubalin-graph-lt-demi.ttf");             
@@ -78,9 +78,24 @@ public class ResultActivity extends Activity {
 		ruleDescriptioinTextView.setTypeface(tf);
 		ruleDescriptioinTextView.setText(this._application.tippsyRuleList[resultColorNumber].get_ruleDescription());
 		
-		
+		Resources res = getResources();
 		TextView passTextView = (TextView) this.findViewById(R.id.pass_text);         
 		passTextView.setTypeface(tf);
+		
+		if(resultColorNumber == 0 && this._application.getCountEverybodyDrinks() == 3)
+		{
+			passTextView.setText(res.getString(R.string.start_again));
+			_application.resetCountEverybodyDrinks();
+		}
+		else
+		{
+			passTextView.setText(res.getString(R.string.pass_shake));
+		}
+		
+		if(resultColorNumber == 0)
+		{
+			this._application.incrementCountEverybodyDrinks();
+		}
 
 	}
 

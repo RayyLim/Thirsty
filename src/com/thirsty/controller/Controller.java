@@ -68,6 +68,7 @@ public class Controller extends Application {
 	private int mPacketCounter;
 	private float mAccelCurrent;
 	private boolean ballInHand = false;
+	private int countEverybodyDrinks = 0;
 
 	public int[] frameImageList = new int[]{
 			R.drawable.drunk_center,
@@ -76,6 +77,7 @@ public class Controller extends Application {
 			R.drawable.drunk_left
 	};
 
+	
 
 	public TippsyRule tippsyRuleList[] = null;
 
@@ -281,5 +283,38 @@ public class Controller extends Application {
 
 	public void removeOnShakeListener(OnShakeListener onShakeListener) {
 		onShakeListenerList.remove (onShakeListener);	
+	}
+
+	public int getCountEverybodyDrinks() {
+		return countEverybodyDrinks;
+	}
+	
+
+	public int everybodyRuleList[] = new int[] {R.string.rule_everybody, R.string.rule_everybody2, R.string.rule_everybody3, R.string.rule_everybody4};
+
+	public void setCountEverybodyDrinks(int countEverybodyDrinks) {
+		if(countEverybodyDrinks > 3)
+		{
+			countEverybodyDrinks = 3;
+		}
+		
+		if(countEverybodyDrinks < 0)
+		{
+			countEverybodyDrinks = 0;
+		}
+		
+		this.countEverybodyDrinks = countEverybodyDrinks;
+		Resources res = getResources();
+		tippsyRuleList[0].set_ruleTitle(res.getString(everybodyRuleList[countEverybodyDrinks]));
+	}
+	
+	public void resetCountEverybodyDrinks() {
+		setCountEverybodyDrinks(0);
+	}
+	
+	public void incrementCountEverybodyDrinks()
+	{
+		int count = getCountEverybodyDrinks() + 1;
+		setCountEverybodyDrinks(count);
 	}
 }

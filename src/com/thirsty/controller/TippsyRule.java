@@ -58,7 +58,7 @@ public class TippsyRule {
 		return _ruleTitle;
 	}
 
-	private void set_ruleTitle(String _ruleText) {
+	public void set_ruleTitle(String _ruleText) {
 		this._ruleTitle = _ruleText;
 	}
 
