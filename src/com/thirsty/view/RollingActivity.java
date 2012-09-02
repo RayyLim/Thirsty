@@ -20,7 +20,7 @@ import android.widget.ImageView;
 
 public class RollingActivity extends Activity {
 	
-	private static final int FRAMEPERIOD = 200;
+	private static final int FRAMEPERIOD = 41;
 
 	private static int lastColor = 0;
 	
@@ -47,7 +47,7 @@ public class RollingActivity extends Activity {
         this.mRobot = this._application.mRobot;
         
         final ImageView drunkAnimation = (ImageView)this.findViewById(R.id.drunk_animation);
-        frameCount = this._application.frameImageList.length;
+        frameCount = this._application.tippsyAnimation.length;
         framePosition = 0;
         
 
@@ -63,7 +63,7 @@ public class RollingActivity extends Activity {
 
                     	runOnUiThread(new Runnable() { 
                     	    public void run() { 
-                    	    	drunkAnimation.setImageResource(_application.frameImageList[framePosition]);
+                    	    	drunkAnimation.setImageResource(_application.tippsyAnimation[framePosition]);
                                 framePosition = (framePosition + 1)%frameCount;
                                 
                     	    } 

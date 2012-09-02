@@ -76,6 +76,33 @@ public class Controller extends Application {
 			R.drawable.drunk_center,
 			R.drawable.drunk_left
 	};
+	
+	public int[] tippsyAnimation = new int[]{
+			R.drawable.animation0001,
+			R.drawable.animation0002,
+			R.drawable.animation0003,
+			R.drawable.animation0004,
+			R.drawable.animation0005,
+			R.drawable.animation0006,
+			R.drawable.animation0007,
+			R.drawable.animation0008,
+			R.drawable.animation0009,
+			R.drawable.animation0010,
+			R.drawable.animation0011,
+			R.drawable.animation0012,
+			R.drawable.animation0013,
+			R.drawable.animation0014,
+			R.drawable.animation0015,
+			R.drawable.animation0016,
+			R.drawable.animation0017,
+			R.drawable.animation0018,
+			R.drawable.animation0019,
+			R.drawable.animation0020,
+			R.drawable.animation0021,
+			R.drawable.animation0022,
+			R.drawable.animation0023,
+			R.drawable.animation0024
+	};
 
 	
 
