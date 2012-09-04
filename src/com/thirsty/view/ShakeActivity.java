@@ -40,12 +40,18 @@ public class ShakeActivity extends Activity {
         setContentView(R.layout.shake_view);
         
         this._application = (Controller)getApplication();
-        
-        
-        
+ 
+    }
+    
+    @Override
+    public void onStart()
+    {
+    	Log.i(TAG, "onStart()");
+    	
+    	super.onStart();
+    	
         this._application.setOnShakeListener(shakeListener);    
         this._application.startListeningForShake();
-        
     }
     
     OnShakeListener shakeListener = new OnShakeListener()

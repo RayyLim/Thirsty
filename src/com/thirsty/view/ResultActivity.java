@@ -99,6 +99,17 @@ public class ResultActivity extends Activity {
 
 	}
 
+	@Override
+    public void onStart()
+    {
+    	Log.i(TAG, "onStart()");
+    	
+    	super.onStart();
+    	
+        this._application.setOnShakeListener(shakeListener);    
+        this._application.startListeningForShake();
+    }
+    
 
 	OnShakeListener shakeListener = new OnShakeListener()
 	{
