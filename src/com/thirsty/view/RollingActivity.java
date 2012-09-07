@@ -36,6 +36,8 @@ public class RollingActivity extends Activity {
     private int framePosition = 0;
     private int frameCount = 0;
     
+    private boolean exitApplication = true;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	Log.i(TAG, "onCreate");
@@ -94,6 +96,8 @@ public class RollingActivity extends Activity {
     {
     	super.onStart();
     	
+    	exitApplication = true;
+    	
     	// thread for displaying the SplashScreen
         Thread spinTread = new Thread() {
             @Override
@@ -109,14 +113,21 @@ public class RollingActivity extends Activity {
     public void toNextActivity(View view)
     {
     	Log.i(TAG, "toNextActivity");
+    	exitApplication = false;
     	this._application.nextActivityFromRollingActivity(RollingActivity.this);
+
     }
 
-    public void onBackPressed() 
+    @Override
+    public void onStop() 
     {        
-    	Log.i(TAG, "onBackPressed");
-    	this._application.disconnectRobot();        
-    	super.onBackPressed();    
+    	super.onStop();
+
+    
+    	if(exitApplication)
+    	{
+    		this._application.disconnectRobot();
+    	}
     }
     
     public void spin(final int speed)
@@ -141,6 +152,7 @@ public class RollingActivity extends Activity {
   	  
   	  RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
 
+    	exitApplication = false;
   	this._application.nextActivityFromRollingActivity(RollingActivity.this);
 
   	  

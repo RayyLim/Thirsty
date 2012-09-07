@@ -22,6 +22,9 @@ public class ResultActivity extends Activity {
 	private Controller _application;
 	private int resultColorNumber;
 	private RelativeLayout infoView;
+	
+    
+    private boolean exitApplication = true;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,7 @@ public class ResultActivity extends Activity {
     	Log.i(TAG, "onStart()");
     	
     	super.onStart();
-    	
+    	exitApplication = true;
         this._application.setOnShakeListener(shakeListener);    
         this._application.startListeningForShake();
     }
@@ -115,8 +118,10 @@ public class ResultActivity extends Activity {
 	{
 		@Override
 		public void onShake() {
+			exitApplication = false;
 			_application.stopListeningForShake();
-			_application.nextActivityFromResultActivity(ResultActivity.this);		
+			_application.nextActivityFromResultActivity(ResultActivity.this);
+
 		}        	
 	};
 
@@ -131,8 +136,7 @@ public class ResultActivity extends Activity {
 	public void onBackPressed() 
 	{        
 		if(infoView.getVisibility() == View.GONE)
-		{
-			this._application.disconnectRobot();        
+		{      
 			super.onBackPressed();  
 		}
 		else
@@ -141,4 +145,16 @@ public class ResultActivity extends Activity {
 		}
 			
 	}
+	
+    @Override
+    public void onStop() 
+    {        
+    	super.onStop();
+
+    
+    	if(exitApplication)
+    	{
+    		this._application.disconnectRobot();
+    	}
+    }
 }

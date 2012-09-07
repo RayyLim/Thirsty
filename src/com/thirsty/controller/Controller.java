@@ -16,7 +16,6 @@ import orbotix.robot.sensor.AttitudeData;
 import orbotix.robot.sensor.DeviceSensorsData;
 
 import com.thirsty.R;
-import com.thirsty.view.ConnectActivity;
 import com.thirsty.view.ResultActivity;
 import com.thirsty.view.RollingActivity;
 import com.thirsty.view.SetupActivity;
@@ -219,15 +218,6 @@ public class Controller extends Application {
 		intent.addFlags(INTENT_FLAG);
 		activity.startActivity(intent); 
 		activity.finish();		
-	}
-
-	public void nextActivityFromConnectActivity(ConnectActivity activity) {
-		Log.i(TAG, "nextActivityFromConnectActivity()");
-		Intent intent = new Intent(activity, ShakeActivity.class); 
-		intent.addFlags(INTENT_FLAG);
-		activity.startActivity(intent);
-		activity.finish();
-
 	}
 
 	public void startListeningForShake() {
