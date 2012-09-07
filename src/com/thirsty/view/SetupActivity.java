@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -15,8 +16,12 @@ import android.widget.TextView;
 public class SetupActivity extends Activity {
     private Controller _application;
     
+	private final static String TAG = "SetupActivity";
+    
     protected boolean _active = true;
-    protected int _splashTime = 2000; // time to display the splash screen in ms
+    protected int _splashTime = 3000; // time to display the splash screen in ms
+    
+    private boolean exitApplication = true;
 
 
 	@Override
@@ -47,12 +52,23 @@ public class SetupActivity extends Activity {
                     // do nothing
                 } finally {
 
+                	exitApplication = false;
                 	_application.nextActivityFromSetupActivity(SetupActivity.this);
                     _active = false;
                 }
             }
         };
         splashTread.start();
+    }
+	
+    @Override
+    public void onStart()
+    {
+    	Log.i(TAG, "onStart()");
+    	
+    	super.onStart();
+    	
+        exitApplication = true;
     }
     
     @Override
@@ -69,9 +85,15 @@ public class SetupActivity extends Activity {
     	this._application.nextActivityFromSetupActivity(SetupActivity.this);
     }
 
-    public void onBackPressed() 
+    @Override
+    public void onStop() 
     {        
-    	this._application.disconnectRobot();        
-    	super.onBackPressed();    
+    	super.onStop();
+
+    
+    	if(exitApplication)
+    	{
+    		this._application.cleanUp();
+    	}
     }
 }

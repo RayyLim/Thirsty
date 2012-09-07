@@ -7,8 +7,10 @@ import orbotix.robot.base.DeviceAsyncData;
 import orbotix.robot.base.DeviceMessenger;
 import orbotix.robot.base.DeviceSensorsAsyncData;
 import orbotix.robot.base.RGBLEDOutputCommand;
+import orbotix.robot.base.RawMotorCommand;
 import orbotix.robot.base.Robot;
 import orbotix.robot.base.RobotProvider;
+import orbotix.robot.base.RollCommand;
 import orbotix.robot.base.SetDataStreamingCommand;
 import orbotix.robot.base.StabilizationCommand;
 import orbotix.robot.sensor.AccelerometerData;
@@ -16,7 +18,6 @@ import orbotix.robot.sensor.AttitudeData;
 import orbotix.robot.sensor.DeviceSensorsData;
 
 import com.thirsty.R;
-import com.thirsty.view.ConnectActivity;
 import com.thirsty.view.ResultActivity;
 import com.thirsty.view.RollingActivity;
 import com.thirsty.view.SetupActivity;
@@ -221,15 +222,6 @@ public class Controller extends Application {
 		activity.finish();		
 	}
 
-	public void nextActivityFromConnectActivity(ConnectActivity activity) {
-		Log.i(TAG, "nextActivityFromConnectActivity()");
-		Intent intent = new Intent(activity, ShakeActivity.class); 
-		intent.addFlags(INTENT_FLAG);
-		activity.startActivity(intent);
-		activity.finish();
-
-	}
-
 	public void startListeningForShake() {
 		requestDataStreaming();
 
@@ -343,5 +335,18 @@ public class Controller extends Application {
 	{
 		int count = getCountEverybodyDrinks() + 1;
 		setCountEverybodyDrinks(count);
+	}
+
+	
+	public void cleanUp() 
+	{
+		if(mRobot != null)
+		{
+		RawMotorCommand.sendCommand(mRobot, RawMotorCommand.MOTOR_MODE_FORWARD, 0, RawMotorCommand.MOTOR_MODE_REVERSE, 0);
+			RollCommand.sendStop(mRobot);
+		}
+		
+		disconnectRobot();
+		System.exit(0);
 	}
 }

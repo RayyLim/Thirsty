@@ -29,6 +29,8 @@ public class SplashActivity extends Activity {
     
     protected boolean _active = true;
     protected int _splashTime = 5000; // time to display the splash screen in ms
+    
+    private boolean exitApplication = true;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,16 +67,13 @@ public class SplashActivity extends Activity {
         splashTread.start();
     }
 	
-//	@Override
-//	public void onStart(){
-//		Log.i(TAG, "onCreate()");
-//    	super.onStart();
-//    	
-////    	launchActivityToConnectToSphero();
-//    	//Launch the StartupActivity to connect to the robot
-//		Intent i = new Intent(this, StartupActivity.class);  
-//		startActivityForResult(i, STARTUP_ACTIVITY);
-//	}
+	@Override
+	public void onStart(){
+		Log.i(TAG, "onStart()");
+    	super.onStart();
+
+    	exitApplication = true;
+	}
 
 	private void launchActivityToConnectToSphero() {
 		Log.i(TAG, "launchActivityToConnectToSphero()");
@@ -100,7 +99,9 @@ public class SplashActivity extends Activity {
                 this._application.mRobot = RobotProvider.getDefaultProvider().findRobot(robot_id);
             }
             
+            exitApplication = false;
             _application.nextActivityFromSplashActivity(this);
+
             
         }
     }
@@ -115,9 +116,16 @@ public class SplashActivity extends Activity {
         return true;
     }
     
-    public void onBackPressed() 
+    
+    @Override
+    public void onStop() 
     {        
-    	this._application.disconnectRobot();        
-    	super.onBackPressed();    
+    	super.onStop();
+
+    
+    	if(exitApplication)
+    	{
+    		this._application.cleanUp();
+    	}
     }
 }

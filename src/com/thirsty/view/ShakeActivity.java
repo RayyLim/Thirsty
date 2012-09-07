@@ -33,6 +33,8 @@ public class ShakeActivity extends Activity {
     private Controller _application;
 
       
+    private boolean exitApplication = true;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	Log.i(TAG, "onCreate()");
@@ -52,6 +54,7 @@ public class ShakeActivity extends Activity {
     	
         this._application.setOnShakeListener(shakeListener);    
         this._application.startListeningForShake();
+        exitApplication = true;
     }
     
     OnShakeListener shakeListener = new OnShakeListener()
@@ -59,6 +62,7 @@ public class ShakeActivity extends Activity {
 		@Override
 		public void onShake() {
 			_application.stopListeningForShake();
+			exitApplication = false;
 			_application.nextActivityFromShakeActivity(ShakeActivity.this);
 			
 		}        	
@@ -69,12 +73,19 @@ public class ShakeActivity extends Activity {
     {
     	super.onPause();    	
     	this._application.removeOnShakeListener(shakeListener);
+    	
+
     }
 
-    public void onBackPressed() 
+    @Override
+    public void onStop() 
     {        
-    	this._application.disconnectRobot();        
-    	super.onBackPressed();    
-    }
+    	super.onStop();
 
+    
+    	if(exitApplication)
+    	{
+    		this._application.cleanUp();
+    	}
+    }
 }
