@@ -90,7 +90,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#89000000"
-        android:visibility="gone" >
+        android:visibility="gone" 
+        android:onClick="closeInfoView">
 
         <RelativeLayout
             android:id="@+id/info_view_interior"

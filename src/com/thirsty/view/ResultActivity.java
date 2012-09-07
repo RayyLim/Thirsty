@@ -153,6 +153,11 @@ public class ResultActivity extends Activity {
 			
 	}
 	
+	public void closeInfoView(View v)
+	{
+		infoView.setVisibility(View.GONE);
+	}
+	
     @Override
     public void onStop() 
     {        
