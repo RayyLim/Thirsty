@@ -19,7 +19,7 @@ public class SetupActivity extends Activity {
 	private final static String TAG = "SetupActivity";
     
     protected boolean _active = true;
-    protected int _splashTime = 3000; // time to display the splash screen in ms
+    protected int _splashTime = 4000; // time to display the splash screen in ms
     
     private boolean exitApplication = true;
 
@@ -52,8 +52,11 @@ public class SetupActivity extends Activity {
                     // do nothing
                 } finally {
 
+                	if(_active)
+                	{
                 	exitApplication = false;
                 	_application.nextActivityFromSetupActivity(SetupActivity.this);
+                	}
                     _active = false;
                 }
             }
@@ -82,7 +85,10 @@ public class SetupActivity extends Activity {
     
     public void toNextActivity(View view)
     {
-    	this._application.nextActivityFromSetupActivity(SetupActivity.this);
+    	exitApplication = false;
+        _active = false;
+    	_application.nextActivityFromSetupActivity(SetupActivity.this);
+
     }
 
     @Override

@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" >
+        android:layout_marginTop="100dip" 
+        >
 
         <ImageView
             android:id="@+id/color_image"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/color_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-3dp"
+            android:layout_marginTop="-3dip"
             android:scaleType="matrix"
             android:src="@drawable/messagebg_everybody" />
 
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/messagebg_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="8dip"
             android:scaleType="matrix"
             android:src="@drawable/message_girls" />
 
@@ -49,8 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/messagebg_image"
             android:layout_alignRight="@+id/messagebg_image"
-            android:layout_marginBottom="13dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginBottom="13dip"
+            android:layout_marginRight="5dip"
             android:background="@android:color/transparent"
             android:src="@drawable/infobutton" />
 
@@ -61,10 +62,10 @@
             android:layout_alignBottom="@+id/messagebg_image"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="8dip"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:maxWidth="200dp"
+            android:maxWidth="200dip"
             android:text="@string/rule_everybody2"
             android:textColor="@android:color/white"
             android:textSize="17sp" />
@@ -77,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/messagebg_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="5dip"
             android:text="@string/pass_shake"
             android:textColor="@android:color/white"
             android:textSize="30sp" />
@@ -100,10 +101,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/dialogbackground"
-            android:paddingBottom="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="15dp" >
+            android:paddingBottom="20dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="15dip" >
 
             <TextView
                 android:id="@+id/info_rule_title"
@@ -122,7 +123,7 @@
                 android:layout_alignLeft="@+id/info_view_interior"
                 android:layout_below="@+id/info_rule_title"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="20dip"
                 android:background="@android:color/transparent"
                 android:text="Help Info Somewhat decently long description"
                 android:textColor="@android:color/white"

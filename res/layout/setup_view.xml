@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:onClick="toNextActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:paddingBottom="25dp"
+        android:paddingBottom="25dip"
         android:text="@string/game_end"
         android:textColor="@android:color/white"
         android:textSize="23sp" />
