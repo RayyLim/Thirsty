@@ -19,7 +19,7 @@ public class SetupActivity extends Activity {
 	private final static String TAG = "SetupActivity";
     
     protected boolean _active = true;
-    protected int _splashTime = 2000; // time to display the splash screen in ms
+    protected int _splashTime = 3000; // time to display the splash screen in ms
     
     private boolean exitApplication = true;
 
