@@ -125,7 +125,7 @@ public class SplashActivity extends Activity {
     
     	if(exitApplication)
     	{
-    		this._application.disconnectRobot();
+    		this._application.cleanUp();
     	}
     }
 }

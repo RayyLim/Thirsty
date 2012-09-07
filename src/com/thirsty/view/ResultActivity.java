@@ -25,6 +25,7 @@ public class ResultActivity extends Activity {
 	
     
     private boolean exitApplication = true;
+	private int shakeCount;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -109,6 +110,7 @@ public class ResultActivity extends Activity {
     	
     	super.onStart();
     	exitApplication = true;
+    	shakeCount = 0;
         this._application.setOnShakeListener(shakeListener);    
         this._application.startListeningForShake();
     }
@@ -119,8 +121,13 @@ public class ResultActivity extends Activity {
 		@Override
 		public void onShake() {
 			exitApplication = false;
+			shakeCount++;
 			_application.stopListeningForShake();
-			_application.nextActivityFromResultActivity(ResultActivity.this);
+			if(shakeCount == 1)
+			{
+				_application.nextActivityFromResultActivity(ResultActivity.this);
+			}
+			
 
 		}        	
 	};
@@ -154,7 +161,7 @@ public class ResultActivity extends Activity {
     
     	if(exitApplication)
     	{
-    		this._application.disconnectRobot();
+    		this._application.cleanUp();
     	}
     }
 }

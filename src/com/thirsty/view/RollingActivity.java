@@ -126,7 +126,7 @@ public class RollingActivity extends Activity {
     
     	if(exitApplication)
     	{
-    		this._application.disconnectRobot();
+    		this._application.cleanUp();
     	}
     }
     
