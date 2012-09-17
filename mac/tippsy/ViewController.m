@@ -14,7 +14,7 @@
 
 @implementation ViewController
 
-@synthesize txtName, lblHello;
+@synthesize txtName, lblHello, shakeViewController;
 
 - (void)viewDidLoad
 {
@@ -34,19 +34,28 @@
 }
 
 -(IBAction)updateText:(id)sender{
-    NSString *text;
-    if([txtName.text length] == 0)
-    {
-        text = @"Please enter your name";
-    }
-    else
-    {
-        text = [[NSString alloc] initWithFormat:@"Hello %@!", txtName.text];
-    }
+//    NSString *text;
+//    if([txtName.text length] == 0)
+//    {
+//        text = @"Please enter your name";
+//    }
+//    else
+//    {
+//        text = [[NSString alloc] initWithFormat:@"Hello %@!", txtName.text];
+//    }
+//    
+//    lblHello.text = text;
+//    
+//    [text release];
     
-    lblHello.text = text;
-    
-    [text release];
+    // Navigation Logic
+    if(self.shakeViewController == nil) {
+        ShakeViewController *shakeView = [[ShakeViewController alloc] initWithNibName:@"ShakeView" bundle:nil];
+        self.shakeViewController = shakeView;
+        [shakeView release];
+    }
+                                          [self presentModalViewController:self.shakeViewController animated:YES];
+//    [self.navigationController pushViewController:self.shakeViewController animated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
