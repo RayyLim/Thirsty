@@ -1,20 +1,20 @@
 //
-//  ShakeViewController.m
+//  SetupViewController.m
 //  tippsy
 //
 //  Created by Raymond Lim on 9/17/12.
 //  Copyright (c) 2012 Raymond Lim. All rights reserved.
 //
 
-#import "ShakeViewController.h"
+#import "SetupViewController.h"
 
-@interface ShakeViewController ()
+@interface SetupViewController ()
 
 @end
 
-@implementation ShakeViewController
+@implementation SetupViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, setupViewController;
+@synthesize imageView, photo, backgroundImageView, backgroundPhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +31,7 @@
 	// Do any additional setup after loading the view.
     
     
-    self.photo = [UIImage imageNamed:@"shake_message"];
+    self.photo = [UIImage imageNamed:@"set_sphero"];
     self.backgroundPhoto = [UIImage imageNamed:@"background"];
     
     CGSize photoSize = [photo size];
@@ -46,7 +46,7 @@
     // Create the image view.
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
     [self.imageView setImage:photo];
-        [self.view addSubview:imageView];
+    [self.view addSubview:imageView];
     
     //set contentMode to scale aspect to fit
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -69,20 +69,14 @@
 
 - (void)handleTap: (UITapGestureRecognizer *)sender
 {
-    
-    // Navigation Logic
-    if(self.setupViewController == nil) {
-        SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
-        self.setupViewController = setupView;
-        [setupView release];
-    }
-    [self presentModalViewController:self.setupViewController animated:YES];
+    [self.imageView removeFromSuperview];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -103,6 +103,8 @@
 		56B2F94816072DC20023D970 /* shake_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F8F216072DC20023D970 /* shake_message.png */; };
 		56B2F94916072DC20023D970 /* shake_to_roll.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F8F316072DC20023D970 /* shake_to_roll.png */; };
 		56B2F94A16072DC20023D970 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F8F416072DC20023D970 /* splash_screen.png */; };
+		56B2F94E16073F0B0023D970 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B2F94C16073F0B0023D970 /* SetupViewController.m */; };
+		56B2F94F16073F0B0023D970 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F94D16073F0B0023D970 /* SetupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +210,9 @@
 		56B2F8F216072DC20023D970 /* shake_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shake_message.png; path = res/shake_message.png; sourceTree = "<group>"; };
 		56B2F8F316072DC20023D970 /* shake_to_roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shake_to_roll.png; path = res/shake_to_roll.png; sourceTree = "<group>"; };
 		56B2F8F416072DC20023D970 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = res/splash_screen.png; sourceTree = "<group>"; };
+		56B2F94B16073F0B0023D970 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		56B2F94C16073F0B0023D970 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		56B2F94D16073F0B0023D970 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +283,7 @@
 		56B2F8991607260E0023D970 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56B2F94D16073F0B0023D970 /* SetupViewController.xib */,
 				56B2F88216071E1D0023D970 /* ViewController.xib */,
 				56B2F896160725B50023D970 /* ShakeView.xib */,
 			);
@@ -291,6 +297,8 @@
 				56B2F88016071E1D0023D970 /* ViewController.m */,
 				56B2F89B160726E40023D970 /* ShakeViewController.h */,
 				56B2F89C160726E40023D970 /* ShakeViewController.m */,
+				56B2F94B16073F0B0023D970 /* SetupViewController.h */,
+				56B2F94C16073F0B0023D970 /* SetupViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 				56B2F94816072DC20023D970 /* shake_message.png in Resources */,
 				56B2F94916072DC20023D970 /* shake_to_roll.png in Resources */,
 				56B2F94A16072DC20023D970 /* splash_screen.png in Resources */,
+				56B2F94F16073F0B0023D970 /* SetupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +551,7 @@
 				56B2F87E16071E1D0023D970 /* AppDelegate.m in Sources */,
 				56B2F88116071E1D0023D970 /* ViewController.m in Sources */,
 				56B2F89D160726E40023D970 /* ShakeViewController.m in Sources */,
+				56B2F94E16073F0B0023D970 /* SetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
