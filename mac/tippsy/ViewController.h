@@ -10,18 +10,12 @@
 #import "ShakeViewController.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate> {
-    IBOutlet UITextField *txtName;
-    IBOutlet UILabel *lblHello;
-    
     ShakeViewController *shakeViewController;
     
 }
 
-@property(nonatomic, retain) IBOutlet UITextField *txtName;
-@property(nonatomic, retain) IBOutlet UILabel *lblHello;
-
 @property(nonatomic, retain) ShakeViewController *shakeViewController;
 
-- (IBAction) updateText:(id) sender;
+- (IBAction) navigateToShakeView:(id) sender;
 
 @end

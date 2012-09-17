@@ -14,7 +14,7 @@
 
 @implementation ViewController
 
-@synthesize txtName, lblHello, shakeViewController;
+@synthesize shakeViewController;
 
 - (void)viewDidLoad
 {
@@ -33,21 +33,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(IBAction)updateText:(id)sender{
-//    NSString *text;
-//    if([txtName.text length] == 0)
-//    {
-//        text = @"Please enter your name";
-//    }
-//    else
-//    {
-//        text = [[NSString alloc] initWithFormat:@"Hello %@!", txtName.text];
-//    }
-//    
-//    lblHello.text = text;
-//    
-//    [text release];
-    
+-(IBAction)navigateToShakeView:(id)sender{  
     // Navigation Logic
     if(self.shakeViewController == nil) {
         ShakeViewController *shakeView = [[ShakeViewController alloc] initWithNibName:@"ShakeView" bundle:nil];
@@ -55,16 +41,6 @@
         [shakeView release];
     }
                                           [self presentModalViewController:self.shakeViewController animated:YES];
-//    [self.navigationController pushViewController:self.shakeViewController animated:YES];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if(theTextField == self.txtName)
-    {
-        [theTextField resignFirstResponder];
-    }
-    
-    return YES;
 }
 
 @end
