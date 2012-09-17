@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ShakeViewController.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate> {
+@interface ViewController : UIViewController {
     ShakeViewController *shakeViewController;
     
 }
