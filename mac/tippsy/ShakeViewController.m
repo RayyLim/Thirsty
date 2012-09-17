@@ -58,7 +58,19 @@
     
     self.imageView.center = self.view.center;
     
+//    self.imageView.canBecomeFirstResponder;
+    self.imageView.userInteractionEnabled = YES;
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.imageView addGestureRecognizer:tapGesture];
+    [tapGesture release];
+    
+    
+}
+
+- (void)handleTap: (UITapGestureRecognizer *)sender
+{
+    [self.imageView removeFromSuperview];
 }
 
 - (void)viewDidUnload
