@@ -24,6 +24,9 @@
     UIImageView *messageImageView;
     UIImageView *messageBackgroundImageView;
     UIImageView *infoImageView;
+    
+    UILabel *ruleLabel;
+        UILabel *shakeLabel;
 }
 
 @property(nonatomic, retain) UIImageView *imageView;
@@ -39,4 +42,6 @@
 @property(nonatomic, retain) UIImageView *messageImageView;
 @property(nonatomic, retain) UIImageView *messageBackgroundImageView;
 @property(nonatomic, retain) UIImageView *infoImageView;
+@property(nonatomic, retain) UILabel *ruleLabel;
+@property(nonatomic, retain) UILabel *shakeLabel;
 @end

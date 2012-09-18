@@ -7,20 +7,46 @@
 //
 
 #import "RollingViewController.h"
+#import "TippsyRule.h"
 
-@interface RollingViewController ()
+@interface RollingViewController () {
+    NSArray *colorArray;
+}
 
 @end
 
 @implementation RollingViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, resultView, colorPhoto, messagePhoto, messageBackgroundPhoto, infoPhoto, colorImageView, messageBackgroundImageView, messageImageView, infoImageView;
+@synthesize imageView, photo, backgroundImageView, backgroundPhoto, resultView, colorPhoto, messagePhoto, messageBackgroundPhoto, infoPhoto, colorImageView, messageBackgroundImageView, messageImageView, infoImageView, ruleLabel, shakeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        NSString *errorDesc = nil;
+        NSPropertyListFormat format;
+        NSString *plistPath;
+        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                  NSUserDomainMask, YES) objectAtIndex:0];
+        plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+            plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
+        }
+        NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+        NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
+                                              propertyListFromData:plistXML
+                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                              format:&format
+                                              errorDescription:&errorDesc];
+        if (!temp) {
+            NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        }
+        
+    colorArray = [NSArray arrayWithObjects:
+                  
+                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:[temp objectForKey:@"description_everybody"]],
+                  [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
+                  nil];
     }
     return self;
 }
@@ -28,7 +54,7 @@
 - (void)setImage: (UIView *)container :(UIImage *)setPhoto :(UIImageView *)setImageView :(NSString *)photoString :(int)imageWidth :(int)imageHeight :(int)x :(int)y
 {
     CGSize photoSize;
-    CGRect frame;
+//    CGRect frame;
     setPhoto = [UIImage imageNamed:photoString];
     photoSize = [setPhoto size];
     setImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, imageWidth, imageHeight)];
@@ -63,6 +89,8 @@
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.backgroundImageView.frame = self.view.frame;
     self.backgroundImageView.center = self.view.center;
+    
+    
     
     NSArray *animationImages = [NSArray arrayWithObjects:
                                 [UIImage imageNamed:@"animation0001"],
@@ -118,11 +146,38 @@
     self.resultView = [[UIView alloc] init];
     [self.view addSubview:resultView];
 
-    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:@"color_red":200:50:self.view.center.x:self.view.center.y];
-        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
-        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
+//    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:@"color_red":200:50:self.view.center.x:self.view.center.y];
+//        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
+//        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
+//    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
+    
+    TippsyRule *rule = [colorArray objectAtIndex:1];
+    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:200:50:self.view.center.x:self.view.center.y];
+    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:200:50:self.view.center.x:self.view.center.y];
+    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:200:50:self.view.center.x:self.view.center.y];
     [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
+    
+    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 100.0f, 200.0f)];
+    self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.ruleLabel.numberOfLines = 10;
+    self.ruleLabel.text = @"some text really long text that keeps going and going and going....";
+    self.ruleLabel.textColor=[UIColor whiteColor];
+    [self.ruleLabel setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
+    self.ruleLabel.backgroundColor=[UIColor clearColor];
+    [self.resultView addSubview:ruleLabel];
+    
+    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 100.0f, 200.0f)];
+    self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.shakeLabel.numberOfLines = 10;
+    self.shakeLabel.text = @"Pass and shake";
+    self.shakeLabel.textColor=[UIColor whiteColor];
+    [self.shakeLabel setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
+    self.shakeLabel.backgroundColor=[UIColor clearColor];
+    [self.resultView addSubview:shakeLabel];
+    
     self.resultView.hidden = YES;
+    
+   
     
 
     
