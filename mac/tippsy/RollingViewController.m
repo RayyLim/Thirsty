@@ -44,7 +44,7 @@
         
     colorArray = [NSArray arrayWithObjects:
                   
-                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:[temp objectForKey:@"description_everybody"]],
+                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
                   [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
                   nil];
     }
@@ -170,7 +170,10 @@
     [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:width:50:-1:90];
     [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:width:50:-1:250];
     [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:width:50:-1:233];
+    if(rule.description.length != 0)
+    {
     [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":40:40:230:340];
+    }
     
     self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 150.0f, 38.0f)];
     self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
@@ -190,6 +193,17 @@
     
     self.ruleLabel.frame = ruleLabelFrame;
         self.ruleLabel.textAlignment = UITextAlignmentCenter;
+//    rule.description = @"";
+//    if(rule.description.length == 0)
+//    {
+//        self.infoImageView.hidden = YES;
+//    [self.infoImageView removeFromSuperview];
+    
+//    }
+//    else
+//    {
+//        self.infoImageView.hidden = NO;
+//    }
     
     self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 40.0f)];
     self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
