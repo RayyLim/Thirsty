@@ -162,7 +162,7 @@
     self.ruleLabel.numberOfLines = 10;
     self.ruleLabel.text = @"some text really long text that keeps going and going and going....";
     self.ruleLabel.textColor=[UIColor whiteColor];
-    [self.ruleLabel setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
+    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:18]];
     self.ruleLabel.backgroundColor=[UIColor clearColor];
     [self.resultView addSubview:ruleLabel];
     
@@ -171,7 +171,7 @@
     self.shakeLabel.numberOfLines = 10;
     self.shakeLabel.text = @"Pass and shake";
     self.shakeLabel.textColor=[UIColor whiteColor];
-    [self.shakeLabel setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
+    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:18]];
     self.shakeLabel.backgroundColor=[UIColor clearColor];
     [self.resultView addSubview:shakeLabel];
     
