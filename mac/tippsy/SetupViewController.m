@@ -14,7 +14,7 @@
 
 @implementation SetupViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto;
+@synthesize imageView, photo, backgroundImageView, backgroundPhoto, rollingViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,7 +69,13 @@
 
 - (void)handleTap: (UITapGestureRecognizer *)sender
 {
-    [self.imageView removeFromSuperview];
+    // Navigation Logic
+    if(self.rollingViewController == nil) {
+        RollingViewController *rollingView = [[RollingViewController alloc] initWithNibName:@"RollingViewController" bundle:nil];
+        self.rollingViewController = rollingView;
+        [rollingView release];
+    }
+    [self presentModalViewController:self.rollingViewController animated:YES];
 }
 
 - (void)viewDidUnload

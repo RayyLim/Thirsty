@@ -105,6 +105,8 @@
 		56B2F94A16072DC20023D970 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F8F416072DC20023D970 /* splash_screen.png */; };
 		56B2F94E16073F0B0023D970 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B2F94C16073F0B0023D970 /* SetupViewController.m */; };
 		56B2F94F16073F0B0023D970 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F94D16073F0B0023D970 /* SetupViewController.xib */; };
+		56B2F9531607F54F0023D970 /* RollingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B2F9511607F54F0023D970 /* RollingViewController.m */; };
+		56B2F9541607F54F0023D970 /* RollingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B2F9521607F54F0023D970 /* RollingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,9 @@
 		56B2F94B16073F0B0023D970 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 		56B2F94C16073F0B0023D970 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
 		56B2F94D16073F0B0023D970 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		56B2F9501607F54F0023D970 /* RollingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollingViewController.h; sourceTree = "<group>"; };
+		56B2F9511607F54F0023D970 /* RollingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollingViewController.m; sourceTree = "<group>"; };
+		56B2F9521607F54F0023D970 /* RollingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RollingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +290,7 @@
 			children = (
 				56B2F94D16073F0B0023D970 /* SetupViewController.xib */,
 				56B2F88216071E1D0023D970 /* ViewController.xib */,
+				56B2F9521607F54F0023D970 /* RollingViewController.xib */,
 				56B2F896160725B50023D970 /* ShakeView.xib */,
 			);
 			name = View;
@@ -299,6 +305,8 @@
 				56B2F89C160726E40023D970 /* ShakeViewController.m */,
 				56B2F94B16073F0B0023D970 /* SetupViewController.h */,
 				56B2F94C16073F0B0023D970 /* SetupViewController.m */,
+				56B2F9501607F54F0023D970 /* RollingViewController.h */,
+				56B2F9511607F54F0023D970 /* RollingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -537,6 +545,7 @@
 				56B2F94916072DC20023D970 /* shake_to_roll.png in Resources */,
 				56B2F94A16072DC20023D970 /* splash_screen.png in Resources */,
 				56B2F94F16073F0B0023D970 /* SetupViewController.xib in Resources */,
+				56B2F9541607F54F0023D970 /* RollingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +561,7 @@
 				56B2F88116071E1D0023D970 /* ViewController.m in Sources */,
 				56B2F89D160726E40023D970 /* ShakeViewController.m in Sources */,
 				56B2F94E16073F0B0023D970 /* SetupViewController.m in Sources */,
+				56B2F9531607F54F0023D970 /* RollingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +640,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tippsy/tippsy-Prefix.pch";
 				INFOPLIST_FILE = "tippsy/tippsy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -641,6 +652,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tippsy/tippsy-Prefix.pch";
 				INFOPLIST_FILE = "tippsy/tippsy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
