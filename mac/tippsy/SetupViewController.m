@@ -14,7 +14,7 @@
 
 @implementation SetupViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, rollingViewController;
+@synthesize imageView, photo, backgroundImageView, backgroundPhoto, rollingViewController, setupLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,25 +44,44 @@
     self.backgroundImageView.center = self.view.center;
     
     // Create the image view.
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 225, photoSize.height)];
     [self.imageView setImage:photo];
     [self.view addSubview:imageView];
     
     //set contentMode to scale aspect to fit
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
+    self.imageView.center = self.view.center;
     //change width of frame
     CGRect frame = imageView.frame;
-    frame.size.width = 200;
+
+    
+    frame.origin.y = imageView.frame.origin.y - 35;
     imageView.frame = frame;
     
-    self.imageView.center = self.view.center;
+   
     
     self.imageView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.imageView addGestureRecognizer:tapGesture];
     [tapGesture release];
+    
+    self.setupLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 80.0f)];
+    self.setupLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.setupLabel.numberOfLines = 2;
+    self.setupLabel.text = @"Game ends after everyone gets tippsy";
+    self.setupLabel.textColor=[UIColor whiteColor];
+    [self.setupLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:24]];
+    self.setupLabel.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:setupLabel];
+    
+    self.setupLabel.center = self.view.center;
+    CGRect setupLabelFrame = self.setupLabel.frame;
+    setupLabelFrame.origin.y = 330;
+    
+    self.setupLabel.frame = setupLabelFrame;
+    self.setupLabel.textAlignment = UITextAlignmentCenter;
     
     
 }

@@ -51,13 +51,14 @@
     return self;
 }
 
-- (void)setImage: (UIView *)container :(UIImage *)setPhoto :(UIImageView *)setImageView :(NSString *)photoString :(int)imageWidth :(int)imageHeight :(int)x :(int)y
+- (void)setImage: (UIView *)container :(UIImage *)setPhoto :(UIImageView *)setImageView :(NSString *)photoString :(int)imageWidth :(int)imageHeight :(int)x :(int)y 
 {
     CGSize photoSize;
 //    CGRect frame;
     setPhoto = [UIImage imageNamed:photoString];
     photoSize = [setPhoto size];
     setImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, imageWidth, imageHeight)];
+//    setImageView = [[UIImageView alloc] init];
 
     [setImageView setImage:setPhoto];
     [self.resultView addSubview:setImageView];
@@ -67,7 +68,21 @@
 //    frame.size.width = imageWidth;
 //    frame.size.height = imageHeight;
 //    setImageView.frame = frame;
-//    setImageView.center = self.view.center;
+    
+//    if(center)
+//    {
+
+    setImageView.center = self.view.center;
+//        setImageView.center = self.view.center.x;
+//    }
+    
+    CGRect frame = setImageView.frame;
+    if(x != -1)
+    {
+        frame.origin.x = x;
+    }
+    frame.origin.y = y;
+    setImageView.frame = frame;
 }
 
 - (void)viewDidLoad
@@ -119,7 +134,7 @@
                                 [UIImage imageNamed:@"animation0024"],
                                 nil];
     // Create the image view.
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 250, photoSize.height)];
 //    [self.imageView setImage:photo];
     self.imageView.animationImages = animationImages;
     self.imageView.animationDuration = 1.25; // seconds
@@ -130,10 +145,10 @@
     //set contentMode to scale aspect to fit
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    //change width of frame
-    CGRect frame = imageView.frame;
-    frame.size.width = 200;
-    imageView.frame = frame;
+//    //change width of frame
+//    CGRect frame = imageView.frame;
+//    frame.size.width = 200;
+//    imageView.frame = frame;
     
     self.imageView.center = self.view.center;
     
@@ -150,30 +165,47 @@
 //        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
 //        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
 //    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
-    
+    int width = 225;
     TippsyRule *rule = [colorArray objectAtIndex:1];
-    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:200:50:self.view.center.x:self.view.center.y];
-    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:200:50:self.view.center.x:self.view.center.y];
-    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:200:50:self.view.center.x:self.view.center.y];
-    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
+    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:width:50:-1:90];
+    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:width:50:-1:250];
+    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:width:50:-1:233];
+    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":40:40:230:340];
     
-    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 100.0f, 200.0f)];
+    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 150.0f, 38.0f)];
     self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
-    self.ruleLabel.numberOfLines = 10;
-    self.ruleLabel.text = @"some text really long text that keeps going and going and going....";
+
+    self.ruleLabel.numberOfLines = 2;
+    self.ruleLabel.text = rule.rule;
     self.ruleLabel.textColor=[UIColor whiteColor];
-    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:18]];
+    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
     self.ruleLabel.backgroundColor=[UIColor clearColor];
     [self.resultView addSubview:ruleLabel];
+
+
+//    [self.ruleLabel sizeToFit];
+        self.ruleLabel.center = self.view.center;
+    CGRect ruleLabelFrame = self.ruleLabel.frame;
+    ruleLabelFrame.origin.y = 344;
     
-    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 100.0f, 200.0f)];
+    self.ruleLabel.frame = ruleLabelFrame;
+        self.ruleLabel.textAlignment = UITextAlignmentCenter;
+    
+    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 40.0f)];
     self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.shakeLabel.numberOfLines = 10;
     self.shakeLabel.text = @"Pass and shake";
     self.shakeLabel.textColor=[UIColor whiteColor];
-    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:18]];
+    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:28]];
     self.shakeLabel.backgroundColor=[UIColor clearColor];
     [self.resultView addSubview:shakeLabel];
+    
+    self.shakeLabel.center = self.view.center;
+    CGRect shakeLabelFrame = self.shakeLabel.frame;
+    shakeLabelFrame.origin.y = 400;
+    
+    self.shakeLabel.frame = shakeLabelFrame;
+    self.shakeLabel.textAlignment = UITextAlignmentCenter;
     
     self.resultView.hidden = YES;
     

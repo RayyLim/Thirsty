@@ -14,6 +14,7 @@ UIImage* photo;
 UIImage* backgroundPhoto;
 UIImageView *imageView;
 UIImageView *backgroundImageView;
+    UILabel *setupLabel;
     
     RollingViewController *rollingViewController;
 }
@@ -24,4 +25,5 @@ UIImageView *backgroundImageView;
 @property(nonatomic, retain) UIImage *backgroundPhoto;
 
 @property(nonatomic, retain) RollingViewController *rollingViewController;
+@property(nonatomic, retain) UILabel *setupLabel;
 @end
