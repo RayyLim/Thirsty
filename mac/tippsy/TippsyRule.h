@@ -30,5 +30,4 @@
 
 - (id)initWithRule:(NSString *)initmessage:(NSString *)initmessagebg:(NSString *)initcolor:(int)initred:(int)initgreen:(int)initblue:(NSString *)initrule:(NSString *)initdescription;
 
-
 @end

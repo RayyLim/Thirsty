@@ -7,6 +7,7 @@
 //
 
 #import "ResultViewController.h"
+#import "SharedModel.h"
 
 @interface ResultViewController ()
 @end
@@ -37,38 +38,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    NSString *errorDesc = nil;
-    NSPropertyListFormat format;
-    NSString *plistPath;
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                              NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
-    }
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-    NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
-                                          propertyListFromData:plistXML
-                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                          format:&format
-                                          errorDescription:&errorDesc];
-    if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
-    }
+
     
-    colorArray = [NSArray arrayWithObjects:
-                  
-                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
-                  [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
-                  nil];
-    
-    if(colorArray)
-    {
-    TippsyRule *rule = [colorArray objectAtIndex:1];
+
+    TippsyRule *rule = [[[SharedModel sharedModel] colorArray] objectAtIndex:1];
     self.descriptionTitleLabel.text = rule.rule;
     self.descriptionTextLabel.text = rule.description;
-        [rule release];
-    }
+//        [rule release];
 }
 
 - (void)viewDidLoad
