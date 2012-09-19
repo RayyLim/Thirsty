@@ -66,6 +66,14 @@
 //    _sv.frame = CGRectMake(0.0, 0.0, 320.0, self.view.bounds.size.height);
     
     [self.imageView startAnimating];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self
+               action:@selector(handleButtonTap:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"Show View" forState:UIControlStateNormal];
+    button.frame = self.view.frame;
+    [self.view addSubview:button];
 }
 
 - (void)viewDidLoad
@@ -238,13 +246,7 @@
 //    //    [self.descriptionView addGestureRecognizer:tapInfoGesture];
 //    [tapInfoGesture release];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self
-               action:@selector(handleButtonTap:)
-     forControlEvents:UIControlEventTouchDown];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
-    button.frame = self.view.frame;
-    [self.view addSubview:button];
+
     
 }
 //
@@ -313,7 +315,7 @@
 - (IBAction)handleButtonTap: (id)sender{
     
     
-
+        [self.imageView stopAnimating];
     
     // Navigation Logic
     if(self.resultViewController == nil) {
@@ -322,7 +324,8 @@
         [nextView release];
     }
     [self presentModalViewController:self.resultViewController animated:NO];
-        [self.imageView stopAnimating];
+    [sender removeFromSuperview];
+
     
 //    [self.imageView ]
 //    [sender removeFromSuperview];

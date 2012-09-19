@@ -59,17 +59,11 @@
     self.descriptionTextLabel.text = rule.description;
 }
 
-- (void)viewDidLoad
+- (void)initializeDescriptionView
 {
-    [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.descriptionView = [[UIView alloc] init];
-    
-    //    self.descriptionView.alpha = (CGFloat)0.5;
-    //    self.descriptionView.backgroundColor = [UIColor blackColor];
-    ////    CGRect descpriptionViewFrame = self.view.frame;
-    //    self.descriptionView.frame = self.view.frame;
     
     UIView *overlay = [[UIView alloc] init];
     overlay.alpha = (CGFloat)0.5;
@@ -80,18 +74,15 @@
     [overlay release];
     
     self.dialogBackgroundPhoto = [UIImage imageNamed:@"dialogbackground"];
-    
     self.dialogBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 275.0f, 380.0f)];
     [self.dialogBackgroundImageView setImage:dialogBackgroundPhoto];
     [self.descriptionView addSubview:dialogBackgroundImageView];
     self.dialogBackgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-    
     self.dialogBackgroundImageView.center = self.view.center;
     
     self.descriptionTitleLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 40.0f)];
     self.descriptionTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.descriptionTitleLabel.numberOfLines = 0;
-//    self.descriptionTitleLabel.text = rule.rule;
     self.descriptionTitleLabel.text = @"Rule Title";
     self.descriptionTitleLabel.textColor=[UIColor whiteColor];
     [self.descriptionTitleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:28]];
@@ -108,7 +99,6 @@
     self.descriptionTextLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 200.0f)];
     self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.descriptionTextLabel.numberOfLines = 0;
-//    self.descriptionTextLabel.text = rule.description;
     self.descriptionTextLabel.text = @"Rule Description";
     self.descriptionTextLabel.textColor=[UIColor whiteColor];
     [self.descriptionTextLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
@@ -121,11 +111,12 @@
     
     self.descriptionTextLabel.frame = descriptionTextLabelFrame;
     self.descriptionTextLabel.textAlignment = UITextAlignmentLeft;
-    
-    
-    
-//    [self.view addSubview:descriptionView];
+}
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self initializeDescriptionView];
 }
 
 - (void)viewDidUnload
@@ -141,15 +132,6 @@
 }
 
 - (IBAction) navigateToRollingViewContainer:(id) sender{
-
-    
-    // Navigation Logic
-//    if(self.rollingViewController == nil) {
-//        RollingViewController *nextView = [[RollingViewController alloc] initWithNibName:@"RollingViewController" bundle:nil];
-//        self.rollingViewController = nextView;
-//        [nextView release];
-//    }
-//    [self presentModalViewController:self.rollingViewController animated:YES];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -161,7 +143,6 @@
     [button addTarget:self
                action:@selector(hideInfoDialog:)
      forControlEvents:UIControlEventTouchDown];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
 }
