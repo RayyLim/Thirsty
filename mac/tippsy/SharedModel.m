@@ -8,9 +8,13 @@
 
 #import "SharedModel.h"
 
-@implementation SharedModel
+@implementation SharedModel {
+    NSString *shakeToStartAgainMessage;
+    NSString *passAndShakeMessage;
+    int everybodyCount;
+}
 
-@synthesize colorArray;
+@synthesize colorArray, bottomMessage;
 
 + (id)sharedModel {
     static SharedModel *sharedModel = nil;
@@ -23,6 +27,11 @@
 
 - (id)init {
     if (self = [super init]) {
+        shakeToStartAgainMessage = @"Shake to start again";
+        passAndShakeMessage = @"Pass and shake";
+        self.bottomMessage = passAndShakeMessage;
+        everybodyCount = 0;
+        
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
         NSString *plistPath;
@@ -53,6 +62,24 @@
 
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
+}
+
+- (TippsyRule *)getRule:(int) position {
+    if(position == 1)
+    {
+        everybodyCount = (everybodyCount + 1) % 4;
+    }
+    
+    if(everybodyCount == 3)
+    {
+        buttomMessage = passAndShakeMessage;
+    }
+    else
+    {
+        buttomMessage = shakeToStartAgainMessage;
+    }
+    
+    return [self.colorArray objectAtIndex:position];
 }
 
 @end

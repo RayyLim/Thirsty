@@ -14,7 +14,7 @@
 
 @implementation ResultViewController
 
-@synthesize descriptionView, dialogBackgroundImageView, dialogBackgroundPhoto, descriptionTitleLabel, descriptionTextLabel;
+@synthesize descriptionView, dialogBackgroundImageView, dialogBackgroundPhoto, descriptionTitleLabel, descriptionTextLabel, shakeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,9 +41,10 @@
 
     
 
-    TippsyRule *rule = [[[SharedModel sharedModel] colorArray] objectAtIndex:1];
+    TippsyRule *rule = [[SharedModel sharedModel] getRule:1];
     self.descriptionTitleLabel.text = rule.rule;
     self.descriptionTextLabel.text = rule.description;
+    self.shakeLabel.text = [[SharedModel sharedModel] bottomMessage];
 //        [rule release];
 }
 

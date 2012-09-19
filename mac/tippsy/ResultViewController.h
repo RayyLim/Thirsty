@@ -17,7 +17,8 @@
     UILabel *descriptionTextLabel;
      UIImage* dialogBackgroundPhoto;
         UIImageView *dialogBackgroundImageView;
-//           NSArray *colorArray; 
+//           NSArray *colorArray;
+            IBOutlet UILabel *shakeLabel;
 }
 
 //@property(nonatomic, retain) RollingViewController *rollingViewController;
@@ -26,6 +27,7 @@
 @property(nonatomic, retain) UILabel *descriptionTextLabel;
 @property(nonatomic, retain) UIImage* dialogBackgroundPhoto;
 @property(nonatomic, retain) UIImageView *dialogBackgroundImageView;
+@property(nonatomic, retain) IBOutlet UILabel *shakeLabel;
 //  @property(nonatomic, retain)      NSArray *colorArray; 
 
 - (IBAction) navigateToRollingViewContainer:(id) sender;

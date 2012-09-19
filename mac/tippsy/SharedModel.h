@@ -11,11 +11,13 @@
 
 @interface SharedModel : NSObject {
      NSArray *colorArray;
+    NSString *buttomMessage;
 }
 
 @property (nonatomic, retain) NSArray *colorArray;
-
+@property (nonatomic, retain) NSString *bottomMessage;
 
 + (id)sharedModel;
+- (TippsyRule *) getRule:(int)position;
 
 @end
