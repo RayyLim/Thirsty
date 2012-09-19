@@ -11,7 +11,7 @@
 
 @interface SharedModel : NSObject {
      NSArray *colorArray;
-    NSString *buttomMessage;
+    NSString *bottomMessage;
 }
 
 @property (nonatomic, retain) NSArray *colorArray;

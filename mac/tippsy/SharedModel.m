@@ -72,13 +72,14 @@
     
     if(everybodyCount == 3)
     {
-        buttomMessage = passAndShakeMessage;
+        self.bottomMessage = shakeToStartAgainMessage;
     }
     else
     {
-        buttomMessage = shakeToStartAgainMessage;
+
+                self.bottomMessage = passAndShakeMessage;
     }
-    
+//    self.bottomMessage = shakeToStartAgainMessage;
     return [self.colorArray objectAtIndex:position];
 }
 
