@@ -9,18 +9,20 @@
 #import "ResultViewController.h"
 #import "SharedModel.h"
 
-@interface ResultViewController ()
+@interface ResultViewController () {
+    int ruleCount;
+}
 @end
 
 @implementation ResultViewController
 
-@synthesize descriptionView, dialogBackgroundImageView, dialogBackgroundPhoto, descriptionTitleLabel, descriptionTextLabel, shakeLabel, ruleLabel, colorImageView, messageImageView, messageBackgroundImageView;
+@synthesize descriptionView, dialogBackgroundImageView, dialogBackgroundPhoto, descriptionTitleLabel, descriptionTextLabel, shakeLabel, ruleLabel, colorImageView, messageImageView, messageBackgroundImageView, infoButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        ruleCount = 0;
     }
     return self;
 }
@@ -41,7 +43,7 @@
 
     
 
-    TippsyRule *rule = [[SharedModel sharedModel] getRule:0];
+    TippsyRule *rule = [[SharedModel sharedModel] getRule:ruleCount];
     self.descriptionTitleLabel.text = rule.drinkingRule;
     self.descriptionTextLabel.text = rule.description;
     self.shakeLabel.text = [[SharedModel sharedModel] bottomMessage];
@@ -49,6 +51,16 @@
         [self.messageBackgroundImageView setImage:[UIImage imageNamed:rule.messagebg ]];
         [self.messageImageView setImage:[UIImage imageNamed:rule.message]];
     self.ruleLabel.text = rule.drinkingRule;
+    if(rule.description.length == 0)
+    {
+        infoButton.hidden = YES;
+    }
+    else
+    {
+        infoButton.hidden = NO;
+    }
+    
+    ruleCount = (ruleCount + 1)%[[[SharedModel sharedModel] colorArray] count];
 
 //        [rule release];
 }

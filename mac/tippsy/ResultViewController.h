@@ -28,6 +28,7 @@
     IBOutlet UIImageView *colorImageView;
     IBOutlet UIImageView *messageImageView;
     IBOutlet UIImageView *messageBackgroundImageView;
+    IBOutlet UIButton *infoButton;
     
 }
 
@@ -42,6 +43,7 @@
 @property(nonatomic, retain) IBOutlet UIImageView *colorImageView;
 @property(nonatomic, retain) IBOutlet UIImageView *messageImageView;
 @property(nonatomic, retain) IBOutlet UIImageView *messageBackgroundImageView;
+@property(nonatomic, retain) IBOutlet UIButton *infoButton;
 //  @property(nonatomic, retain)      NSArray *colorArray;
 
 - (IBAction) navigateToRollingViewContainer:(id) sender;
