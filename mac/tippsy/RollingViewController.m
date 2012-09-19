@@ -28,27 +28,15 @@
 - (void)setImage: (UIView *)container :(UIImage *)setPhoto :(UIImageView *)setImageView :(NSString *)photoString :(int)imageWidth :(int)imageHeight :(int)x :(int)y 
 {
     CGSize photoSize;
-//    CGRect frame;
     setPhoto = [UIImage imageNamed:photoString];
     photoSize = [setPhoto size];
     setImageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, imageWidth, imageHeight)];
-//    setImageView = [[UIImageView alloc] init];
 
     [setImageView setImage:setPhoto];
     [container addSubview:setImageView];
     setImageView.contentMode = UIViewContentModeScaleAspectFill;
-    //change width of frame
-//    frame = colorImageView.frame;
-//    frame.size.width = imageWidth;
-//    frame.size.height = imageHeight;
-//    setImageView.frame = frame;
-    
-//    if(center)
-//    {
 
     setImageView.center = self.view.center;
-//        setImageView.center = self.view.center.x;
-//    }
     
     CGRect frame = setImageView.frame;
     if(x != -1)
@@ -62,8 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear:");
-//    _sv.frame = CGRectMake(0.0, 0.0, 320.0, self.view.bounds.size.height);
-    
+   
     [self.imageView startAnimating];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -77,27 +64,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    // Do any additional setup after loading the view from its nib.
-    
-//    self.photo = [UIImage imageNamed:@"animation001"];
-//    CGSize photoSize = [photo size];
     
     self.photo = [UIImage imageNamed:@"animation0001"];
-//    self.backgroundPhoto = [UIImage imageNamed:@"background"];
 
     CGSize photoSize = [photo size];
-//
-////    self.backgroundImageView = [[UIImageView alloc] init];
-////    [self.backgroundImageView setImage:backgroundPhoto];
-////    [self.view addSubview:backgroundImageView];
-////    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-////    self.backgroundImageView.frame = self.view.frame;
-////    self.backgroundImageView.center = self.view.center;
-//    
-//    self.animationView = [[UIView alloc] init];
-//    [self.view addSubview:animationView];
-//    
-    
+  
     NSArray *animationImages = [NSArray arrayWithObjects:
                                 [UIImage imageNamed:@"animation0001"],
                                 [UIImage imageNamed:@"animation0002"],
@@ -126,7 +97,6 @@
                                 nil];
     // Create the image view.
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 250, photoSize.height)];
-//    [self.imageView setImage:photo];
     self.imageView.animationImages = animationImages;
     self.imageView.animationDuration = 1.25; // seconds
     self.imageView.animationRepeatCount = 0; // 0 = loops forever
@@ -136,169 +106,18 @@
     //set contentMode to scale aspect to fit
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-//    //change width of frame
-//    CGRect frame = imageView.frame;
-//    frame.size.width = 200;
-//    imageView.frame = frame;
-    
-    self.imageView.center = self.view.center;
-//
-//    self.imageView.userInteractionEnabled = YES;
-////        self.animationView.userInteractionEnabled = NO;
-////    self.imageView.exclusiveTouch = YES;
-//    
-//       
-//    self.resultView = [[UIView alloc] init];
-//    [self.view addSubview:resultView];
-//    
-// 
-//
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-//    [self.imageView addGestureRecognizer:tapGesture];
-//
-//    
-//    [tapGesture release];
-//
-//    
-//    
-//
-//    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:@"color_red":200:50:self.view.center.x:self.view.center.y];
-//        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
-//        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
-//    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
-    int width = 225;
 
-//    if(rule.description.length != 0)
-//    {
-//
-//        [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":40:40:230:340];
-////                    self.infoImageView.userInteractionEnabled = YES;
-////        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleInfo:)];
-////        [self.infoImageView addGestureRecognizer:tapGesture2];
-////        
-////        [tapGesture2 release];
-//        
-//    }
-//    
-//    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 150.0f, 38.0f)];
-//    self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
-//
-//    self.ruleLabel.numberOfLines = 2;
-//    self.ruleLabel.text = rule.rule;
-//    self.ruleLabel.textColor=[UIColor whiteColor];
-//    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
-//    self.ruleLabel.backgroundColor=[UIColor clearColor];
-//    [self.resultView addSubview:ruleLabel];
-//
-//
-////    [self.ruleLabel sizeToFit];
-//        self.ruleLabel.center = self.view.center;
-//    CGRect ruleLabelFrame = self.ruleLabel.frame;
-//    ruleLabelFrame.origin.y = 344;
-//    
-//    self.ruleLabel.frame = ruleLabelFrame;
-//        self.ruleLabel.textAlignment = UITextAlignmentCenter;
-////    rule.description = @"";
-////    if(rule.description.length == 0)
-////    {
-////        self.infoImageView.hidden = YES;
-////    [self.infoImageView removeFromSuperview];
-//    
-////    }
-////    else
-////    {
-////        self.infoImageView.hidden = NO;
-////    }
-//    
-//    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 40.0f)];
-//    self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
-//    self.shakeLabel.numberOfLines = 10;
-//    self.shakeLabel.text = @"Pass and shake";
-//    self.shakeLabel.textColor=[UIColor whiteColor];
-//    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:26]];
-//    self.shakeLabel.backgroundColor=[UIColor clearColor];
-//    [self.resultView addSubview:shakeLabel];
-//    
-//    self.shakeLabel.center = self.view.center;
-//    CGRect shakeLabelFrame = self.shakeLabel.frame;
-//    shakeLabelFrame.origin.y = 400;
-//    
-//    self.shakeLabel.frame = shakeLabelFrame;
-//    self.shakeLabel.textAlignment = UITextAlignmentCenter;
-//    
-//    self.resultView.hidden = YES;
-//    
-//    self.descriptionView.hidden = YES;
-    
-//    self.view.userInteractionEnabled = YES;
-//
-//    self.descriptionView.userInteractionEnabled = YES;
-//    self.infoImageView.userInteractionEnabled = YES;
-//    
-//    UITapGestureRecognizer *tapInfoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-//    [self.infoImageView addGestureRecognizer:tapInfoGesture];
-//    //    [self.descriptionView addGestureRecognizer:tapInfoGesture];
-//    [tapInfoGesture release];
-    
+    self.imageView.center = self.view.center;
+   
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self
                action:@selector(handleButtonTap:)
      forControlEvents:UIControlEventTouchDown];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
 }
-//
-//- (void)handleTap: (UITapGestureRecognizer *)sender
-//{
-//    [self.imageView stopAnimating];
-//    
-//        // Navigation Logic
-//        if(self.resultViewController == nil) {
-//            ResultViewController *nextView = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-//            self.resultViewController = nextView;
-//            [nextView release];
-//        }
-//        [self.navigationController pushViewController:self.resultViewController animated:YES];
-//    
-//    //    if(self.imageView.isAnimating)
-//    //    {
-//    //        //        [self.view addSubview:resultView];
-//    ////        [self.view addSubview:infoImageView];
-//    //               self.resultView.hidden = NO;
-//    ////        [self.imageView removeFromSuperview];
-//    //
-//    //
-//    //    }
-//    //    else
-//    //    {
-//    //        //        self.animationView.hidden = NO;
-//    //        [self.imageView startAnimating];
-//    //        self.resultView.hidden = YES;
-//    //
-//    //
-//}
 
-//- (void)toggleInfo: (UITapGestureRecognizer *)sender
-//{
-//    if(self.descriptionView.isHidden)
-//    {
-//        self.descriptionView.hidden = NO;
-//    }
-//    else
-//    {
-//        self.descriptionView.hidden = YES;
-//    }
-//}
-    
-    
-//    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
-//    [self.imageView setImage:photo];
-    
-//    [self.view addSubview:imageView];
-//    [self.imageView release];
-//}
 
 - (void)viewDidUnload
 {
@@ -326,26 +145,6 @@
     [self presentModalViewController:self.resultViewController animated:NO];
     [sender removeFromSuperview];
 
-    
-//    [self.imageView ]
-//    [sender removeFromSuperview];
-    
-//    if(self.imageView.isAnimating)
-//    {
-//        //        [self.view addSubview:resultView];
-////        [self.view addSubview:infoImageView];
-//               self.resultView.hidden = NO;
-////        [self.imageView removeFromSuperview];
-//        
-//        
-//    }
-//    else
-//    {
-//        //        self.animationView.hidden = NO;
-//        [self.imageView startAnimating];
-//        self.resultView.hidden = YES;
-//
-//        
     }
 
 
