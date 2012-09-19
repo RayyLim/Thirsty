@@ -48,6 +48,7 @@
     TippsyRule *rule = [[SharedModel sharedModel] getRule:ruleCount];
     self.descriptionTitleLabel.text = rule.drinkingRule;
     self.descriptionTextLabel.text = rule.description;
+    
     self.shakeLabel.text = [[SharedModel sharedModel] bottomMessage];
     [self.colorImageView setImage:[UIImage imageNamed:rule.color ]];
         [self.messageBackgroundImageView setImage:[UIImage imageNamed:rule.messagebg ]];
@@ -71,7 +72,7 @@
 {
     // Do any additional setup after loading the view from its nib.
     
-    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
+    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
     [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:26]];
     
     self.descriptionView = [[UIView alloc] init];
@@ -107,18 +108,23 @@
     self.descriptionTitleLabel.frame = descriptionTitleLabelFrame;
     self.descriptionTitleLabel.textAlignment = UITextAlignmentCenter;
     
-    self.descriptionTextLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 200.0f)];
-    self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-    self.descriptionTextLabel.numberOfLines = 0;
+    self.descriptionTextLabel= [[UITextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 240.0f, 250.0f)];
+//    self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+//    self.descriptionTextLabel.numberOfLines = 0;
+
+    self.descriptionTextLabel.editable = NO;
+    
+    
+    
     self.descriptionTextLabel.text = @"World";
     self.descriptionTextLabel.textColor=[UIColor whiteColor];
-    [self.descriptionTextLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
+    [self.descriptionTextLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
     self.descriptionTextLabel.backgroundColor=[UIColor clearColor];
     [self.descriptionView addSubview:descriptionTextLabel];
     
     self.descriptionTextLabel.center = self.view.center;
     CGRect descriptionTextLabelFrame = self.descriptionTextLabel.frame;
-    descriptionTextLabelFrame.origin.y = 110;
+    descriptionTextLabelFrame.origin.y = 100;
     
     self.descriptionTextLabel.frame = descriptionTextLabelFrame;
     self.descriptionTextLabel.textAlignment = UITextAlignmentLeft;

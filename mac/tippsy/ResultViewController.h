@@ -14,7 +14,7 @@
 {
     UIView *descriptionView;
     UILabel *descriptionTitleLabel;
-    UILabel *descriptionTextLabel;
+    UITextView *descriptionTextLabel;
      UIImage* dialogBackgroundPhoto;
         UIImageView *dialogBackgroundImageView;
 //           NSArray *colorArray;
@@ -35,7 +35,7 @@
 //@property(nonatomic, retain) RollingViewController *rollingViewController;
 @property(nonatomic, retain) UIView *descriptionView;
 @property(nonatomic, retain) UILabel *descriptionTitleLabel;
-@property(nonatomic, retain) UILabel *descriptionTextLabel;
+@property(nonatomic, retain) UITextView *descriptionTextLabel;
 @property(nonatomic, retain) UIImage* dialogBackgroundPhoto;
 @property(nonatomic, retain) UIImageView *dialogBackgroundImageView;
 @property(nonatomic, retain) IBOutlet UILabel *shakeLabel;
