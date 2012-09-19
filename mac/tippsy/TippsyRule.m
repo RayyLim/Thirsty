@@ -10,7 +10,7 @@
 
 @implementation TippsyRule
 
-@synthesize message,messagebg,color,red, green, blue, rule,description;
+@synthesize message,messagebg,color,red, green, blue, drinkingRule,description;
 
 - (id)initWithRule:(NSString *)initmessage:(NSString *)initmessagebg:(NSString *)initcolor:(int)initred:(int)initgreen:(int)initblue:(NSString *)initrule:(NSString *)initdescription {
     self = [super init];
@@ -23,7 +23,7 @@
         self.red = initred;
         self.green = initgreen;
         self.blue = initblue;
-        self.rule = [initrule copy];
+        self.drinkingRule = [initrule copy];
         self.description = [initdescription copy];
     }
     return self;

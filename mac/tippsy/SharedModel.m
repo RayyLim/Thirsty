@@ -11,6 +11,10 @@
 @implementation SharedModel {
     NSString *shakeToStartAgainMessage;
     NSString *passAndShakeMessage;
+    NSString *everybodyMessage1;
+    NSString *everybodyMessage2;
+    NSString *everybodyMessage3;
+    NSString *everybodyMessage4;
     int everybodyCount;
 }
 
@@ -32,6 +36,7 @@
         self.bottomMessage = passAndShakeMessage;
         everybodyCount = 0;
         
+
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
         NSString *plistPath;
@@ -51,6 +56,11 @@
             NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
         }
         
+        everybodyMessage1 = [[temp objectForKey:@"rule_everybody"] copy];
+        everybodyMessage2 = [[temp objectForKey:@"rule_everybody2"] copy];
+        everybodyMessage3 = [[temp objectForKey:@"rule_everybody3"] copy];
+        everybodyMessage4 = [NSString stringWithFormat:@"Game Over\nTippsy Yet?"];
+        
         self.colorArray = [NSArray arrayWithObjects:
                       
                       [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
@@ -65,22 +75,37 @@
 }
 
 - (TippsyRule *)getRule:(int) position {
-    if(position == 1)
-    {
-        everybodyCount = (everybodyCount + 1) % 4;
-    }
+    TippsyRule *tippyrule = [self.colorArray objectAtIndex:position];
     
-    if(everybodyCount == 3)
+    if(position == 0)
     {
-        self.bottomMessage = shakeToStartAgainMessage;
-    }
-    else
+    
+    switch (everybodyCount)
     {
+        case 0:
+            tippyrule.drinkingRule = everybodyMessage1;
+            self.bottomMessage = passAndShakeMessage;
+            break;
+        case 1:
+            tippyrule.drinkingRule = everybodyMessage2;
 
-                self.bottomMessage = passAndShakeMessage;
+            self.bottomMessage = passAndShakeMessage;
+            break;
+        case 2:
+            tippyrule.drinkingRule = everybodyMessage3;
+
+            self.bottomMessage = passAndShakeMessage;
+            break;
+        case 3:
+            tippyrule.drinkingRule = [NSString stringWithFormat:@"Game Over\nTippsy Yet?"];
+
+            self.bottomMessage = shakeToStartAgainMessage;
+            break;
     }
+everybodyCount = (everybodyCount + 1) % 4;
+}
 //    self.bottomMessage = shakeToStartAgainMessage;
-    return [self.colorArray objectAtIndex:position];
+    return tippyrule;
 }
 
 @end

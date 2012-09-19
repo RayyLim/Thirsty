@@ -11,7 +11,7 @@
 @interface TippsyRule : NSObject{
     NSString *message;
     NSString *messagebg;
-    NSString *rule;
+    NSString *drinkingRule;
     NSString *description;
     NSString *color;
     int red;
@@ -21,7 +21,7 @@
 
 @property(nonatomic, retain) NSString *message;
 @property(nonatomic, retain) NSString *messagebg;
-@property(nonatomic, retain) NSString *rule;
+@property(nonatomic, retain) NSString *drinkingRule;
 @property(nonatomic, retain) NSString *description;
 @property(nonatomic, retain) NSString *color;
 @property int red;

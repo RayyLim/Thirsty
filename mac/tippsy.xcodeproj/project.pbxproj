@@ -13,7 +13,6 @@
 		565E9D9716087569005946F3 /* dialogbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 565E9D9616087569005946F3 /* dialogbackground.png */; };
 		565E9D9B160952D4005946F3 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9D99160952D3005946F3 /* ResultViewController.m */; };
 		565E9D9C160952D4005946F3 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E9D9A160952D3005946F3 /* ResultViewController.xib */; };
-		565E9D9F1609812B005946F3 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9D9E1609812B005946F3 /* SwitchViewController.m */; };
 		565E9DBE16099FDD005946F3 /* SharedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9DBD16099FDD005946F3 /* SharedModel.m */; };
 		56B2F86E16071E1D0023D970 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B2F86D16071E1D0023D970 /* UIKit.framework */; };
 		56B2F87016071E1D0023D970 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B2F86F16071E1D0023D970 /* Foundation.framework */; };
@@ -126,8 +125,6 @@
 		565E9D98160952D3005946F3 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		565E9D99160952D3005946F3 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		565E9D9A160952D3005946F3 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
-		565E9D9D1609812B005946F3 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
-		565E9D9E1609812B005946F3 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		565E9DBC16099FDD005946F3 /* SharedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedModel.h; sourceTree = "<group>"; };
 		565E9DBD16099FDD005946F3 /* SharedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedModel.m; sourceTree = "<group>"; };
 		56B2F86916071E1D0023D970 /* tippsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tippsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,8 +331,6 @@
 				56B2F9511607F54F0023D970 /* RollingViewController.m */,
 				565E9D98160952D3005946F3 /* ResultViewController.h */,
 				565E9D99160952D3005946F3 /* ResultViewController.m */,
-				565E9D9D1609812B005946F3 /* SwitchViewController.h */,
-				565E9D9E1609812B005946F3 /* SwitchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -600,7 +595,6 @@
 				56B2F9531607F54F0023D970 /* RollingViewController.m in Sources */,
 				565E9D9116084275005946F3 /* TippsyRule.m in Sources */,
 				565E9D9B160952D4005946F3 /* ResultViewController.m in Sources */,
-				565E9D9F1609812B005946F3 /* SwitchViewController.m in Sources */,
 				565E9DBE16099FDD005946F3 /* SharedModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

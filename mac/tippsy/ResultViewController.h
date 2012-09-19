@@ -19,6 +19,16 @@
         UIImageView *dialogBackgroundImageView;
 //           NSArray *colorArray;
             IBOutlet UILabel *shakeLabel;
+    IBOutlet UILabel *ruleLabel;
+    
+    UIImage* colorPhoto;
+    UIImage* messagePhoto;
+    UIImage* messageBackgroundPhoto;
+    
+    IBOutlet UIImageView *colorImageView;
+    IBOutlet UIImageView *messageImageView;
+    IBOutlet UIImageView *messageBackgroundImageView;
+    
 }
 
 //@property(nonatomic, retain) RollingViewController *rollingViewController;
@@ -28,7 +38,11 @@
 @property(nonatomic, retain) UIImage* dialogBackgroundPhoto;
 @property(nonatomic, retain) UIImageView *dialogBackgroundImageView;
 @property(nonatomic, retain) IBOutlet UILabel *shakeLabel;
-//  @property(nonatomic, retain)      NSArray *colorArray; 
+@property(nonatomic, retain) IBOutlet UILabel *ruleLabel;
+@property(nonatomic, retain) IBOutlet UIImageView *colorImageView;
+@property(nonatomic, retain) IBOutlet UIImageView *messageImageView;
+@property(nonatomic, retain) IBOutlet UIImageView *messageBackgroundImageView;
+//  @property(nonatomic, retain)      NSArray *colorArray;
 
 - (IBAction) navigateToRollingViewContainer:(id) sender;
 - (IBAction) showInfoDialog:(id) sender;
