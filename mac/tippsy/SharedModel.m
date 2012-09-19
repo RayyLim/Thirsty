@@ -70,10 +70,6 @@
     return self;
 }
 
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-}
-
 - (TippsyRule *)getRule:(int) position {
     TippsyRule *tippyrule = [self.colorArray objectAtIndex:position];
     
