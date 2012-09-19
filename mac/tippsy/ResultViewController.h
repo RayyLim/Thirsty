@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import "RollingViewController.h"
+#import "TippsyRule.h"
 
 @interface ResultViewController : UIViewController
 {
@@ -16,6 +17,7 @@
     UILabel *descriptionTextLabel;
      UIImage* dialogBackgroundPhoto;
         UIImageView *dialogBackgroundImageView;
+           NSArray *colorArray; 
 }
 
 //@property(nonatomic, retain) RollingViewController *rollingViewController;
@@ -24,6 +26,7 @@
 @property(nonatomic, retain) UILabel *descriptionTextLabel;
 @property(nonatomic, retain) UIImage* dialogBackgroundPhoto;
 @property(nonatomic, retain) UIImageView *dialogBackgroundImageView;
+  @property(nonatomic, retain)      NSArray *colorArray; 
 
 - (IBAction) navigateToRollingViewContainer:(id) sender;
 - (IBAction) showInfoDialog:(id) sender;

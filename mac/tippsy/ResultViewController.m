@@ -8,8 +8,7 @@
 
 #import "ResultViewController.h"
 
-@interface ResultViewController () 
-
+@interface ResultViewController ()
 @end
 
 @implementation ResultViewController
@@ -20,9 +19,56 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear:");
+    //    _sv.frame = CGRectMake(0.0, 0.0, 320.0, self.view.bounds.size.height);
+    
+//    [self.imageView startAnimating];
+
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSString *errorDesc = nil;
+    NSPropertyListFormat format;
+    NSString *plistPath;
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                              NSUserDomainMask, YES) objectAtIndex:0];
+    plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
+    }
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+    NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
+                                          propertyListFromData:plistXML
+                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                          format:&format
+                                          errorDescription:&errorDesc];
+    if (!temp) {
+        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+    }
+    
+    colorArray = [NSArray arrayWithObjects:
+                  
+                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
+                  [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
+                  nil];
+    
+    if(colorArray)
+    {
+    TippsyRule *rule = [colorArray objectAtIndex:1];
+    self.descriptionTitleLabel.text = rule.rule;
+    self.descriptionTextLabel.text = rule.description;
+        [rule release];
+    }
 }
 
 - (void)viewDidLoad
@@ -45,6 +91,8 @@
     [self.descriptionView addSubview:overlay];
     [overlay release];
     
+    self.dialogBackgroundPhoto = [UIImage imageNamed:@"dialogbackground"];
+    
     self.dialogBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 275.0f, 380.0f)];
     [self.dialogBackgroundImageView setImage:dialogBackgroundPhoto];
     [self.descriptionView addSubview:dialogBackgroundImageView];
@@ -55,7 +103,7 @@
     self.descriptionTitleLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 40.0f)];
     self.descriptionTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.descriptionTitleLabel.numberOfLines = 0;
-//    self.descriptionTitleLabel.text = rule.rule;
+
     self.descriptionTitleLabel.text = @"Hello";
     self.descriptionTitleLabel.textColor=[UIColor whiteColor];
     [self.descriptionTitleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:28]];
@@ -72,7 +120,7 @@
     self.descriptionTextLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 200.0f)];
     self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.descriptionTextLabel.numberOfLines = 0;
-//    self.descriptionTextLabel.text = rule.description;
+
     self.descriptionTextLabel.text = @"World";
     self.descriptionTextLabel.textColor=[UIColor whiteColor];
     [self.descriptionTextLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
@@ -125,7 +173,7 @@
     [button addTarget:self
                action:@selector(hideInfoDialog:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
 }

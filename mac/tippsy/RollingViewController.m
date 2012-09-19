@@ -7,11 +7,8 @@
 //
 
 #import "RollingViewController.h"
-#import "TippsyRule.h"
 
-@interface RollingViewController () {
-    NSArray *colorArray;
-    }
+@interface RollingViewController () 
 
 @end
 
@@ -23,30 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSString *errorDesc = nil;
-        NSPropertyListFormat format;
-        NSString *plistPath;
-        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                  NSUserDomainMask, YES) objectAtIndex:0];
-        plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-            plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
-        }
-        NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-        NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
-                                              propertyListFromData:plistXML
-                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                              format:&format
-                                              errorDescription:&errorDesc];
-        if (!temp) {
-            NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
-        }
-        
-    colorArray = [NSArray arrayWithObjects:
-                  
-                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
-                  [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
-                  nil];
+  
     }
     return self;
 }
@@ -103,8 +77,7 @@
     
     self.photo = [UIImage imageNamed:@"animation0001"];
 //    self.backgroundPhoto = [UIImage imageNamed:@"background"];
-    self.dialogBackgroundPhoto = [UIImage imageNamed:@"dialogbackground"];
-    
+
     CGSize photoSize = [photo size];
 //
 ////    self.backgroundImageView = [[UIImageView alloc] init];
@@ -187,7 +160,6 @@
 ////        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
 ////    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
 //    int width = 225;
-//    TippsyRule *rule = [colorArray objectAtIndex:1];
 //    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:width:50:-1:90];
 //    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:width:50:-1:250];
 //    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:width:50:-1:233];
@@ -267,7 +239,7 @@
     [button addTarget:self
                action:@selector(handleButtonTap:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
