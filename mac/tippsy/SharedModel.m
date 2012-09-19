@@ -65,7 +65,21 @@
                       
                       [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
                       [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
+                           [[TippsyRule alloc] initWithRule:@"message_chug":@"messagebg_chug":@"color_magenta":236:0:140:[temp objectForKey:@"rule_chug"]:[temp objectForKey:@"description_chug"]],
+                           [[TippsyRule alloc] initWithRule:@"message_floor":@"messagebg_floor":@"color_green":0:166:81:[temp objectForKey:@"rule_floor"]:[temp objectForKey:@"description_floor"]],
+                           [[TippsyRule alloc] initWithRule:@"message_girls":@"messagebg_girls":@"color_pink":226:138:175:[temp objectForKey:@"rule_girls"]:[temp objectForKey:@"description_girls"]],
+                           [[TippsyRule alloc] initWithRule:@"message_guys":@"messagebg_guys":@"color_blue":28:117:118:[temp objectForKey:@"rule_guys"]:[temp objectForKey:@"description_guys"]],
+                           [[TippsyRule alloc] initWithRule:@"message_left":@"messagebg_left":@"color_lightblue":128:212:252:[temp objectForKey:@"rule_left"]:[temp objectForKey:@"description_left"]],
+                           [[TippsyRule alloc] initWithRule:@"message_questionmaster":@"messagebg_questionmaster":@"color_bronze":209:98:24:[temp objectForKey:@"rule_questionmaster"]:[temp objectForKey:@"description_questionmaster"]],
+                           [[TippsyRule alloc] initWithRule:@"message_rhyme":@"messagebg_rhyme":@"color_purple":101:44:144:[temp objectForKey:@"rule_rhyme"]:[temp objectForKey:@"description_rhyme"]],
+                           [[TippsyRule alloc] initWithRule:@"message_right":@"messagebg_right":@"color_teal":16:150:121:[temp objectForKey:@"rule_right"]:[temp objectForKey:@"description_right"]],
+                           [[TippsyRule alloc] initWithRule:@"message_sky":@"messagebg_sky":@"color_cyan":103:215:249:[temp objectForKey:@"rule_sky"]:[temp objectForKey:@"description_sky"]],
+                           [[TippsyRule alloc] initWithRule:@"message_thumbwar":@"messagebg_thumbwar":@"color_red":237:28:36:[temp objectForKey:@"rule_thumbwar"]:[temp objectForKey:@"description_thumbwar"]],
+                           [[TippsyRule alloc] initWithRule:@"message_thumbking":@"messagebg_thumbking":@"color_silver":209:210:212:[temp objectForKey:@"rule_thumbking"]:[temp objectForKey:@"description_thumbking"]],
+                           [[TippsyRule alloc] initWithRule:@"message_vikingking":@"messagebg_vikingking":@"color_gold":251:227:150:[temp objectForKey:@"rule_vikingking"]:[temp objectForKey:@"description_vikingking"]],
+                           [[TippsyRule alloc] initWithRule:@"message_waterfall":@"messagebg_waterfall":@"color_orange":247:148:30:[temp objectForKey:@"rule_waterfall"]:[temp objectForKey:@"description_waterfall"]],
                       nil];
+        
     }
     return self;
 }

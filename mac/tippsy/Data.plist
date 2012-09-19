@@ -57,7 +57,7 @@
 	<key>description_left</key>
 	<string></string>
 	<key>description_questionmaster</key>
-	<string>The player that shook becomes the &quot;Question Master&quot;. The Question Master can ask a question at any time. Whenever a player answers the Question Master\&apos;s question with a statement, that player must drink. The shaker is the Question Master until a new Question Master is declared.</string>
+	<string>The player that shook becomes the &quot;Question Master&quot;. The Question Master can ask a question at any time. Whenever a player answers the Question Master&apos;s question with a statement, that player must drink. The shaker is the Question Master until a new Question Master is declared.</string>
 	<key>description_rhyme</key>
 	<string>The player who shook says a phrase, then the players go around in the circle saying phrases that rhyme with the original. No phrase may be said twice, the first player who can not come up with a phrase, or says a phrase that does not rhyme must drink.</string>
 	<key>description_right</key>

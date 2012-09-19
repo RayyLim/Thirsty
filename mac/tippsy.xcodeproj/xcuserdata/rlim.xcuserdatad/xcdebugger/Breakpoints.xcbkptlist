@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "tippsy/SharedModel.m"
-         timestampString = "369737698.761318"
+         timestampString = "369738494.638991"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-getRule:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "tippsy/SharedModel.m"
-         timestampString = "369737698.761318"
+         timestampString = "369738494.638991"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-getRule:"
          landmarkType = "5">
       </FileBreakpoint>
