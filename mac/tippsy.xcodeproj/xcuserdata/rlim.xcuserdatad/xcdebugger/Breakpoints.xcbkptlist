@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "tippsy/RollingViewController.m"
-         timestampString = "369648101.819607"
+         timestampString = "369725904.666059"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "-setImage::::::::"
          landmarkType = "5">
       </FileBreakpoint>
