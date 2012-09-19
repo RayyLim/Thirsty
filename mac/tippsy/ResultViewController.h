@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import "RollingViewController.h"
+#import "TippsyRule.h"
 
 @interface ResultViewController : UIViewController
 {

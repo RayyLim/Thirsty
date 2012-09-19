@@ -22,32 +22,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        NSString *errorDesc = nil;
-        NSPropertyListFormat format;
-        NSString *plistPath;
-        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                  NSUserDomainMask, YES) objectAtIndex:0];
-        plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-            plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
-        }
-        NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-        NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
-                                              propertyListFromData:plistXML
-                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                              format:&format
-                                              errorDescription:&errorDesc];
-        if (!temp) {
-            NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
-        }
-        
-    colorArray = [NSArray arrayWithObjects:
-                  
-                  [[TippsyRule alloc] initWithRule:@"message_everybody":@"messagebg_everybody":@"color_yellow":255:242:0:[temp objectForKey:@"rule_everybody"]:@""],
-                  [[TippsyRule alloc] initWithRule:@"message_categories":@"messagebg_categories":@"color_yellowgreen":226:245:76:[temp objectForKey:@"rule_categories"]:[temp objectForKey:@"description_categories"]],
-                  nil];
-    }
+
     return self;
 }
 
@@ -267,7 +242,7 @@
     [button addTarget:self
                action:@selector(handleButtonTap:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
