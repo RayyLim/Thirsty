@@ -124,12 +124,6 @@
     self.descriptionTextLabel.textAlignment = UITextAlignmentLeft;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self initializeDescriptionView];
-}
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];

@@ -19,13 +19,9 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-<<<<<<< HEAD
-
-=======
     if (self) {
   
     }
->>>>>>> switchBetweenViews
     return self;
 }
 
@@ -74,7 +70,6 @@
     [button addTarget:self
                action:@selector(handleButtonTap:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
 }
@@ -245,9 +240,6 @@
 //    //    [self.descriptionView addGestureRecognizer:tapInfoGesture];
 //    [tapInfoGesture release];
     
-<<<<<<< HEAD
-
-=======
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self
                action:@selector(handleButtonTap:)
@@ -255,7 +247,6 @@
 //    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
->>>>>>> switchBetweenViews
     
 }
 //

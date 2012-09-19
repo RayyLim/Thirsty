@@ -102,8 +102,12 @@
             self.bottomMessage = shakeToStartAgainMessage;
             break;
     }
+        
 everybodyCount = (everybodyCount + 1) % 4;
 }
+    else{
+        self.bottomMessage = passAndShakeMessage;
+    }
 //    self.bottomMessage = shakeToStartAgainMessage;
     return tippyrule;
 }
