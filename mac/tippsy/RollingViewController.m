@@ -11,13 +11,13 @@
 
 @interface RollingViewController () {
     NSArray *colorArray;
-}
+    }
 
 @end
 
 @implementation RollingViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, resultView, colorPhoto, messagePhoto, messageBackgroundPhoto, infoPhoto, colorImageView, messageBackgroundImageView, messageImageView, infoImageView, ruleLabel, shakeLabel;
+@synthesize imageView, photo, backgroundImageView, backgroundPhoto, resultView, colorPhoto, messagePhoto, messageBackgroundPhoto, infoPhoto, colorImageView, messageBackgroundImageView, messageImageView, infoImageView, ruleLabel, shakeLabel, descriptionView, descriptionTextLabel, descriptionTitleLabel, dialogBackgroundImageView, dialogBackgroundPhoto, animationView, resultViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +61,7 @@
 //    setImageView = [[UIImageView alloc] init];
 
     [setImageView setImage:setPhoto];
-    [self.resultView addSubview:setImageView];
+    [container addSubview:setImageView];
     setImageView.contentMode = UIViewContentModeScaleAspectFill;
     //change width of frame
 //    frame = colorImageView.frame;
@@ -88,161 +88,271 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-//    self.photo = [UIImage imageNamed:@"animation001"];
+//    // Do any additional setup after loading the view from its nib.
+//    
+////    self.photo = [UIImage imageNamed:@"animation001"];
+////    CGSize photoSize = [photo size];
+//    
+//    self.photo = [UIImage imageNamed:@"animation0001"];
+////    self.backgroundPhoto = [UIImage imageNamed:@"background"];
+//    self.dialogBackgroundPhoto = [UIImage imageNamed:@"dialogbackground"];
+//    
 //    CGSize photoSize = [photo size];
-    
-    self.photo = [UIImage imageNamed:@"animation0001"];
-    self.backgroundPhoto = [UIImage imageNamed:@"background"];
-    
-    CGSize photoSize = [photo size];
-    
-    self.backgroundImageView = [[UIImageView alloc] init];
-    [self.backgroundImageView setImage:backgroundPhoto];
-    [self.view addSubview:backgroundImageView];
-    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.backgroundImageView.frame = self.view.frame;
-    self.backgroundImageView.center = self.view.center;
-    
-    
-    
-    NSArray *animationImages = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"animation0001"],
-                                [UIImage imageNamed:@"animation0002"],
-                                [UIImage imageNamed:@"animation0003"],
-                                [UIImage imageNamed:@"animation0004"],
-                                [UIImage imageNamed:@"animation0005"],
-                                [UIImage imageNamed:@"animation0006"],
-                                [UIImage imageNamed:@"animation0007"],
-                                [UIImage imageNamed:@"animation0008"],
-                                [UIImage imageNamed:@"animation0009"],
-                                [UIImage imageNamed:@"animation0010"],
-                                [UIImage imageNamed:@"animation0011"],
-                                [UIImage imageNamed:@"animation0012"],
-                                [UIImage imageNamed:@"animation0013"],
-                                [UIImage imageNamed:@"animation0014"],
-                                [UIImage imageNamed:@"animation0015"],
-                                [UIImage imageNamed:@"animation0016"],
-                                [UIImage imageNamed:@"animation0017"],
-                                [UIImage imageNamed:@"animation0018"],
-                                [UIImage imageNamed:@"animation0019"],
-                                [UIImage imageNamed:@"animation0020"],
-                                [UIImage imageNamed:@"animation0021"],
-                                [UIImage imageNamed:@"animation0022"],
-                                [UIImage imageNamed:@"animation0023"],
-                                [UIImage imageNamed:@"animation0024"],
-                                nil];
-    // Create the image view.
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 250, photoSize.height)];
-//    [self.imageView setImage:photo];
-    self.imageView.animationImages = animationImages;
-    self.imageView.animationDuration = 1.25; // seconds
-    self.imageView.animationRepeatCount = 0; // 0 = loops forever
-    [self.imageView startAnimating];
-    [self.view addSubview:imageView];
-    
-    //set contentMode to scale aspect to fit
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-//    //change width of frame
-//    CGRect frame = imageView.frame;
-//    frame.size.width = 200;
-//    imageView.frame = frame;
-    
-    self.imageView.center = self.view.center;
-    
-    self.imageView.userInteractionEnabled = YES;
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    [self.imageView addGestureRecognizer:tapGesture];
-    [tapGesture release];
-    
-    self.resultView = [[UIView alloc] init];
-    [self.view addSubview:resultView];
-
-//    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:@"color_red":200:50:self.view.center.x:self.view.center.y];
-//        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
-//        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
-//    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
-    int width = 225;
-    TippsyRule *rule = [colorArray objectAtIndex:1];
-    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:width:50:-1:90];
-    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:width:50:-1:250];
-    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:width:50:-1:233];
-    if(rule.description.length != 0)
-    {
-    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":40:40:230:340];
-    }
-    
-    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 150.0f, 38.0f)];
-    self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
-
-    self.ruleLabel.numberOfLines = 2;
-    self.ruleLabel.text = rule.rule;
-    self.ruleLabel.textColor=[UIColor whiteColor];
-    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
-    self.ruleLabel.backgroundColor=[UIColor clearColor];
-    [self.resultView addSubview:ruleLabel];
-
-
-//    [self.ruleLabel sizeToFit];
-        self.ruleLabel.center = self.view.center;
-    CGRect ruleLabelFrame = self.ruleLabel.frame;
-    ruleLabelFrame.origin.y = 344;
-    
-    self.ruleLabel.frame = ruleLabelFrame;
-        self.ruleLabel.textAlignment = UITextAlignmentCenter;
-//    rule.description = @"";
-//    if(rule.description.length == 0)
+//    
+////    self.backgroundImageView = [[UIImageView alloc] init];
+////    [self.backgroundImageView setImage:backgroundPhoto];
+////    [self.view addSubview:backgroundImageView];
+////    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+////    self.backgroundImageView.frame = self.view.frame;
+////    self.backgroundImageView.center = self.view.center;
+//    
+//    self.animationView = [[UIView alloc] init];
+//    [self.view addSubview:animationView];
+//    
+//    
+//    NSArray *animationImages = [NSArray arrayWithObjects:
+//                                [UIImage imageNamed:@"animation0001"],
+//                                [UIImage imageNamed:@"animation0002"],
+//                                [UIImage imageNamed:@"animation0003"],
+//                                [UIImage imageNamed:@"animation0004"],
+//                                [UIImage imageNamed:@"animation0005"],
+//                                [UIImage imageNamed:@"animation0006"],
+//                                [UIImage imageNamed:@"animation0007"],
+//                                [UIImage imageNamed:@"animation0008"],
+//                                [UIImage imageNamed:@"animation0009"],
+//                                [UIImage imageNamed:@"animation0010"],
+//                                [UIImage imageNamed:@"animation0011"],
+//                                [UIImage imageNamed:@"animation0012"],
+//                                [UIImage imageNamed:@"animation0013"],
+//                                [UIImage imageNamed:@"animation0014"],
+//                                [UIImage imageNamed:@"animation0015"],
+//                                [UIImage imageNamed:@"animation0016"],
+//                                [UIImage imageNamed:@"animation0017"],
+//                                [UIImage imageNamed:@"animation0018"],
+//                                [UIImage imageNamed:@"animation0019"],
+//                                [UIImage imageNamed:@"animation0020"],
+//                                [UIImage imageNamed:@"animation0021"],
+//                                [UIImage imageNamed:@"animation0022"],
+//                                [UIImage imageNamed:@"animation0023"],
+//                                [UIImage imageNamed:@"animation0024"],
+//                                nil];
+//    // Create the image view.
+//    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 250, photoSize.height)];
+////    [self.imageView setImage:photo];
+//    self.imageView.animationImages = animationImages;
+//    self.imageView.animationDuration = 1.25; // seconds
+//    self.imageView.animationRepeatCount = 0; // 0 = loops forever
+//    [self.imageView startAnimating];
+//    [self.view addSubview:imageView];
+//    
+//    //set contentMode to scale aspect to fit
+//    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    
+////    //change width of frame
+////    CGRect frame = imageView.frame;
+////    frame.size.width = 200;
+////    imageView.frame = frame;
+//    
+//    self.imageView.center = self.view.center;
+//    
+//    self.imageView.userInteractionEnabled = YES;
+////        self.animationView.userInteractionEnabled = NO;
+////    self.imageView.exclusiveTouch = YES;
+//    
+//       
+//    self.resultView = [[UIView alloc] init];
+//    [self.view addSubview:resultView];
+//    
+// 
+//
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+//    [self.imageView addGestureRecognizer:tapGesture];
+//
+//    
+//    [tapGesture release];
+//
+//    
+//    
+//
+////    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:@"color_red":200:50:self.view.center.x:self.view.center.y];
+////        [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:@"messagebg_categories":200:50:self.view.center.x:self.view.center.y];
+////        [self setImage:self.resultView:self.messagePhoto:self.messageImageView:@"message_categories":200:50:self.view.center.x:self.view.center.y];
+////    [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":200:50:0:0];
+//    int width = 225;
+//    TippsyRule *rule = [colorArray objectAtIndex:1];
+//    [self setImage:self.resultView:self.colorPhoto:self.colorImageView:rule.color:width:50:-1:90];
+//    [self setImage:self.resultView:self.messageBackgroundPhoto:self.messageBackgroundImageView:rule.messagebg:width:50:-1:250];
+//    [self setImage:self.resultView:self.messagePhoto:self.messageImageView:rule.message:width:50:-1:233];
+//    if(rule.description.length != 0)
 //    {
-//        self.infoImageView.hidden = YES;
-//    [self.infoImageView removeFromSuperview];
+//
+//        [self setImage:self.resultView:self.infoPhoto:self.infoImageView:@"info_icon":40:40:230:340];
+////                    self.infoImageView.userInteractionEnabled = YES;
+////        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleInfo:)];
+////        [self.infoImageView addGestureRecognizer:tapGesture2];
+////        
+////        [tapGesture2 release];
+//        
+//    }
+//    
+//    self.ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 150.0f, 38.0f)];
+//    self.ruleLabel.lineBreakMode = UILineBreakModeWordWrap;
+//
+//    self.ruleLabel.numberOfLines = 2;
+//    self.ruleLabel.text = rule.rule;
+//    self.ruleLabel.textColor=[UIColor whiteColor];
+//    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
+//    self.ruleLabel.backgroundColor=[UIColor clearColor];
+//    [self.resultView addSubview:ruleLabel];
+//
+//
+////    [self.ruleLabel sizeToFit];
+//        self.ruleLabel.center = self.view.center;
+//    CGRect ruleLabelFrame = self.ruleLabel.frame;
+//    ruleLabelFrame.origin.y = 344;
+//    
+//    self.ruleLabel.frame = ruleLabelFrame;
+//        self.ruleLabel.textAlignment = UITextAlignmentCenter;
+////    rule.description = @"";
+////    if(rule.description.length == 0)
+////    {
+////        self.infoImageView.hidden = YES;
+////    [self.infoImageView removeFromSuperview];
+//    
+////    }
+////    else
+////    {
+////        self.infoImageView.hidden = NO;
+////    }
+//    
+//    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 40.0f)];
+//    self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
+//    self.shakeLabel.numberOfLines = 10;
+//    self.shakeLabel.text = @"Pass and shake";
+//    self.shakeLabel.textColor=[UIColor whiteColor];
+//    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:26]];
+//    self.shakeLabel.backgroundColor=[UIColor clearColor];
+//    [self.resultView addSubview:shakeLabel];
+//    
+//    self.shakeLabel.center = self.view.center;
+//    CGRect shakeLabelFrame = self.shakeLabel.frame;
+//    shakeLabelFrame.origin.y = 400;
+//    
+//    self.shakeLabel.frame = shakeLabelFrame;
+//    self.shakeLabel.textAlignment = UITextAlignmentCenter;
+//    
+//    self.resultView.hidden = YES;
+//    
+//    self.descriptionView = [[UIView alloc] init];
+//   
+////    self.descriptionView.alpha = (CGFloat)0.5;
+////    self.descriptionView.backgroundColor = [UIColor blackColor];
+//////    CGRect descpriptionViewFrame = self.view.frame;
+////    self.descriptionView.frame = self.view.frame;
+//    
+//    UIView *overlay = [[UIView alloc] init];
+//   overlay.alpha = (CGFloat)0.5;
+//    overlay.backgroundColor = [UIColor blackColor];
+//    //    CGRect descpriptionViewFrame = self.view.frame;
+//    overlay.frame = self.view.frame;
+//    [self.descriptionView addSubview:overlay];
+//    [overlay release];
+//
+//    self.dialogBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 275.0f, 380.0f)];
+//    [self.dialogBackgroundImageView setImage:dialogBackgroundPhoto];
+//    [self.descriptionView addSubview:dialogBackgroundImageView];
+//    self.dialogBackgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+//
+//    self.dialogBackgroundImageView.center = self.view.center;
+//    
+//    self.descriptionTitleLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 40.0f)];
+//    self.descriptionTitleLabel.lineBreakMode = UILineBreakModeWordWrap;
+//    self.descriptionTitleLabel.numberOfLines = 0;
+//    self.descriptionTitleLabel.text = rule.rule;
+//    self.descriptionTitleLabel.textColor=[UIColor whiteColor];
+//    [self.descriptionTitleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:28]];
+//    self.descriptionTitleLabel.backgroundColor=[UIColor clearColor];
+//    [self.descriptionView addSubview:descriptionTitleLabel];
+//    
+//    self.descriptionTitleLabel.center = self.view.center;
+//    CGRect descriptionTitleLabelFrame = self.descriptionTitleLabel.frame;
+//    descriptionTitleLabelFrame.origin.y = 60;
+//    
+//    self.descriptionTitleLabel.frame = descriptionTitleLabelFrame;
+//    self.descriptionTitleLabel.textAlignment = UITextAlignmentCenter;
+//
+//    self.descriptionTextLabel= [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 225.0f, 200.0f)];
+//    self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+//    self.descriptionTextLabel.numberOfLines = 0;
+//    self.descriptionTextLabel.text = rule.description;
+//    self.descriptionTextLabel.textColor=[UIColor whiteColor];
+//    [self.descriptionTextLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
+//    self.descriptionTextLabel.backgroundColor=[UIColor clearColor];
+//    [self.descriptionView addSubview:descriptionTextLabel];
+//    
+//    self.descriptionTextLabel.center = self.view.center;
+//    CGRect descriptionTextLabelFrame = self.descriptionTextLabel.frame;
+//    descriptionTextLabelFrame.origin.y = 110;
+//    
+//    self.descriptionTextLabel.frame = descriptionTextLabelFrame;
+//    self.descriptionTextLabel.textAlignment = UITextAlignmentLeft;
+//
+//    [self.view addSubview:descriptionView];
+//    self.descriptionView.hidden = YES;
     
+//    self.view.userInteractionEnabled = YES;
+//
+//    self.descriptionView.userInteractionEnabled = YES;
+//    self.infoImageView.userInteractionEnabled = YES;
+//    
+//    UITapGestureRecognizer *tapInfoGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+//    [self.infoImageView addGestureRecognizer:tapInfoGesture];
+//    //    [self.descriptionView addGestureRecognizer:tapInfoGesture];
+//    [tapInfoGesture release];
+    
+}
+//
+//- (void)handleTap: (UITapGestureRecognizer *)sender
+//{
+//    [self.imageView stopAnimating];
+//    
+//        // Navigation Logic
+//        if(self.resultViewController == nil) {
+//            ResultViewController *nextView = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+//            self.resultViewController = nextView;
+//            [nextView release];
+//        }
+//        [self.navigationController pushViewController:self.resultViewController animated:YES];
+//    
+//    //    if(self.imageView.isAnimating)
+//    //    {
+//    //        //        [self.view addSubview:resultView];
+//    ////        [self.view addSubview:infoImageView];
+//    //               self.resultView.hidden = NO;
+//    ////        [self.imageView removeFromSuperview];
+//    //
+//    //
+//    //    }
+//    //    else
+//    //    {
+//    //        //        self.animationView.hidden = NO;
+//    //        [self.imageView startAnimating];
+//    //        self.resultView.hidden = YES;
+//    //
+//    //
+//}
+
+//- (void)toggleInfo: (UITapGestureRecognizer *)sender
+//{
+//    if(self.descriptionView.isHidden)
+//    {
+//        self.descriptionView.hidden = NO;
 //    }
 //    else
 //    {
-//        self.infoImageView.hidden = NO;
+//        self.descriptionView.hidden = YES;
 //    }
-    
-    self.shakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 300.0f, 40.0f)];
-    self.shakeLabel.lineBreakMode = UILineBreakModeWordWrap;
-    self.shakeLabel.numberOfLines = 10;
-    self.shakeLabel.text = @"Pass and shake";
-    self.shakeLabel.textColor=[UIColor whiteColor];
-    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:28]];
-    self.shakeLabel.backgroundColor=[UIColor clearColor];
-    [self.resultView addSubview:shakeLabel];
-    
-    self.shakeLabel.center = self.view.center;
-    CGRect shakeLabelFrame = self.shakeLabel.frame;
-    shakeLabelFrame.origin.y = 400;
-    
-    self.shakeLabel.frame = shakeLabelFrame;
-    self.shakeLabel.textAlignment = UITextAlignmentCenter;
-    
-    self.resultView.hidden = YES;
-    
-   
-    
-
-    
-}
-
-- (void)handleTap: (UITapGestureRecognizer *)sender
-{
-    if(self.imageView.isAnimating)
-    {
-        [self.imageView stopAnimating];
-        self.resultView.hidden = NO;
-    }
-    else
-    {
-        [self.imageView startAnimating];
-        self.resultView.hidden = YES;
-    }
-}
-
+//}
     
     
 //    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
@@ -263,5 +373,38 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (IBAction)handleButtonTap: (id)sender{
+    
+    
+//    [self.imageView stopAnimating];
+    
+    // Navigation Logic
+    if(self.resultViewController == nil) {
+        ResultViewController *nextView = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+        self.resultViewController = nextView;
+        [nextView release];
+    }
+    [self presentModalViewController:self.resultViewController animated:YES];
+    
+//    if(self.imageView.isAnimating)
+//    {
+//        //        [self.view addSubview:resultView];
+////        [self.view addSubview:infoImageView];
+//               self.resultView.hidden = NO;
+////        [self.imageView removeFromSuperview];
+//        
+//        
+//    }
+//    else
+//    {
+//        //        self.animationView.hidden = NO;
+//        [self.imageView startAnimating];
+//        self.resultView.hidden = YES;
+//
+//        
+    }
+
+
 
 @end

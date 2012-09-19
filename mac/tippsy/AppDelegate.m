@@ -11,11 +11,13 @@
 #import "ViewController.h"
 
 @implementation AppDelegate
+@synthesize navigationController;
 
 - (void)dealloc
 {
     [_window release];
     [_viewController release];
+    [navigationController release];
     [super dealloc];
 }
 
@@ -25,6 +27,8 @@
     // Override point for customization after application launch.
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
+    
+    [self.window addSubview:[navigationController view]];
     [self.window makeKeyAndVisible];
     return YES;
 }

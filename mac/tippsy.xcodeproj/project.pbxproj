@@ -10,6 +10,10 @@
 		565E9CBE16083F85005946F3 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 565E9CBD16083F85005946F3 /* Data.plist */; };
 		565E9D9116084275005946F3 /* TippsyRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9D9016084275005946F3 /* TippsyRule.m */; };
 		565E9D95160856DA005946F3 /* itc-lubalin-graph-lt-demi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 565E9D94160856DA005946F3 /* itc-lubalin-graph-lt-demi.ttf */; };
+		565E9D9716087569005946F3 /* dialogbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 565E9D9616087569005946F3 /* dialogbackground.png */; };
+		565E9D9B160952D4005946F3 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9D99160952D3005946F3 /* ResultViewController.m */; };
+		565E9D9C160952D4005946F3 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E9D9A160952D3005946F3 /* ResultViewController.xib */; };
+		565E9D9F1609812B005946F3 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E9D9E1609812B005946F3 /* SwitchViewController.m */; };
 		56B2F86E16071E1D0023D970 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B2F86D16071E1D0023D970 /* UIKit.framework */; };
 		56B2F87016071E1D0023D970 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B2F86F16071E1D0023D970 /* Foundation.framework */; };
 		56B2F87216071E1D0023D970 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B2F87116071E1D0023D970 /* CoreGraphics.framework */; };
@@ -117,6 +121,12 @@
 		565E9D8F16084275005946F3 /* TippsyRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TippsyRule.h; sourceTree = "<group>"; };
 		565E9D9016084275005946F3 /* TippsyRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TippsyRule.m; sourceTree = "<group>"; };
 		565E9D94160856DA005946F3 /* itc-lubalin-graph-lt-demi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "itc-lubalin-graph-lt-demi.ttf"; sourceTree = "<group>"; };
+		565E9D9616087569005946F3 /* dialogbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogbackground.png; path = res/dialogbackground.png; sourceTree = "<group>"; };
+		565E9D98160952D3005946F3 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		565E9D99160952D3005946F3 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		565E9D9A160952D3005946F3 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		565E9D9D1609812B005946F3 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
+		565E9D9E1609812B005946F3 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		56B2F86916071E1D0023D970 /* tippsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tippsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B2F86D16071E1D0023D970 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56B2F86F16071E1D0023D970 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -297,9 +307,10 @@
 		56B2F8991607260E0023D970 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56B2F94D16073F0B0023D970 /* SetupViewController.xib */,
 				56B2F88216071E1D0023D970 /* ViewController.xib */,
 				56B2F9521607F54F0023D970 /* RollingViewController.xib */,
+				565E9D9A160952D3005946F3 /* ResultViewController.xib */,
+				56B2F94D16073F0B0023D970 /* SetupViewController.xib */,
 				56B2F896160725B50023D970 /* ShakeView.xib */,
 			);
 			name = View;
@@ -316,6 +327,10 @@
 				56B2F94C16073F0B0023D970 /* SetupViewController.m */,
 				56B2F9501607F54F0023D970 /* RollingViewController.h */,
 				56B2F9511607F54F0023D970 /* RollingViewController.m */,
+				565E9D98160952D3005946F3 /* ResultViewController.h */,
+				565E9D99160952D3005946F3 /* ResultViewController.m */,
+				565E9D9D1609812B005946F3 /* SwitchViewController.h */,
+				565E9D9E1609812B005946F3 /* SwitchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +338,7 @@
 		56B2F89E16072D700023D970 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				565E9D9616087569005946F3 /* dialogbackground.png */,
 				565E9D94160856DA005946F3 /* itc-lubalin-graph-lt-demi.ttf */,
 				56B2F89F16072DC20023D970 /* animation0001.png */,
 				56B2F8A016072DC20023D970 /* animation0002.png */,
@@ -559,6 +575,8 @@
 				56B2F9541607F54F0023D970 /* RollingViewController.xib in Resources */,
 				565E9CBE16083F85005946F3 /* Data.plist in Resources */,
 				565E9D95160856DA005946F3 /* itc-lubalin-graph-lt-demi.ttf in Resources */,
+				565E9D9716087569005946F3 /* dialogbackground.png in Resources */,
+				565E9D9C160952D4005946F3 /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +594,8 @@
 				56B2F94E16073F0B0023D970 /* SetupViewController.m in Sources */,
 				56B2F9531607F54F0023D970 /* RollingViewController.m in Sources */,
 				565E9D9116084275005946F3 /* TippsyRule.m in Sources */,
+				565E9D9B160952D4005946F3 /* ResultViewController.m in Sources */,
+				565E9D9F1609812B005946F3 /* SwitchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
