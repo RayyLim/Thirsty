@@ -70,6 +70,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:14]];
+    [self.shakeLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:26]];
+    
     self.descriptionView = [[UIView alloc] init];
     
     //    self.descriptionView.alpha = (CGFloat)0.5;
