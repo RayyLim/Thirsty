@@ -12,7 +12,9 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSTimer* timer;
+}
 
 @synthesize shakeViewController;
 
@@ -20,6 +22,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
 }
 
 - (void)viewDidUnload
@@ -33,14 +37,21 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
--(IBAction)navigateToShakeView:(id)sender{  
+- (void)navigate {
+    [timer invalidate];
+    
     // Navigation Logic
     if(self.shakeViewController == nil) {
         ShakeViewController *shakeView = [[ShakeViewController alloc] initWithNibName:@"ShakeView" bundle:nil];
         self.shakeViewController = shakeView;
         [shakeView release];
     }
-                                          [self presentModalViewController:self.shakeViewController animated:YES];
+    [self presentModalViewController:self.shakeViewController animated:YES];
+    
+}
+
+-(IBAction)navigateToShakeView:(id)sender{
+    [self navigate];
 }
 
 @end
