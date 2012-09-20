@@ -60,6 +60,9 @@
      forControlEvents:UIControlEventTouchDown];
     button.frame = self.view.frame;
     [self.view addSubview:button];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollfinished:) name:@"rollfinished" object:nil];
+    [self performSelectorInBackground:@selector(spin) withObject:nil];
 }
 
 - (void)viewDidLoad
@@ -117,13 +120,14 @@
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
-    [self performSelectorInBackground:@selector(spin) withObject:nil];
+
 }
 
 -(void)spin
 {
     [[SharedModel sharedModel] spin];
 }
+
 
 
 - (void)viewDidUnload
@@ -138,10 +142,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)handleButtonTap: (id)sender{
-    
-    
-        [self.imageView stopAnimating];
+- (void)navigate {
+    [self.imageView stopAnimating];
     
     // Navigation Logic
     if(self.resultViewController == nil) {
@@ -149,11 +151,23 @@
         self.resultViewController = nextView;
         [nextView release];
     }
-    [self presentModalViewController:self.resultViewController animated:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentModalViewController:self.resultViewController animated:NO];
+    });
+
+}
+
+- (IBAction)handleButtonTap: (id)sender{
+    
+    
+    [self navigate];
     [sender removeFromSuperview];
 
     }
 
-
+- (void)rollfinished:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"rollfinished" object:nil];
+	[self navigate];
+}
 
 @end

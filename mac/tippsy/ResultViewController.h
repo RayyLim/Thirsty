@@ -30,6 +30,7 @@
     IBOutlet UIImageView *messageBackgroundImageView;
     IBOutlet UIButton *infoButton;
     
+    
 }
 
 //@property(nonatomic, retain) RollingViewController *rollingViewController;

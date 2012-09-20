@@ -243,6 +243,8 @@ everybodyCount = (everybodyCount + 1) % 4;
 {
     [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:0 rightMode:1.0 rightPower:0];
     [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"rollfinished" object:nil];
 }
 
 

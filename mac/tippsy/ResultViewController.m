@@ -11,6 +11,7 @@
 
 @interface ResultViewController () {
     int ruleCount;
+    UIButton *button;
 }
 @end
 
@@ -68,7 +69,11 @@
     
     ruleCount = (ruleCount + 1)%[[[SharedModel sharedModel] colorArray] count];
 
+    
 //        [rule release];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
+    [[SharedModel sharedModel] startListeningForShake];
 }
 
 - (void)viewDidLoad
@@ -84,7 +89,7 @@
     overlay.alpha = (CGFloat)0.5;
     overlay.backgroundColor = [UIColor blackColor];
     //    CGRect descpriptionViewFrame = self.view.frame;
-    overlay.frame = self.view.frame;
+    overlay.frame = CGRectMake(0, 0, 320, 480);
     [self.descriptionView addSubview:overlay];
     [overlay release];
     
@@ -153,7 +158,7 @@
 {
     [self.view addSubview:descriptionView];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self
                action:@selector(hideInfoDialog:)
      forControlEvents:UIControlEventTouchDown];
@@ -166,6 +171,20 @@
 {
     [self.descriptionView removeFromSuperview];
     [sender removeFromSuperview];
+}
+
+
+- (void)shakeDetected:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shake" object:nil];
+//	[self navigate];
+    
+    [self.descriptionView removeFromSuperview];
+    
+    if(button.isEnabled)
+    {
+        [button removeFromSuperview];
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
