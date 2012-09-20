@@ -15,10 +15,14 @@
     NSString *bottomMessage;
     BOOL ledON;
     BOOL robotOnline;
+//    NSString *shakeHandler;
+    SEL shakeHandler;
 }
 
 @property (nonatomic, retain) NSArray *colorArray;
 @property (nonatomic, retain) NSString *bottomMessage;
+//@property (nonatomic, retain) NSString *shakeHandler;
+@property SEL shakeHandler;
 
 + (id)sharedModel;
 - (TippsyRule *) getRule:(int)position;
