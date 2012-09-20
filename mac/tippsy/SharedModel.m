@@ -140,6 +140,7 @@ everybodyCount = (everybodyCount + 1) % 4;
     /*When the application is entering the background we need to close the connection to the robot*/
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
     [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:0.0];
+    [self stop];
     [[RKRobotProvider sharedRobotProvider] closeRobotConnection];
 }
 
@@ -153,6 +154,7 @@ everybodyCount = (everybodyCount + 1) % 4;
     if(!robotOnline) {
         /*Only start the blinking loop once*/
 //        [self toggleLED];
+        [self spin];
     }
     robotOnline = YES;
 }
@@ -184,5 +186,28 @@ everybodyCount = (everybodyCount + 1) % 4;
     [RKRGBLEDOutputCommand sendCommandWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0)];
 }
 
+- (void)spin
+{
+    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOff)]; //Raw motors need Stabilization turned off
+
+    int spin = 255;
+    for(int i = spin; i > 150; i--)
+    {
+        [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:i rightMode:1.0 rightPower:0];
+
+        [NSThread sleepForTimeInterval:.040];
+
+    }
+    
+
+
+    [self stop];
+}
+
+- (void)stop
+{
+    [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:0 rightMode:1.0 rightPower:0];
+    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
+}
 
 @end
