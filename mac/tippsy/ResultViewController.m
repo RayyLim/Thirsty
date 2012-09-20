@@ -47,6 +47,8 @@
     int rulePosition = arc4random() % [[[SharedModel sharedModel] colorArray] count];
 
     TippsyRule *rule = [[SharedModel sharedModel] getRule:rulePosition];
+    
+    [[SharedModel sharedModel] setLED:rule.red:rule.green:rule.blue];
     self.descriptionTitleLabel.text = rule.drinkingRule;
     self.descriptionTextLabel.text = rule.description;
     

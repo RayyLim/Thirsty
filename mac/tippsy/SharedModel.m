@@ -152,7 +152,7 @@ everybodyCount = (everybodyCount + 1) % 4;
     /*The robot is now online, we can begin sending commands*/
     if(!robotOnline) {
         /*Only start the blinking loop once*/
-        [self toggleLED];
+//        [self toggleLED];
     }
     robotOnline = YES;
 }
@@ -175,6 +175,13 @@ everybodyCount = (everybodyCount + 1) % 4;
     if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {
         [[RKRobotProvider sharedRobotProvider] openRobotConnection];
     }
+}
+
+- (void)setLED:(int) red:(int) green: (int)blue
+{
+    
+    //    [RKRGBLEDOutputCommand sendCommandWithRed:1.0 green:0.0 blue:0.0];
+    [RKRGBLEDOutputCommand sendCommandWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0)];
 }
 
 

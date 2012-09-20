@@ -23,5 +23,5 @@
 + (id)sharedModel;
 - (TippsyRule *) getRule:(int)position;
 - (void) registerForAppLifecycleNotifications;
-
+- (void)setLED:(int) red:(int) green: (int)blue;
 @end
