@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  tippsy
+//  Tippsy
 //
-//  Created by Raymond Lim on 9/17/12.
+//  Created by Raymond Lim on 9/19/12.
 //  Copyright (c) 2012 Raymond Lim. All rights reserved.
 //
 
@@ -10,13 +10,10 @@
 
 @class ViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    UINavigationController *navigationController;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ViewController *viewController;
-@property (strong, nonatomic) UINavigationController *navigationController;
 
 @end

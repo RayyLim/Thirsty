@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56B2F86816071E1D0023D970"
-               BuildableName = "tippsy.app"
-               BlueprintName = "tippsy"
-               ReferencedContainer = "container:tippsy.xcodeproj">
+               BlueprintIdentifier = "565E9E01160AECD7005946F3"
+               BuildableName = "Tippsy.app"
+               BlueprintName = "Tippsy"
+               ReferencedContainer = "container:Tippsy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56B2F86816071E1D0023D970"
-            BuildableName = "tippsy.app"
-            BlueprintName = "tippsy"
-            ReferencedContainer = "container:tippsy.xcodeproj">
+            BlueprintIdentifier = "565E9E01160AECD7005946F3"
+            BuildableName = "Tippsy.app"
+            BlueprintName = "Tippsy"
+            ReferencedContainer = "container:Tippsy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56B2F86816071E1D0023D970"
-            BuildableName = "tippsy.app"
-            BlueprintName = "tippsy"
-            ReferencedContainer = "container:tippsy.xcodeproj">
+            BlueprintIdentifier = "565E9E01160AECD7005946F3"
+            BuildableName = "Tippsy.app"
+            BlueprintName = "Tippsy"
+            ReferencedContainer = "container:Tippsy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56B2F86816071E1D0023D970"
-            BuildableName = "tippsy.app"
-            BlueprintName = "tippsy"
-            ReferencedContainer = "container:tippsy.xcodeproj">
+            BlueprintIdentifier = "565E9E01160AECD7005946F3"
+            BuildableName = "Tippsy.app"
+            BlueprintName = "Tippsy"
+            ReferencedContainer = "container:Tippsy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

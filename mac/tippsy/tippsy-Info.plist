@@ -22,21 +22,25 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>itc-lubalin-graph-lt-demi.ttf</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.orbotix.robotprotocol</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>itc-lubalin-graph-lt-demi.ttf</string>
+	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 </dict>
 </plist>
