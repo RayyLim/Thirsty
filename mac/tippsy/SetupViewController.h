@@ -12,18 +12,18 @@
 @interface SetupViewController : UIViewController{
 UIImage* photo;
 UIImage* backgroundPhoto;
-UIImageView *imageView;
+IBOutlet UIImageView *imageView;
 UIImageView *backgroundImageView;
-    UILabel *setupLabel;
+    IBOutlet UILabel *setupLabel;
     
     RollingViewController *rollingViewController;
 }
 
-@property(nonatomic, retain) UIImageView *imageView;
+@property(nonatomic, retain) IBOutlet UIImageView *imageView;
 @property(nonatomic, retain) UIImageView *backgroundImageView;
 @property(nonatomic, retain) UIImage *photo;
 @property(nonatomic, retain) UIImage *backgroundPhoto;
 
 @property(nonatomic, retain) RollingViewController *rollingViewController;
-@property(nonatomic, retain) UILabel *setupLabel;
+@property(nonatomic, retain) IBOutlet UILabel *setupLabel;
 @end

@@ -36,12 +36,12 @@
     
     CGSize photoSize = [photo size];
     
-    self.backgroundImageView = [[UIImageView alloc] init];
-    [self.backgroundImageView setImage:backgroundPhoto];
-    [self.view addSubview:backgroundImageView];
-    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.backgroundImageView.frame = self.view.frame;
-    self.backgroundImageView.center = self.view.center;
+//    self.backgroundImageView = [[UIImageView alloc] init];
+//    [self.backgroundImageView setImage:backgroundPhoto];
+//    [self.view addSubview:backgroundImageView];
+//    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+//    self.backgroundImageView.frame = self.view.frame;
+//    self.backgroundImageView.center = self.view.center;
     
     // Create the image view.
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
