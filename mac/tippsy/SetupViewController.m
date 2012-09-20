@@ -8,7 +8,9 @@
 
 #import "SetupViewController.h"
 
-@interface SetupViewController ()
+@interface SetupViewController () {
+        NSTimer* timer;
+}
 
 @end
 
@@ -83,18 +85,13 @@
 //    self.setupLabel.frame = setupLabelFrame;
 //    self.setupLabel.textAlignment = UITextAlignmentCenter;
     
+            timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
     
 }
 
 - (void)handleTap: (UITapGestureRecognizer *)sender
 {
-    // Navigation Logic
-    if(self.rollingViewController == nil) {
-        RollingViewController *rollingView = [[RollingViewController alloc] initWithNibName:@"RollingViewController" bundle:nil];
-        self.rollingViewController = rollingView;
-        [rollingView release];
-    }
-    [self presentModalViewController:self.rollingViewController animated:YES];
+    [self navigate];
 }
 
 - (void)viewDidUnload
@@ -107,6 +104,19 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)navigate {
+    [timer invalidate];
+    
+    // Navigation Logic
+    if(self.rollingViewController == nil) {
+        RollingViewController *rollingView = [[RollingViewController alloc] initWithNibName:@"RollingViewController" bundle:nil];
+        self.rollingViewController = rollingView;
+        [rollingView release];
+    }
+    [self presentModalViewController:self.rollingViewController animated:YES];
+    
 }
 
 @end
