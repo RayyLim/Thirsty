@@ -25,4 +25,5 @@
 - (void) registerForAppLifecycleNotifications;
 - (void)setLED:(int) red:(int) green: (int)blue;
 - (void)startListeningForShake;
+- (void)spin;
 @end

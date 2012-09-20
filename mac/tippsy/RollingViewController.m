@@ -7,6 +7,7 @@
 //
 
 #import "RollingViewController.h"
+#import "SharedModel.h"
 
 @interface RollingViewController () 
 
@@ -116,6 +117,12 @@
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
+    [self performSelectorInBackground:@selector(spin) withObject:nil];
+}
+
+-(void)spin
+{
+    [[SharedModel sharedModel] spin];
 }
 
 
