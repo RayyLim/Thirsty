@@ -27,7 +27,7 @@
         int  packetCounter;
 }
 
-@synthesize colorArray, bottomMessage, shakeHandler;
+@synthesize colorArray, bottomMessage;
 
 + (id)sharedModel {
     static SharedModel *sharedModel = nil;
@@ -189,7 +189,7 @@ everybodyCount = (everybodyCount + 1) % 4;
 //        [self toggleLED];
 //        [self spin];
         
-        [self startListeningForShake];
+//        [self startListeningForShake];
     }
     robotOnline = YES;
 }

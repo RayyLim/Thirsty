@@ -7,6 +7,7 @@
 //
 
 #import "ShakeViewController.h"
+#import "SharedModel.h"
 
 @interface ShakeViewController ()
 
@@ -64,12 +65,14 @@
     [self.imageView addGestureRecognizer:tapGesture];
     [tapGesture release];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
+    [[SharedModel sharedModel] startListeningForShake];
+    
     
 }
 
-- (void)handleTap: (UITapGestureRecognizer *)sender
+- (void)navigate
 {
-    
     // Navigation Logic
     if(self.setupViewController == nil) {
         SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
@@ -77,6 +80,12 @@
         [setupView release];
     }
     [self presentModalViewController:self.setupViewController animated:YES];
+}
+
+- (void)handleTap: (UITapGestureRecognizer *)sender
+{
+    
+    [self navigate];
 }
 
 - (void)viewDidUnload
@@ -88,6 +97,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)shakeDetected:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shake" object:nil];
+	[self navigate];
 }
 
 @end

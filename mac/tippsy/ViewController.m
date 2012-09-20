@@ -32,9 +32,8 @@
     [[SharedModel sharedModel] registerForAppLifecycleNotifications];
 
     calibrateHandler = [[RUICalibrateGestureHandler alloc] initWithView:self.view];
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
-    
-//        timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
+ 
+        timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -83,7 +82,7 @@
 //}
 
 - (void)navigate {
-//    [timer invalidate];
+    [timer invalidate];
     
     // Navigation Logic
     if(self.shakeViewController == nil) {
@@ -96,12 +95,9 @@
 }
 
 -(IBAction)navigateToShakeView:(id)sender{
-//    [self navigate];
+    [self navigate];
 }
 
-- (void)shakeDetected:(NSNotification *)notification {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shake" object:nil];
-	[self navigate];
-}
+
 
 @end
