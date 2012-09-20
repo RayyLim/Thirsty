@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RobotUIKit/RobotUIKit.h>
 #import "TippsyRule.h"
 
 @interface SharedModel : NSObject {
      NSArray *colorArray;
     NSString *bottomMessage;
+    BOOL ledON;
+    BOOL robotOnline;
 }
 
 @property (nonatomic, retain) NSArray *colorArray;
@@ -19,5 +22,6 @@
 
 + (id)sharedModel;
 - (TippsyRule *) getRule:(int)position;
+- (void) registerForAppLifecycleNotifications;
 
 @end

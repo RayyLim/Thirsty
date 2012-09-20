@@ -11,8 +11,8 @@
 #import "ShakeViewController.h"
 
 @interface ViewController : UIViewController {
-    BOOL ledON;
-    BOOL robotOnline;
+//    BOOL ledON;
+//    BOOL robotOnline;
     RUICalibrateGestureHandler *calibrateHandler;
     
     ShakeViewController *shakeViewController;
@@ -22,9 +22,9 @@
 
 - (IBAction) navigateToShakeView:(id) sender;
 
--(void)setupRobotConnection;
--(void)handleRobotOnline;
--(void)toggleLED;
+//-(void)setupRobotConnection;
+//-(void)handleRobotOnline;
+//-(void)toggleLED;
 
 @end
 
