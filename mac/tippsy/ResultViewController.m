@@ -12,6 +12,9 @@
 @interface ResultViewController () {
     int ruleCount;
     UIButton *button;
+    
+    BOOL descriptionViewVisible;
+    BOOL descriptionButtonVisible;
 }
 @end
 
@@ -37,6 +40,8 @@
     
 //    [self.imageView startAnimating];
 
+    descriptionButtonVisible = NO;
+    descriptionViewVisible = NO;
 
 }
 
@@ -165,25 +170,30 @@
 //    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
+    
+    descriptionButtonVisible = YES;
+    descriptionViewVisible = YES;
 }
 
 - (IBAction) hideInfoDialog:(id) sender
 {
     [self.descriptionView removeFromSuperview];
     [sender removeFromSuperview];
+    
+    descriptionButtonVisible = NO;
+    descriptionViewVisible = NO;
 }
 
 
 - (void)shakeDetected:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shake" object:nil];
-//	[self navigate];
-    
-    [self.descriptionView removeFromSuperview];
-    
-    if(button.isEnabled)
+  
+    if(descriptionViewVisible)
     {
+        [self.descriptionView removeFromSuperview];
         [button removeFromSuperview];
     }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
