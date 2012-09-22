@@ -15,15 +15,19 @@
     NSString *bottomMessage;
     BOOL ledON;
     BOOL robotOnline;
+    BOOL listeningForShake;
 }
 
 @property (nonatomic, retain) NSArray *colorArray;
 @property (nonatomic, retain) NSString *bottomMessage;
+@property BOOL listeningForShake;
 
 + (id)sharedModel;
 - (TippsyRule *) getRule:(int)position;
 - (void) registerForAppLifecycleNotifications;
 - (void)setLED:(int) red:(int) green: (int)blue;
 - (void)startListeningForShake;
+- (void)disconnectSphero;
+- (void)setupRobotConnection;
 - (void)spin;
 @end

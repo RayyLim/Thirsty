@@ -31,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    SharedModel *sharedModel = [SharedModel sharedModel];
+    sharedModel.listeningForShake = YES;
     
     self.photo = [UIImage imageNamed:@"shake_message"];
     self.backgroundPhoto = [UIImage imageNamed:@"background"];
@@ -101,6 +103,8 @@
 
 - (void)shakeDetected:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"shake" object:nil];
+    SharedModel *sharedModel = [SharedModel sharedModel];
+    sharedModel.listeningForShake = NO;
 	[self navigate];
 }
 

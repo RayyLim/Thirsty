@@ -27,7 +27,7 @@
         int  packetCounter;
 }
 
-@synthesize colorArray, bottomMessage;
+@synthesize colorArray, bottomMessage, listeningForShake;
 
 + (id)sharedModel {
     static SharedModel *sharedModel = nil;
@@ -45,6 +45,7 @@
         self.bottomMessage = passAndShakeMessage;
         everybodyCount = 0;
         
+        self.listeningForShake = NO;
 
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
@@ -156,6 +157,11 @@
 }
 
 -(void)appWillResignActive:(NSNotification*)notification {
+    [self disconnectSphero];
+}
+
+-(void) disconnectSphero
+{
     /*When the application is entering the background we need to close the connection to the robot*/
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
     
@@ -186,10 +192,14 @@
     /*The robot is now online, we can begin sending commands*/
     if(!robotOnline) {
         /*Only start the blinking loop once*/
-//        [self toggleLED];
+        [self toggleLED];
 //        [self spin];
         
 //        [self startListeningForShake];
+        if(self.listeningForShake == YES)
+        {
+            [self startListeningForShake];
+        }
     }
     robotOnline = YES;
 }
@@ -207,6 +217,8 @@
 }
 
 -(void)setupRobotConnection {
+    robotOnline = NO;
+    
     /*Try to connect to the robot*/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRobotOnline) name:RKDeviceConnectionOnlineNotification object:nil];
     if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {

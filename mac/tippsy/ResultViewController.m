@@ -46,6 +46,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"Entering %s",__FUNCTION__);
     [super viewDidAppear:animated];
     
 
@@ -79,10 +80,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
     [[SharedModel sharedModel] startListeningForShake];
+    SharedModel *sharedModel = [SharedModel sharedModel];
+    sharedModel.listeningForShake = YES;
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"Entering %s",__FUNCTION__);
     // Do any additional setup after loading the view from its nib.
     
     [self.ruleLabel setFont:[UIFont fontWithName:@"LubalinGraph LT" size:16]];
@@ -147,6 +151,7 @@
 
 - (void)viewDidUnload
 {
+    NSLog(@"Entering %s",__FUNCTION__);
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -197,6 +202,9 @@
         [self.descriptionView removeFromSuperview];
         [button removeFromSuperview];
     }
+    
+    SharedModel *sharedModel = [SharedModel sharedModel];
+    sharedModel.listeningForShake = NO;
     [self navigate];
 }
 
