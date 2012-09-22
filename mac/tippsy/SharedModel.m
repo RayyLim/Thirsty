@@ -143,8 +143,7 @@
 
 - (void)stopListeningForShake {
     ////First turn off stabilization so the drive mechanism does not move.
-    //not needed mathu
-   // [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOn];
+    [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOn];
     
     
     // Turn off data streaming
@@ -175,8 +174,7 @@
 - (void)startListeningForShake {
     // Start streaming sensor data
     ////First turn off stabilization so the drive mechanism does not move.
-    //not needed mathu
-    //[RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
+    [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
     
     [self sendSetDataStreamingCommand];
     
@@ -225,8 +223,7 @@
 
 - (void)spin
 {
-    //mathu - not need
-   // [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOff)]; //Raw motors need Stabilization turned off
+    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOff)]; //Raw motors need Stabilization turned off
 
     int spin = 255;
     for(int i = spin; i > 150; i--)
@@ -247,8 +244,7 @@
 - (void)stop
 {
     [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:0 rightMode:1.0 rightPower:0];
-    //not needed - mathu
-   // [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
+    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"rollfinished" object:nil];
 }

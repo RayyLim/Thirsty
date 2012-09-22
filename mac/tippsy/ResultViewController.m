@@ -160,8 +160,6 @@
 
 //handle for touch button
 - (IBAction) navigateToRollingViewContainer:(id) sender{
- //   [self dismissViewControllerAnimated:YES];
-  //  [self dismissModalViewControllerAnimated:NO];
     [self navigate];
 }
 
@@ -199,19 +197,19 @@
         [self.descriptionView removeFromSuperview];
         [button removeFromSuperview];
     }
-   // [self dismissViewControllerAnimated:YES];
-//    [self dismissModalViewControllerAnimated:NO];
     [self navigate];
 }
 
 - (void)navigate
 {
-    // Navigation Logic
-        SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
-        self.setupViewController = setupView;
-        [setupView release];
-    
-    [self presentModalViewController:self.setupViewController animated:YES];
+     [self dismissModalViewControllerAnimated:YES];
+//    
+//    // Navigation Logic
+//        SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
+//        self.setupViewController = setupView;
+//        [setupView release];
+//    
+//    [self presentModalViewController:self.setupViewController animated:YES];
 }
 
 @end
