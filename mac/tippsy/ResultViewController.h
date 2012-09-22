@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 //#import "RollingViewController.h"
 #import "TippsyRule.h"
+#import "SetupViewController.h"
 
 @interface ResultViewController : UIViewController
 {
@@ -30,7 +31,7 @@
     IBOutlet UIImageView *messageBackgroundImageView;
     IBOutlet UIButton *infoButton;
     
-    
+    ResultViewController *setupViewController;
 }
 
 //@property(nonatomic, retain) RollingViewController *rollingViewController;
@@ -45,6 +46,7 @@
 @property(nonatomic, retain) IBOutlet UIImageView *messageImageView;
 @property(nonatomic, retain) IBOutlet UIImageView *messageBackgroundImageView;
 @property(nonatomic, retain) IBOutlet UIButton *infoButton;
+@property(nonatomic, retain) ResultViewController *setupViewController;
 //  @property(nonatomic, retain)      NSArray *colorArray;
 
 - (IBAction) navigateToRollingViewContainer:(id) sender;

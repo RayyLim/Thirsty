@@ -16,7 +16,7 @@ IBOutlet UIImageView *imageView;
 UIImageView *backgroundImageView;
     IBOutlet UILabel *setupLabel;
     
-    RollingViewController *rollingViewController;
+    UISplitViewController *rollingViewController;
 }
 
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
@@ -24,6 +24,6 @@ UIImageView *backgroundImageView;
 @property(nonatomic, retain) UIImage *photo;
 @property(nonatomic, retain) UIImage *backgroundPhoto;
 
-@property(nonatomic, retain) RollingViewController *rollingViewController;
+@property(nonatomic, retain) UISplitViewController *rollingViewController;
 @property(nonatomic, retain) IBOutlet UILabel *setupLabel;
 @end

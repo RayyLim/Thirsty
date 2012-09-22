@@ -141,6 +141,8 @@
     
     self.descriptionTextLabel.frame = descriptionTextLabelFrame;
     self.descriptionTextLabel.textAlignment = UITextAlignmentLeft;
+    
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -155,8 +157,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+//handle for touch button
 - (IBAction) navigateToRollingViewContainer:(id) sender{
-    [self dismissModalViewControllerAnimated:YES];
+ //   [self dismissViewControllerAnimated:YES];
+  //  [self dismissModalViewControllerAnimated:NO];
+    [self navigate];
 }
 
 - (IBAction) showInfoDialog:(id) sender
@@ -193,8 +199,19 @@
         [self.descriptionView removeFromSuperview];
         [button removeFromSuperview];
     }
+   // [self dismissViewControllerAnimated:YES];
+//    [self dismissModalViewControllerAnimated:NO];
+    [self navigate];
+}
+
+- (void)navigate
+{
+    // Navigation Logic
+        SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
+        self.setupViewController = setupView;
+        [setupView release];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self presentModalViewController:self.setupViewController animated:YES];
 }
 
 @end

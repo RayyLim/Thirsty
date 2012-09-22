@@ -29,7 +29,6 @@
 //
 //    /*Only start the blinking loop when the view loads*/
 //    robotOnline = NO;
-    [[SharedModel sharedModel] registerForAppLifecycleNotifications];
 
     calibrateHandler = [[RUICalibrateGestureHandler alloc] initWithView:self.view];
  

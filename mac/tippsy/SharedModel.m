@@ -99,31 +99,31 @@
     if(position == 0)
     {
     
-    switch (everybodyCount)
-    {
-        case 0:
-            tippyrule.drinkingRule = everybodyMessage1;
-            self.bottomMessage = passAndShakeMessage;
-            break;
-        case 1:
-            tippyrule.drinkingRule = everybodyMessage2;
+        switch (everybodyCount)
+        {
+            case 0:
+                tippyrule.drinkingRule = everybodyMessage1;
+                self.bottomMessage = passAndShakeMessage;
+                break;
+            case 1:
+                tippyrule.drinkingRule = everybodyMessage2;
 
-            self.bottomMessage = passAndShakeMessage;
-            break;
-        case 2:
-            tippyrule.drinkingRule = everybodyMessage3;
+                self.bottomMessage = passAndShakeMessage;
+                break;
+            case 2:
+                tippyrule.drinkingRule = everybodyMessage3;
 
-            self.bottomMessage = passAndShakeMessage;
-            break;
-        case 3:
-            tippyrule.drinkingRule = [NSString stringWithFormat:@"Game Over\nTippsy Yet?"];
+                self.bottomMessage = passAndShakeMessage;
+                break;
+            case 3:
+                tippyrule.drinkingRule = [NSString stringWithFormat:@"Game Over\nTippsy Yet?"];
 
-            self.bottomMessage = shakeToStartAgainMessage;
-            break;
+                self.bottomMessage = shakeToStartAgainMessage;
+                break;
+        }
+            
+        everybodyCount = (everybodyCount + 1) % 4;
     }
-        
-everybodyCount = (everybodyCount + 1) % 4;
-}
     else{
         self.bottomMessage = passAndShakeMessage;
     }
@@ -143,7 +143,8 @@ everybodyCount = (everybodyCount + 1) % 4;
 
 - (void)stopListeningForShake {
     ////First turn off stabilization so the drive mechanism does not move.
-    [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOn];
+    //not needed mathu
+   // [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOn];
     
     
     // Turn off data streaming
@@ -174,7 +175,8 @@ everybodyCount = (everybodyCount + 1) % 4;
 - (void)startListeningForShake {
     // Start streaming sensor data
     ////First turn off stabilization so the drive mechanism does not move.
-    [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
+    //not needed mathu
+    //[RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
     
     [self sendSetDataStreamingCommand];
     
@@ -223,13 +225,16 @@ everybodyCount = (everybodyCount + 1) % 4;
 
 - (void)spin
 {
-    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOff)]; //Raw motors need Stabilization turned off
+    //mathu - not need
+   // [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOff)]; //Raw motors need Stabilization turned off
 
     int spin = 255;
     for(int i = spin; i > 150; i--)
     {
         [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:i rightMode:2.0 rightPower:i];
-
+        int rulePosition = arc4random() % [[self colorArray] count];
+        TippsyRule *rule = [[SharedModel sharedModel] getRule:rulePosition];
+        [self setLED:rule.red :rule.green :rule.blue];
         [NSThread sleepForTimeInterval:.030];
 
     }
@@ -242,7 +247,8 @@ everybodyCount = (everybodyCount + 1) % 4;
 - (void)stop
 {
     [RKRawMotorValuesCommand sendCommandWithLeftMode:1.0 leftPower:0 rightMode:1.0 rightPower:0];
-    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
+    //not needed - mathu
+   // [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];    //Turn stabilization back on stopping the raw motors
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"rollfinished" object:nil];
 }

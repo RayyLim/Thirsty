@@ -36,7 +36,7 @@
     UILabel *descriptionTitleLabel;
     UILabel *descriptionTextLabel;
     
-    ResultViewController *resultViewController;
+    UISplitViewController *resultViewController;
 }
 
 @property(nonatomic, retain) UIImageView *imageView;
@@ -60,7 +60,7 @@
 @property(nonatomic, retain) UILabel *descriptionTextLabel;
 @property(nonatomic, retain) UIImage* dialogBackgroundPhoto;
 @property(nonatomic, retain) UIImageView *dialogBackgroundImageView;
-@property(nonatomic, retain) ResultViewController *resultViewController;
+@property(nonatomic, retain) UISplitViewController *resultViewController;
 
 - (IBAction)handleButtonTap: (id)sender;
 
