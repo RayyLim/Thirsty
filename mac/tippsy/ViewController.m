@@ -32,8 +32,12 @@
 
     calibrateHandler = [[RUICalibrateGestureHandler alloc] initWithView:self.view];
  
-        timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTimer:) name:@"connected" object:nil];
+
 }
+
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -80,8 +84,22 @@
 //    }
 //}
 
+- (void)startTimer:(NSNotification *)notification
+{
+    if(timer == nil)
+    {
+            timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(navigate) userInfo:nil repeats:NO];
+    }
+}
+
 - (void)navigate {
+    SharedModel* sharedModel = [SharedModel sharedModel];
     [timer invalidate];
+    timer = nil;
+    
+//    if(sharedModel.robotOnline == YES)
+//    {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"connected" object:nil];
     
     // Navigation Logic
     if(self.shakeViewController == nil) {
@@ -90,6 +108,12 @@
         [shakeView release];
     }
     [self presentModalViewController:self.shakeViewController animated:YES];
+        
+//    }
+//    else
+//    {
+//        [sharedModel setupRobotConnection];
+//    }
     
 }
 

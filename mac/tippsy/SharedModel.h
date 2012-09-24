@@ -10,7 +10,7 @@
 #import <RobotUIKit/RobotUIKit.h>
 #import "TippsyRule.h"
 
-@interface SharedModel : NSObject {
+@interface SharedModel : NSObject <UIAlertViewDelegate> {
      NSArray *colorArray;
     NSString *bottomMessage;
     BOOL ledON;
@@ -20,6 +20,7 @@
 
 @property (nonatomic, retain) NSArray *colorArray;
 @property (nonatomic, retain) NSString *bottomMessage;
+@property BOOL robotOnline;
 @property BOOL listeningForShake;
 
 + (id)sharedModel;
