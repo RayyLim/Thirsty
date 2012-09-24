@@ -164,9 +164,9 @@
 
 
 //handle for touch button
-- (IBAction) navigateToRollingViewContainer:(id) sender{
-    [self navigate];
-}
+//- (IBAction) navigateToRollingViewContainer:(id) sender{
+//    [self navigate];
+//}
 
 - (IBAction) showInfoDialog:(id) sender
 {
@@ -205,6 +205,8 @@
     
     SharedModel *sharedModel = [SharedModel sharedModel];
     sharedModel.listeningForShake = NO;
+    
+    [NSThread sleepForTimeInterval:1.0];
     [self navigate];
 }
 

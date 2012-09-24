@@ -200,7 +200,7 @@
     /*The robot is now online, we can begin sending commands*/
     if(!self.robotOnline) {
         /*Only start the blinking loop once*/
-        [self toggleLED];
+//        [self toggleLED];
 //        [self spin];
         
 //        [self startListeningForShake];

@@ -61,11 +61,11 @@
     
     self.imageView.center = self.view.center;
     
-    self.imageView.userInteractionEnabled = YES;
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    [self.imageView addGestureRecognizer:tapGesture];
-    [tapGesture release];
+//    self.imageView.userInteractionEnabled = YES;
+//    
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+//    [self.imageView addGestureRecognizer:tapGesture];
+//    [tapGesture release];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
     [[SharedModel sharedModel] startListeningForShake];

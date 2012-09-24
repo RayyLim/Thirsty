@@ -54,12 +54,12 @@
    
     [self.imageView startAnimating];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self
-               action:@selector(handleButtonTap:)
-     forControlEvents:UIControlEventTouchDown];
-    button.frame = self.view.frame;
-    [self.view addSubview:button];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button addTarget:self
+//               action:@selector(handleButtonTap:)
+//     forControlEvents:UIControlEventTouchDown];
+//    button.frame = self.view.frame;
+//    [self.view addSubview:button];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollfinished:) name:@"rollfinished" object:nil];
     [self performSelectorInBackground:@selector(spin) withObject:nil];
@@ -113,12 +113,12 @@
 
     self.imageView.center = self.view.center;
    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self
-               action:@selector(handleButtonTap:)
-     forControlEvents:UIControlEventTouchDown];
-    button.frame = self.view.frame;
-    [self.view addSubview:button];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button addTarget:self
+//               action:@selector(handleButtonTap:)
+//     forControlEvents:UIControlEventTouchDown];
+//    button.frame = self.view.frame;
+//    [self.view addSubview:button];
     
 
 }
@@ -157,13 +157,13 @@
 
 }
 
-- (IBAction)handleButtonTap: (id)sender{
-    
-    
-    [self navigate];
-    [sender removeFromSuperview];
-
-    }
+//- (IBAction)handleButtonTap: (id)sender{
+//    
+//    
+//    [self navigate];
+//    [sender removeFromSuperview];
+//
+//    }
 
 - (void)rollfinished:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"rollfinished" object:nil];

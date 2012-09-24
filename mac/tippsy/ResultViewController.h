@@ -49,7 +49,7 @@
 @property(nonatomic, retain) ResultViewController *setupViewController;
 //  @property(nonatomic, retain)      NSArray *colorArray;
 
-- (IBAction) navigateToRollingViewContainer:(id) sender;
+//- (IBAction) navigateToRollingViewContainer:(id) sender;
 - (IBAction) showInfoDialog:(id) sender;
 - (IBAction) hideInfoDialog:(id) sender;
 @end

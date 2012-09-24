@@ -89,10 +89,10 @@
     
 }
 
-- (void)handleTap: (UITapGestureRecognizer *)sender
-{
-    [self navigate];
-}
+//- (void)handleTap: (UITapGestureRecognizer *)sender
+//{
+//    [self navigate];
+//}
 
 - (void)viewDidUnload
 {
