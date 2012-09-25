@@ -232,7 +232,7 @@
     {
         if(no_robot_alert == nil || !no_robot_alert.visible)
         {
-        no_robot_alert = [[UIAlertView alloc] initWithTitle:@"No Sphero" message:@"Go to the Settings app to connect." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
+        no_robot_alert = [[UIAlertView alloc] initWithTitle:@"No Sphero Connected" message:@"Shake Sphero to wake up or go to Bluetooth settings to reconnect Sphero." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
             [no_robot_alert show];
             [no_robot_alert release];
             no_robot_alert = nil;
@@ -286,7 +286,7 @@
         }
         else
         {
-            no_robot_alert = [[UIAlertView alloc] initWithTitle:@"Failed again" message:@"Go to the Settings app to connect." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
+            no_robot_alert = [[UIAlertView alloc] initWithTitle:@"No Sphero Connected" message:@"Shake Sphero to wake up or go to Bluetooth settings to reconnect Sphero." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
             [no_robot_alert show];
             [no_robot_alert release];
             no_robot_alert = nil;
