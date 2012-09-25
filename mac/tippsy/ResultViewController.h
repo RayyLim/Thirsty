@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "RollingViewController.h"
 #import "TippsyRule.h"
 #import "SetupViewController.h"
 
@@ -16,10 +15,9 @@
     UIView *descriptionView;
     UILabel *descriptionTitleLabel;
     UITextView *descriptionTextLabel;
-     UIImage* dialogBackgroundPhoto;
-        UIImageView *dialogBackgroundImageView;
-//           NSArray *colorArray;
-            IBOutlet UILabel *shakeLabel;
+    UIImage* dialogBackgroundPhoto;
+    UIImageView *dialogBackgroundImageView;
+    IBOutlet UILabel *shakeLabel;
     IBOutlet UILabel *ruleLabel;
     
     UIImage* colorPhoto;
@@ -30,11 +28,8 @@
     IBOutlet UIImageView *messageImageView;
     IBOutlet UIImageView *messageBackgroundImageView;
     IBOutlet UIButton *infoButton;
-    
-    ResultViewController *setupViewController;
 }
 
-//@property(nonatomic, retain) RollingViewController *rollingViewController;
 @property(nonatomic, retain) UIView *descriptionView;
 @property(nonatomic, retain) UILabel *descriptionTitleLabel;
 @property(nonatomic, retain) UITextView *descriptionTextLabel;
@@ -46,10 +41,7 @@
 @property(nonatomic, retain) IBOutlet UIImageView *messageImageView;
 @property(nonatomic, retain) IBOutlet UIImageView *messageBackgroundImageView;
 @property(nonatomic, retain) IBOutlet UIButton *infoButton;
-@property(nonatomic, retain) ResultViewController *setupViewController;
-//  @property(nonatomic, retain)      NSArray *colorArray;
 
-//- (IBAction) navigateToRollingViewContainer:(id) sender;
 - (IBAction) showInfoDialog:(id) sender;
 - (IBAction) hideInfoDialog:(id) sender;
 @end

@@ -28,6 +28,7 @@
 - (void) registerForAppLifecycleNotifications;
 - (void)setLED:(int) red:(int) green: (int)blue;
 - (void)startListeningForShake;
+- (void)stopListeningForShake;
 - (void)disconnectSphero;
 - (void)setupRobotConnection;
 - (void)spin;

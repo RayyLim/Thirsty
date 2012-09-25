@@ -10,19 +10,15 @@
 #import "RollingViewController.h"
 
 @interface SetupViewController : UIViewController{
-UIImage* photo;
-UIImage* backgroundPhoto;
-IBOutlet UIImageView *imageView;
-UIImageView *backgroundImageView;
+    UIImage* photo;
+    IBOutlet UIImageView *imageView;
     IBOutlet UILabel *setupLabel;
     
     UISplitViewController *rollingViewController;
 }
 
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
-@property(nonatomic, retain) UIImageView *backgroundImageView;
 @property(nonatomic, retain) UIImage *photo;
-@property(nonatomic, retain) UIImage *backgroundPhoto;
 
 @property(nonatomic, retain) UISplitViewController *rollingViewController;
 @property(nonatomic, retain) IBOutlet UILabel *setupLabel;

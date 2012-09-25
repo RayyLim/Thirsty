@@ -92,8 +92,6 @@
                            [[TippsyRule alloc] initWithRule:@"message_vikingking":@"messagebg_vikingking":@"color_gold":251:227:150:[temp objectForKey:@"rule_vikingking"]:[temp objectForKey:@"description_vikingking"]],
                            [[TippsyRule alloc] initWithRule:@"message_waterfall":@"messagebg_waterfall":@"color_orange":247:148:30:[temp objectForKey:@"rule_waterfall"]:[temp objectForKey:@"description_waterfall"]],
                       nil];
-        
-
     }
     return self;
 }
@@ -132,7 +130,6 @@
     else{
         self.bottomMessage = passAndShakeMessage;
     }
-//    self.bottomMessage = shakeToStartAgainMessage;
     return tippyrule;
 }
 
@@ -180,30 +177,23 @@
 -(void)appDidBecomeActive:(NSNotification*)notification {
     /*When the application becomes active after entering the background we try to connect to the robot*/
     
-
     [self setupRobotConnection];
 }
 
 - (void)startListeningForShake {
     // Start streaming sensor data
-    ////First turn off stabilization so the drive mechanism does not move.
+    //First turn off stabilization so the drive mechanism does not move.
     [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
     
     [self sendSetDataStreamingCommand];
     
-    ////Register for asynchronise data streaming packets
+    //Register for asynchronise data streaming packets
     [[RKDeviceMessenger sharedMessenger] addDataStreamingObserver:self selector:@selector(handleAsyncData:)];
 }
 
 - (void)handleRobotOnline {
-//        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"tryconnecting" object:nil];
     /*The robot is now online, we can begin sending commands*/
     if(!self.robotOnline) {
-        /*Only start the blinking loop once*/
-//        [self toggleLED];
-//        [self spin];
-        
-//        [self startListeningForShake];
         if(self.listeningForShake == YES)
         {
             [self startListeningForShake];
@@ -237,24 +227,9 @@
 
     if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {
         [[RKRobotProvider sharedRobotProvider] openRobotConnection];
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"tryconnecting" object:nil];
     }
    else
-//    [NSThread sleepForTimeInterval:1.0];
-//    if(self.robotOnline == NO)
     {
-//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTimer:) name:@"tryconnecting" object:nil];
-//        
-//        if(timer != nil)
-//        {
-//            if(  timer.isValid)
-//            {
-//        [timer invalidate];
-//            }
-//        timer = nil;
-//        }
-        
-
         if(no_robot_alert == nil || !no_robot_alert.visible)
         {
         no_robot_alert = [[UIAlertView alloc] initWithTitle:@"No Sphero" message:@"Go to the Settings app to connect." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
@@ -262,16 +237,11 @@
             [no_robot_alert release];
             no_robot_alert = nil;
         }
-
-
     }
-
 }
 
 - (void)setLED:(int) red:(int) green: (int)blue
 {
-    
-    //    [RKRGBLEDOutputCommand sendCommandWithRed:1.0 green:0.0 blue:0.0];
     [RKRGBLEDOutputCommand sendCommandWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0)];
 }
 
@@ -289,9 +259,6 @@
         [NSThread sleepForTimeInterval:.030];
 
     }
-    
-
-
     [self stop];
 }
 
@@ -306,42 +273,29 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 
-        NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-        if([title isEqualToString:@"Settings"])
-        {
-                    NSLog(@"Settings");
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Settings"])
+    {
+        NSLog(@"Settings");
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=General&path=Bluetooth"]];
-              
-        }
+    }
     else if([title isEqualToString:@"Retry"])
     {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"tryconnecting" object:nil];
         if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {
             [[RKRobotProvider sharedRobotProvider] openRobotConnection];
-            //                [[NSNotificationCenter defaultCenter] postNotificationName:@"tryconnecting" object:nil];
         }
         else
-//        [NSThread sleepForTimeInterval:1.0];
-//        if(self.robotOnline == NO)
         {
             no_robot_alert = [[UIAlertView alloc] initWithTitle:@"Failed again" message:@"Go to the Settings app to connect." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Retry",nil];
             [no_robot_alert show];
             [no_robot_alert release];
             no_robot_alert = nil;
         }
-        
-
     }
-              else
-              {
-                  NSLog(@"cancel");
-                  //In another function
-//                  [no_robot_alert dismissWithClickedButtonIndex:0 animated:NO];
-//                  [NSThread sleepForTimeInterval:3.0];
-//                  [self setupRobotConnection];
-//                  [[UIApplication sharedApplication] suspend];
-//
-                        }
+    else
+    {
+        NSLog(@"cancel");
+    }
     
 }
 
@@ -401,9 +355,7 @@
         RKDeviceSensorsAsyncData *sensorsAsyncData = (RKDeviceSensorsAsyncData *)asyncData;
         RKDeviceSensorsData *sensorsData = [sensorsAsyncData.dataFrames lastObject];
         RKAccelerometerData *accelerometerData = sensorsData.accelerometerData;
-        RKAttitudeData *attitudeData = sensorsData.attitudeData;
-        RKQuaternionData *quaternionData = sensorsData.quaternionData;
-        
+  
         double x = accelerometerData.acceleration.x;
         double y = accelerometerData.acceleration.y;
         double z = accelerometerData.acceleration.z;
@@ -412,18 +364,11 @@
         if(currentSquared > (SHAKE_THRESHOLD * SHAKE_THRESHOLD))
         {
             // shake detected
-                        [self stopListeningForShake];
-//            [self performSelector:NSSelectorFromString(self.shakeHandler)];
-//            [self performSelector:@selector(shakeHandler)];
+            [self stopListeningForShake];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:nil];
 
         }        
  }
 }
-
-//- (void)startTimer:(NSNotification *)notification
-//{
-//    timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(setupRobotConnection) userInfo:nil repeats:NO];
-//}
 
 @end

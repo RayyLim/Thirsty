@@ -36,10 +36,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear:");
-    //    _sv.frame = CGRectMake(0.0, 0.0, 320.0, self.view.bounds.size.height);
-    
-//    [self.imageView startAnimating];
-
     descriptionButtonVisible = NO;
     descriptionViewVisible = NO;
 
@@ -49,10 +45,7 @@
     NSLog(@"Entering %s",__FUNCTION__);
     [super viewDidAppear:animated];
     
-
-    
     int rulePosition = arc4random() % [[[SharedModel sharedModel] colorArray] count];
-
     TippsyRule *rule = [[SharedModel sharedModel] getRule:rulePosition];
     
     [[SharedModel sharedModel] setLED:rule.red:rule.green:rule.blue];
@@ -61,8 +54,8 @@
     
     self.shakeLabel.text = [[SharedModel sharedModel] bottomMessage];
     [self.colorImageView setImage:[UIImage imageNamed:rule.color ]];
-        [self.messageBackgroundImageView setImage:[UIImage imageNamed:rule.messagebg ]];
-        [self.messageImageView setImage:[UIImage imageNamed:rule.message]];
+    [self.messageBackgroundImageView setImage:[UIImage imageNamed:rule.messagebg ]];
+    [self.messageImageView setImage:[UIImage imageNamed:rule.message]];
     self.ruleLabel.text = rule.drinkingRule;
     if(rule.description.length == 0)
     {
@@ -75,9 +68,6 @@
     
     ruleCount = (ruleCount + 1)%[[[SharedModel sharedModel] colorArray] count];
 
-    
-//        [rule release];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
     [[SharedModel sharedModel] startListeningForShake];
     SharedModel *sharedModel = [SharedModel sharedModel];
@@ -97,7 +87,6 @@
     UIView *overlay = [[UIView alloc] init];
     overlay.alpha = (CGFloat)0.5;
     overlay.backgroundColor = [UIColor blackColor];
-    //    CGRect descpriptionViewFrame = self.view.frame;
     overlay.frame = CGRectMake(0, 0, 320, 480);
     [self.descriptionView addSubview:overlay];
     [overlay release];
@@ -126,12 +115,7 @@
     self.descriptionTitleLabel.textAlignment = UITextAlignmentCenter;
     
     self.descriptionTextLabel= [[UITextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 240.0f, 250.0f)];
-//    self.descriptionTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-//    self.descriptionTextLabel.numberOfLines = 0;
-
     self.descriptionTextLabel.editable = NO;
-    
-    
     
     self.descriptionTextLabel.text = @"World";
     self.descriptionTextLabel.textColor=[UIColor whiteColor];
@@ -162,12 +146,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
-//handle for touch button
-//- (IBAction) navigateToRollingViewContainer:(id) sender{
-//    [self navigate];
-//}
-
 - (IBAction) showInfoDialog:(id) sender
 {
     [self.view addSubview:descriptionView];
@@ -176,7 +154,6 @@
     [button addTarget:self
                action:@selector(hideInfoDialog:)
      forControlEvents:UIControlEventTouchDown];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = self.view.frame;
     [self.view addSubview:button];
     
@@ -213,13 +190,6 @@
 - (void)navigate
 {
      [self dismissModalViewControllerAnimated:YES];
-//    
-//    // Navigation Logic
-//        SetupViewController *setupView = [[SetupViewController alloc] initWithNibName:@"SetupViewController" bundle:nil];
-//        self.setupViewController = setupView;
-//        [setupView release];
-//    
-//    [self presentModalViewController:self.setupViewController animated:YES];
 }
 
 @end

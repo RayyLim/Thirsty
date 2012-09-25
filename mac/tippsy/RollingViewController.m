@@ -15,7 +15,7 @@
 
 @implementation RollingViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, resultView, colorPhoto, messagePhoto, messageBackgroundPhoto, infoPhoto, colorImageView, messageBackgroundImageView, messageImageView, infoImageView, ruleLabel, shakeLabel, descriptionView, descriptionTextLabel, descriptionTitleLabel, dialogBackgroundImageView, dialogBackgroundPhoto, animationView, resultViewController;
+@synthesize imageView, photo, resultViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,13 +53,6 @@
     NSLog(@"viewWillAppear:");
    
     [self.imageView startAnimating];
-    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [button addTarget:self
-//               action:@selector(handleButtonTap:)
-//     forControlEvents:UIControlEventTouchDown];
-//    button.frame = self.view.frame;
-//    [self.view addSubview:button];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollfinished:) name:@"rollfinished" object:nil];
     [self performSelectorInBackground:@selector(spin) withObject:nil];
@@ -112,15 +105,6 @@
     
 
     self.imageView.center = self.view.center;
-   
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [button addTarget:self
-//               action:@selector(handleButtonTap:)
-//     forControlEvents:UIControlEventTouchDown];
-//    button.frame = self.view.frame;
-//    [self.view addSubview:button];
-    
-
 }
 
 -(void)spin
@@ -147,23 +131,13 @@
     
     // Navigation Logic
     if(self.resultViewController == nil) {
-        ResultViewController *nextView = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-        self.resultViewController = nextView;
-        [nextView release];
+        self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
             [self presentModalViewController:self.resultViewController animated:NO];
     });
 
 }
-
-//- (IBAction)handleButtonTap: (id)sender{
-//    
-//    
-//    [self navigate];
-//    [sender removeFromSuperview];
-//
-//    }
 
 - (void)rollfinished:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"rollfinished" object:nil];

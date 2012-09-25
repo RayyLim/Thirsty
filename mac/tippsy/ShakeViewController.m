@@ -15,7 +15,7 @@
 
 @implementation ShakeViewController
 
-@synthesize imageView, photo, backgroundImageView, backgroundPhoto, setupViewController;
+@synthesize imageView, photo, setupViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,17 +35,9 @@
     sharedModel.listeningForShake = YES;
     
     self.photo = [UIImage imageNamed:@"shake_message"];
-    self.backgroundPhoto = [UIImage imageNamed:@"background"];
     
     CGSize photoSize = [photo size];
-    
-//    self.backgroundImageView = [[UIImageView alloc] init];
-//    [self.backgroundImageView setImage:backgroundPhoto];
-//    [self.view addSubview:backgroundImageView];
-//    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-//    self.backgroundImageView.frame = self.view.frame;
-//    self.backgroundImageView.center = self.view.center;
-    
+      
     // Create the image view.
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, photoSize.width, photoSize.height)];
     [self.imageView setImage:photo];
@@ -60,13 +52,7 @@
     imageView.frame = frame;
     
     self.imageView.center = self.view.center;
-    
-//    self.imageView.userInteractionEnabled = YES;
-//    
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-//    [self.imageView addGestureRecognizer:tapGesture];
-//    [tapGesture release];
-    
+       
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeDetected:) name:@"shake" object:nil];
     [[SharedModel sharedModel] startListeningForShake];
     

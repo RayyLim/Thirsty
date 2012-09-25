@@ -268,37 +268,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		565E9DF7160AECD7005946F3 = {
-			isa = PBXGroup;
-			children = (
-				565E9E12160AECD7005946F3 /* Tippsy */,
-				565E9E05160AECD7005946F3 /* Frameworks */,
-				565E9E03160AECD7005946F3 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		565E9E03160AECD7005946F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				565E9E02160AECD7005946F3 /* Tippsy.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		565E9E05160AECD7005946F3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				565E9E06160AECD7005946F3 /* UIKit.framework */,
-				565E9E08160AECD7005946F3 /* Foundation.framework */,
-				565E9E0A160AECD7005946F3 /* CoreGraphics.framework */,
-				565E9E0C160AECD7005946F3 /* CoreMotion.framework */,
-				565E9E0E160AECD7005946F3 /* GameKit.framework */,
-				565E9E10160AECD7005946F3 /* ExternalAccessory.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		565E9E12160AECD7005946F3 /* Tippsy */ = {
+		56244EF4161162D000504921 /* res */ = {
 			isa = PBXGroup;
 			children = (
 				5692BD9F160B03EC00551F59 /* Data.plist */,
@@ -390,30 +360,92 @@
 				5692BD3A160B006A00551F59 /* shake_message.png */,
 				5692BD3B160B006A00551F59 /* shake_to_roll.png */,
 				5692BD3C160B006A00551F59 /* splash_screen.png */,
-				5692BC35160AF12300551F59 /* TippsyRule.h */,
-				5692BC36160AF12300551F59 /* TippsyRule.m */,
-				5692BC23160AF11800551F59 /* RollingViewController.h */,
-				5692BC24160AF11800551F59 /* RollingViewController.m */,
+			);
+			name = res;
+			sourceTree = "<group>";
+		};
+		56244EF6161162FC00504921 /* view */ = {
+			isa = PBXGroup;
+			children = (
 				5692BC25160AF11800551F59 /* RollingViewController.xib */,
-				5692BC26160AF11800551F59 /* SetupViewController.h */,
-				5692BC27160AF11800551F59 /* SetupViewController.m */,
 				5692BC28160AF11800551F59 /* SetupViewController.xib */,
 				5692BC29160AF11800551F59 /* ShakeView.xib */,
+				5692BC20160AF10600551F59 /* ResultViewController.xib */,
+				565E9E27160AECD9005946F3 /* ViewController.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		56244EF71611631000504921 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5692BC23160AF11800551F59 /* RollingViewController.h */,
+				5692BC24160AF11800551F59 /* RollingViewController.m */,
+				5692BC26160AF11800551F59 /* SetupViewController.h */,
+				5692BC27160AF11800551F59 /* SetupViewController.m */,
 				5692BC2A160AF11800551F59 /* ShakeViewController.h */,
 				5692BC2B160AF11800551F59 /* ShakeViewController.m */,
-				5692BC2C160AF11800551F59 /* SharedModel.h */,
-				5692BC2D160AF11800551F59 /* SharedModel.m */,
 				5692BC1E160AF10600551F59 /* ResultViewController.h */,
 				5692BC1F160AF10600551F59 /* ResultViewController.m */,
-				5692BC20160AF10600551F59 /* ResultViewController.xib */,
+				565E9E24160AECD9005946F3 /* ViewController.h */,
+				565E9E25160AECD9005946F3 /* ViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		56244EF81611632200504921 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5692BC35160AF12300551F59 /* TippsyRule.h */,
+				5692BC36160AF12300551F59 /* TippsyRule.m */,
+				5692BC2C160AF11800551F59 /* SharedModel.h */,
+				5692BC2D160AF11800551F59 /* SharedModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		565E9DF7160AECD7005946F3 = {
+			isa = PBXGroup;
+			children = (
+				565E9E12160AECD7005946F3 /* Tippsy */,
+				565E9E05160AECD7005946F3 /* Frameworks */,
+				565E9E03160AECD7005946F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		565E9E03160AECD7005946F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				565E9E02160AECD7005946F3 /* Tippsy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		565E9E05160AECD7005946F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				565E9E06160AECD7005946F3 /* UIKit.framework */,
+				565E9E08160AECD7005946F3 /* Foundation.framework */,
+				565E9E0A160AECD7005946F3 /* CoreGraphics.framework */,
+				565E9E0C160AECD7005946F3 /* CoreMotion.framework */,
+				565E9E0E160AECD7005946F3 /* GameKit.framework */,
+				565E9E10160AECD7005946F3 /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		565E9E12160AECD7005946F3 /* Tippsy */ = {
+			isa = PBXGroup;
+			children = (
+				56244EF4161162D000504921 /* res */,
+				56244EF81611632200504921 /* model */,
+				56244EF71611631000504921 /* controller */,
+				56244EF6161162FC00504921 /* view */,
 				565E9E1B160AECD7005946F3 /* AppDelegate.h */,
 				565E9E1C160AECD7005946F3 /* AppDelegate.m */,
 				565E9E1E160AECD8005946F3 /* RobotKit.framework */,
 				565E9E20160AECD8005946F3 /* RobotUIKit.framework */,
 				565E9E22160AECD9005946F3 /* RobotUIKit.bundle */,
-				565E9E24160AECD9005946F3 /* ViewController.h */,
-				565E9E25160AECD9005946F3 /* ViewController.m */,
-				565E9E27160AECD9005946F3 /* ViewController.xib */,
 				565E9E13160AECD7005946F3 /* Supporting Files */,
 			);
 			path = Tippsy;
