@@ -69,8 +69,8 @@
 	<key>description_thumbwar</key>
 	<string>The player who shook challenges another player to thumb war! Loser must drink</string>
 	<key>description_vikingking</key>
-	<string>The player who shook becomes the &quot;&quot;Viking King. Everytime the Viking King uses his hand to put Viking horns on his head, everyone has to pretend to row a boat, last one drinks. The player can do this at anytime throughout the game. The shaker is the Viking King until a new Viking King is declared.</string>
+	<string>The player who shook becomes the &quot;Viking King&quot;. Everytime the Viking King uses his hand to put Viking horns on his head, everyone has to pretend to row a boat, last one drinks. The player can do this at anytime throughout the game. The shaker is the Viking King until a new Viking King is declared.</string>
 	<key>description_waterfall</key>
-	<string>Everybody starts drinking. The player who shook can stop anytime. When that player stops drinking, the the person to their right can choose to stop drinking at any time. When that person stops drinking the person to their right can stop drinking, etc. This continues to the end of the circle.</string>
+	<string>Everybody starts drinking. The player who shook can stop anytime. When that player stops drinking, the person to their right can choose to stop drinking at any time. When that person stops drinking the person to their right can stop drinking, etc. This continues to the end of the circle.</string>
 </dict>
 </plist>
